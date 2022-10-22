@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 5.0.1 (Python 3.10.8 on win32)" generated="20221022 19:59:29.998" rpa="false" schemaversion="3">
+<suite id="s1" name="desafio API" source="c:\DesafioABC\DesafioAPI\desafio_API.robot">
+<test id="s1-t1" name="CT002 - Criar uma chamada POST e validar o retorno" line="11">
+<kw name="Dado que eu verifico se a api esta ONLINE" library="ResourseAPI">
+<kw name="Create Session" library="RequestsLibrary">
+<arg>API</arg>
+<arg>${Site_API}</arg>
+<arg>verify=true</arg>
+<doc>Create Session: create a HTTP session to a server</doc>
+<msg timestamp="20221022 19:59:30.402" level="INFO">Creating Session using : alias=API, url=https://fakerestapi.azurewebsites.net/api/v1/, headers={},                     cookies={}, auth=None, timeout=None, proxies=None, verify=True,                     debug=0 </msg>
+<status status="PASS" starttime="20221022 19:59:30.402" endtime="20221022 19:59:30.427"/>
+</kw>
+<kw name="Create Dictionary" library="BuiltIn">
+<var>${Resposta}</var>
+<arg>content-type=application/json</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<msg timestamp="20221022 19:59:30.428" level="INFO">${Resposta} = {'content-type': 'application/json'}</msg>
+<status status="PASS" starttime="20221022 19:59:30.427" endtime="20221022 19:59:30.429"/>
+</kw>
+<kw name="Set Suite Variable" library="BuiltIn">
+<arg>${Resposta}</arg>
+<doc>Makes a variable available everywhere within the scope of the current suite.</doc>
+<msg timestamp="20221022 19:59:30.430" level="INFO">${Resposta} = {'content-type': 'application/json'}</msg>
+<status status="PASS" starttime="20221022 19:59:30.429" endtime="20221022 19:59:30.430"/>
+</kw>
+<status status="PASS" starttime="20221022 19:59:30.401" endtime="20221022 19:59:30.431"/>
+</kw>
+<kw name="E realizo um POST" library="ResourseAPI">
+<kw name="Create Dictionary" library="BuiltIn">
+<var>${Headers}</var>
+<arg>content-type=application/json</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<msg timestamp="20221022 19:59:30.433" level="INFO">${Headers} = {'content-type': 'application/json'}</msg>
+<status status="PASS" starttime="20221022 19:59:30.432" endtime="20221022 19:59:30.433"/>
+</kw>
+<kw name="Post Request" library="RequestsLibrary">
+<var>${Resposta}</var>
+<arg>API</arg>
+<arg>Books</arg>
+<arg>${Cadastro}</arg>
+<arg>headers=${Headers}</arg>
+<doc>*DEPRECATED* Please use `POST On Session` instead.</doc>
+<msg timestamp="20221022 19:59:30.434" level="WARN">Keyword 'RequestsLibrary.Post Request' is deprecated. Please use `POST On Session` instead.</msg>
+<msg timestamp="20221022 19:59:31.267" level="INFO">POST Request : url=https://fakerestapi.azurewebsites.net/api/v1/Books 
+ path_url=/api/v1/Books 
+ headers={'User-Agent': 'python-requests/2.28.1', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'content-type': 'application/json', 'Content-Length': '31'} 
+ body={"id": "201", "title": "Paulo"} 
+ </msg>
+<msg timestamp="20221022 19:59:31.268" level="INFO">POST Response : url=https://fakerestapi.azurewebsites.net/api/v1/Books 
+ status=200, reason=OK 
+ headers={'Content-Type': 'application/json; charset=utf-8; v=1.0', 'Date': 'Sat, 22 Oct 2022 22:59:29 GMT', 'Server': 'Kestrel', 'Transfer-Encoding': 'chunked', 'api-supported-versions': '1.0'} 
+ body={"id":201,"title":"Paulo","description":null,"pageCount":0,"excerpt":null,"publishDate":"0001-01-01T00:00:00"} 
+ </msg>
+<msg timestamp="20221022 19:59:31.268" level="INFO">${Resposta} = &lt;Response [200]&gt;</msg>
+<status status="PASS" starttime="20221022 19:59:30.434" endtime="20221022 19:59:31.268"/>
+</kw>
+<kw name="Log" library="BuiltIn">
+<arg>${Resposta.text}</arg>
+<doc>Logs the given message with the given level.</doc>
+<msg timestamp="20221022 19:59:31.269" level="INFO">{"id":201,"title":"Paulo","description":null,"pageCount":0,"excerpt":null,"publishDate":"0001-01-01T00:00:00"}</msg>
+<status status="PASS" starttime="20221022 19:59:31.268" endtime="20221022 19:59:31.270"/>
+</kw>
+<kw name="Set Test Variable" library="BuiltIn">
+<arg>${Resposta}</arg>
+<doc>Makes a variable available everywhere within the scope of the current test.</doc>
+<msg timestamp="20221022 19:59:31.271" level="INFO">${Resposta} = &lt;Response [200]&gt;</msg>
+<status status="PASS" starttime="20221022 19:59:31.270" endtime="20221022 19:59:31.271"/>
+</kw>
+<status status="PASS" starttime="20221022 19:59:30.431" endtime="20221022 19:59:31.271"/>
+</kw>
+<kw name="Entao confiro status code" library="ResourseAPI">
+<arg>200</arg>
+<kw name="Should Be Equal As Strings" library="BuiltIn">
+<arg>${Resposta.status_code}</arg>
+<arg>${STATUS_CODE}</arg>
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<msg timestamp="20221022 19:59:31.275" level="INFO">Argument types are:
+&lt;class 'int'&gt;
+&lt;class 'str'&gt;</msg>
+<status status="PASS" starttime="20221022 19:59:31.273" endtime="20221022 19:59:31.276"/>
+</kw>
+<status status="PASS" starttime="20221022 19:59:31.272" endtime="20221022 19:59:31.276"/>
+</kw>
+<status status="PASS" starttime="20221022 19:59:30.400" endtime="20221022 19:59:31.277"/>
+</test>
+<status status="PASS" starttime="20221022 19:59:30.007" endtime="20221022 19:59:31.281"/>
+</suite>
+<statistics>
+<total>
+<stat pass="1" fail="0" skip="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat pass="1" fail="0" skip="0" id="s1" name="desafio API">desafio API</stat>
+</suite>
+</statistics>
+<errors>
+<msg timestamp="20221022 19:59:30.434" level="WARN">Keyword 'RequestsLibrary.Post Request' is deprecated. Please use `POST On Session` instead.</msg>
+</errors>
+</robot>
