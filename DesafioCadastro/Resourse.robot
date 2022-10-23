@@ -35,7 +35,7 @@ E clico em Create an account
     Click Button    //button[@id='SubmitCreate'] 
     Wait Until Element Is Visible    //div[@class='form-group form-ok'] 
     
-E preencho todos os campos obrigatorios
+E preencho todos os campos
     Sleep    5  
     Click Element    ${title} 
     Input Text       ${First_name}    Paulo 
