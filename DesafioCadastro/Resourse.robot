@@ -66,7 +66,9 @@ E verifico se o campo "${Campo}" e obrigatorio
     Click Element         //*[text()='${Campo}']//..//input[@class='is_required validate form-control']
     Click Element         //*[text()='Your address']    
     Wait Until Element Is Visible    //div[@class='required form-group form-error'] 
-    Capture Page Screenshot   
+    Click Button    //button[@id='submitAccount']
+    Capture Page Screenshot 
+
       
 Então fecho o browser
     Close All Browsers

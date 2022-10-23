@@ -1,93 +1,33 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<robot generator="Robot 5.0.1 (Python 3.10.8 on win32)" generated="20221023 14:32:49.419" rpa="false" schemaversion="3">
+<robot generator="Robot 5.0.1 (Python 3.10.8 on win32)" generated="20221023 19:59:18.883" rpa="false" schemaversion="3">
 <suite id="s1" name="desafio API" source="c:\DesafioABC\DesafioAPI\desafio_API.robot">
-<test id="s1-t1" name="CT003 - Criar uma chamada GET, que consulte o que foi criado no POST e validar o retorno" line="16">
-<kw name="Dado que eu verifico se a api esta ONLINE" library="ResourseAPI">
-<kw name="Create Session" library="RequestsLibrary">
-<arg>API</arg>
-<arg>${Site_API}</arg>
-<arg>verify=true</arg>
-<doc>Create Session: create a HTTP session to a server</doc>
-<msg timestamp="20221023 14:33:08.728" level="INFO">Creating Session using : alias=API, url=https://fakerestapi.azurewebsites.net/api/v1/, headers={},                     cookies={}, auth=None, timeout=None, proxies=None, verify=True,                     debug=0 </msg>
-<status status="PASS" starttime="20221023 14:33:08.727" endtime="20221023 14:33:08.788"/>
+<test id="s1-t1" name="CT002 - Criar uma chamada POST e validar o retorno" line="11">
+<kw name="Dado que eu verifico se a api esta ONLINE">
+<msg timestamp="20221023 19:59:19.521" level="FAIL">No keyword with name 'Dado que eu verifico se a api esta ONLINE' found.</msg>
+<status status="FAIL" starttime="20221023 19:59:19.521" endtime="20221023 19:59:19.521"/>
 </kw>
-<kw name="Create Dictionary" library="BuiltIn">
-<var>${Resposta}</var>
-<arg>content-type=application/json</arg>
-<doc>Creates and returns a dictionary based on the given ``items``.</doc>
-<msg timestamp="20221023 14:33:08.790" level="INFO">${Resposta} = {'content-type': 'application/json'}</msg>
-<status status="PASS" starttime="20221023 14:33:08.789" endtime="20221023 14:33:08.790"/>
+<kw name="E realizo um POST">
+<status status="NOT RUN" starttime="20221023 19:59:19.529" endtime="20221023 19:59:19.529"/>
 </kw>
-<kw name="Set Suite Variable" library="BuiltIn">
-<arg>${Resposta}</arg>
-<doc>Makes a variable available everywhere within the scope of the current suite.</doc>
-<msg timestamp="20221023 14:33:08.791" level="INFO">${Resposta} = {'content-type': 'application/json'}</msg>
-<status status="PASS" starttime="20221023 14:33:08.791" endtime="20221023 14:33:08.871"/>
-</kw>
-<status status="PASS" starttime="20221023 14:33:08.597" endtime="20221023 14:33:08.872"/>
-</kw>
-<kw name="E verifico se o post foi criado com sucesso" library="ResourseAPI">
-<kw name="Get Request" library="RequestsLibrary">
-<var>${Resposta}</var>
-<arg>API</arg>
-<arg>Books/200</arg>
-<doc>*DEPRECATED* Please use `GET On Session` instead.</doc>
-<msg timestamp="20221023 14:33:08.876" level="WARN">Keyword 'RequestsLibrary.Get Request' is deprecated. Please use `GET On Session` instead.</msg>
-<msg timestamp="20221023 14:33:14.053" level="INFO">GET Request : url=https://fakerestapi.azurewebsites.net/api/v1/Books/200 
- path_url=/api/v1/Books/200 
- headers={'User-Agent': 'python-requests/2.28.1', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive'} 
- body=None 
- </msg>
-<msg timestamp="20221023 14:33:14.054" level="INFO">GET Response : url=https://fakerestapi.azurewebsites.net/api/v1/Books/200 
- status=200, reason=OK 
- headers={'Content-Type': 'application/json; charset=utf-8; v=1.0', 'Date': 'Sun, 23 Oct 2022 17:33:12 GMT', 'Server': 'Kestrel', 'Transfer-Encoding': 'chunked', 'api-supported-versions': '1.0'} 
- body={"id":200,"title":"Book 200","description":"Minim iusto iriure erat ut nibh. Ea justo ipsum elitr nibh et ipsum invidunt sed. Id elitr duo rebum id no sed eos consetetur sed. Et dolor aliquyam consetetur iriure consetetur elitr eirmod sed. Tempor magna ipsum ipsum labore consequat nulla ut facilisi esse ipsum vero tempor ipsum sit lorem dolores et. Et est sed sit dolor eum accusam eos magna eirmod kasd liber autem lorem. Takimata kasd stet et amet nonummy erat in est eirmod laoreet. Dolor diam tincidunt. Nulla odio facilisis est consetetur dolor. Nulla ipsum erat clita et vel kasd duo sanctus vero dignissim amet accumsan vero consequat. Rebum feugait esse ex erat accusam.\n","pageCount":20000,"excerpt":"Vel lorem justo ipsum lorem justo nostrud et kasd sit nonumy stet et minim. Lorem dolor tempor magna vero. Kasd justo no sed kasd ea eum tincidunt kasd labore invidunt aliquyam dolor et sit dolor nulla dolor tempor. Et nisl duis eirmod ut duis labore facilisis iriure gubergren consetetur et suscipit diam ea blandit. Veniam tempor lorem magna nibh lorem clita lorem sea rebum option lorem sed dolores blandit. Diam laoreet clita at accusam diam duo magna duo dolor sit accumsan luptatum.\nIllum dolor tempor ea ea labore lorem erat cum sit ut feugiat. Soluta facilisis ut sadipscing euismod est eum iriure amet consetetur aliquyam at assum vero rebum vel volutpat. Est diam aliquyam ea molestie at ut labore amet imperdiet est consetetur. Consequat liber tempor. Justo adipiscing nulla et clita labore nonumy dolor justo eu vulputate diam kasd esse nonumy. Erat stet esse dolores molestie sed amet eros eirmod est labore vulputate eum lorem cum esse sit gubergren feugait. Sea nonumy consetetur sadipscing elitr duo blandit feugait vel amet possim clita et takimata consetetur et. Et in erat.\nErat takimata adipiscing. Et duis stet tempor id sit at aliquam sed et assum sit voluptua dignissim vero nisl. Sadipscing sit eos tincidunt diam takimata feugiat erat eos labore rebum autem diam takimata ipsum nibh sea. Duo sit sea sit ipsum tempor clita erat ipsum ipsum. Consetetur vero vero et amet tempor placerat duis tincidunt invidunt. Eleifend molestie sit invidunt feugiat nonumy sit molestie ut justo dolores. Aliquyam takimata sea sed eum ut stet ut sanctus sed dolore diam gubergren nonumy ea diam nonumy nulla rebum. Feugiat eu sit eos et invidunt accumsan laoreet sed justo duo ut diam duo qui. Elitr amet kasd ut. Kasd ut et ipsum no voluptua voluptua vero vero amet. Est dolor nihil no amet ut. Erat et nulla aliquyam tempor gubergren dolore gubergren sadipscing magna nonumy ut consetetur.\nWisi luptatum voluptua iriure possim veniam gubergren et ipsum lorem iriure dolor nulla voluptua hendrerit. Consequat takimata in amet aliquyam. Ex kasd sed et volutpat luptatum est ut nonumy sit justo ad duo aliquyam et dolor ea et justo. Gubergren nibh facilisis dolor zzril labore lorem tation ut diam tempor ipsum voluptua nostrud dolores euismod magna ad. Dolor diam aliquyam ea sed sed ipsum sea exerci at stet voluptua justo magna eirmod sit vero. Magna sea et clita aliquyam kasd clita rebum dolor sanctus.\nNonumy ullamcorper sed te sadipscing. Aliquyam exerci iusto molestie commodo nibh rebum adipiscing. Dolor ut et duis magna sadipscing elitr lorem nostrud rebum autem rebum ipsum. Diam hendrerit et ipsum dolor consequat. Sed facilisis eirmod vero et erat rebum exerci tincidunt accumsan ut ad dolor. Erat ad sed nulla odio ipsum ullamcorper vero imperdiet iriure nibh duis eos doming kasd gubergren vero qui rebum. Eos hendrerit et labore ea amet diam sanctus labore takimata amet ut praesent in ipsum ipsum rebum dolor nonumy. Justo lorem erat clita dolor est sea eirmod. Ea sit clita congue volutpat eirmod. Dolore consetetur hendrerit voluptua et amet diam diam erat takimata consetetur magna ipsum feugiat sit nihil aliquyam. Lorem et stet ipsum et kasd est eos facer et takimata vulputate accusam labore lorem.\n","publishDate":"2022-04-06T17:33:13.5480062+00:00"} 
- </msg>
-<msg timestamp="20221023 14:33:14.055" level="INFO">${Resposta} = &lt;Response [200]&gt;</msg>
-<status status="PASS" starttime="20221023 14:33:08.876" endtime="20221023 14:33:14.055"/>
-</kw>
-<kw name="Log" library="BuiltIn">
-<arg>${Resposta.text}</arg>
-<doc>Logs the given message with the given level.</doc>
-<msg timestamp="20221023 14:33:14.058" level="INFO">{"id":200,"title":"Book 200","description":"Minim iusto iriure erat ut nibh. Ea justo ipsum elitr nibh et ipsum invidunt sed. Id elitr duo rebum id no sed eos consetetur sed. Et dolor aliquyam consetetur iriure consetetur elitr eirmod sed. Tempor magna ipsum ipsum labore consequat nulla ut facilisi esse ipsum vero tempor ipsum sit lorem dolores et. Et est sed sit dolor eum accusam eos magna eirmod kasd liber autem lorem. Takimata kasd stet et amet nonummy erat in est eirmod laoreet. Dolor diam tincidunt. Nulla odio facilisis est consetetur dolor. Nulla ipsum erat clita et vel kasd duo sanctus vero dignissim amet accumsan vero consequat. Rebum feugait esse ex erat accusam.\n","pageCount":20000,"excerpt":"Vel lorem justo ipsum lorem justo nostrud et kasd sit nonumy stet et minim. Lorem dolor tempor magna vero. Kasd justo no sed kasd ea eum tincidunt kasd labore invidunt aliquyam dolor et sit dolor nulla dolor tempor. Et nisl duis eirmod ut duis labore facilisis iriure gubergren consetetur et suscipit diam ea blandit. Veniam tempor lorem magna nibh lorem clita lorem sea rebum option lorem sed dolores blandit. Diam laoreet clita at accusam diam duo magna duo dolor sit accumsan luptatum.\nIllum dolor tempor ea ea labore lorem erat cum sit ut feugiat. Soluta facilisis ut sadipscing euismod est eum iriure amet consetetur aliquyam at assum vero rebum vel volutpat. Est diam aliquyam ea molestie at ut labore amet imperdiet est consetetur. Consequat liber tempor. Justo adipiscing nulla et clita labore nonumy dolor justo eu vulputate diam kasd esse nonumy. Erat stet esse dolores molestie sed amet eros eirmod est labore vulputate eum lorem cum esse sit gubergren feugait. Sea nonumy consetetur sadipscing elitr duo blandit feugait vel amet possim clita et takimata consetetur et. Et in erat.\nErat takimata adipiscing. Et duis stet tempor id sit at aliquam sed et assum sit voluptua dignissim vero nisl. Sadipscing sit eos tincidunt diam takimata feugiat erat eos labore rebum autem diam takimata ipsum nibh sea. Duo sit sea sit ipsum tempor clita erat ipsum ipsum. Consetetur vero vero et amet tempor placerat duis tincidunt invidunt. Eleifend molestie sit invidunt feugiat nonumy sit molestie ut justo dolores. Aliquyam takimata sea sed eum ut stet ut sanctus sed dolore diam gubergren nonumy ea diam nonumy nulla rebum. Feugiat eu sit eos et invidunt accumsan laoreet sed justo duo ut diam duo qui. Elitr amet kasd ut. Kasd ut et ipsum no voluptua voluptua vero vero amet. Est dolor nihil no amet ut. Erat et nulla aliquyam tempor gubergren dolore gubergren sadipscing magna nonumy ut consetetur.\nWisi luptatum voluptua iriure possim veniam gubergren et ipsum lorem iriure dolor nulla voluptua hendrerit. Consequat takimata in amet aliquyam. Ex kasd sed et volutpat luptatum est ut nonumy sit justo ad duo aliquyam et dolor ea et justo. Gubergren nibh facilisis dolor zzril labore lorem tation ut diam tempor ipsum voluptua nostrud dolores euismod magna ad. Dolor diam aliquyam ea sed sed ipsum sea exerci at stet voluptua justo magna eirmod sit vero. Magna sea et clita aliquyam kasd clita rebum dolor sanctus.\nNonumy ullamcorper sed te sadipscing. Aliquyam exerci iusto molestie commodo nibh rebum adipiscing. Dolor ut et duis magna sadipscing elitr lorem nostrud rebum autem rebum ipsum. Diam hendrerit et ipsum dolor consequat. Sed facilisis eirmod vero et erat rebum exerci tincidunt accumsan ut ad dolor. Erat ad sed nulla odio ipsum ullamcorper vero imperdiet iriure nibh duis eos doming kasd gubergren vero qui rebum. Eos hendrerit et labore ea amet diam sanctus labore takimata amet ut praesent in ipsum ipsum rebum dolor nonumy. Justo lorem erat clita dolor est sea eirmod. Ea sit clita congue volutpat eirmod. Dolore consetetur hendrerit voluptua et amet diam diam erat takimata consetetur magna ipsum feugiat sit nihil aliquyam. Lorem et stet ipsum et kasd est eos facer et takimata vulputate accusam labore lorem.\n","publishDate":"2022-04-06T17:33:13.5480062+00:00"}</msg>
-<status status="PASS" starttime="20221023 14:33:14.056" endtime="20221023 14:33:14.058"/>
-</kw>
-<kw name="Set Test Variable" library="BuiltIn">
-<arg>${Resposta}</arg>
-<doc>Makes a variable available everywhere within the scope of the current test.</doc>
-<msg timestamp="20221023 14:33:14.060" level="INFO">${Resposta} = &lt;Response [200]&gt;</msg>
-<status status="PASS" starttime="20221023 14:33:14.059" endtime="20221023 14:33:14.061"/>
-</kw>
-<status status="PASS" starttime="20221023 14:33:08.874" endtime="20221023 14:33:14.062"/>
-</kw>
-<kw name="Entao confiro status code" library="ResourseAPI">
+<kw name="Entao confiro status code">
 <arg>200</arg>
-<kw name="Should Be Equal As Strings" library="BuiltIn">
-<arg>${Resposta.status_code}</arg>
-<arg>${STATUS_CODE}</arg>
-<doc>Fails if objects are unequal after converting them to strings.</doc>
-<msg timestamp="20221023 14:33:14.069" level="INFO">Argument types are:
-&lt;class 'int'&gt;
-&lt;class 'str'&gt;</msg>
-<status status="PASS" starttime="20221023 14:33:14.067" endtime="20221023 14:33:14.070"/>
+<status status="NOT RUN" starttime="20221023 19:59:19.537" endtime="20221023 19:59:19.545"/>
 </kw>
-<status status="PASS" starttime="20221023 14:33:14.064" endtime="20221023 14:33:14.071"/>
-</kw>
-<status status="PASS" starttime="20221023 14:33:08.592" endtime="20221023 14:33:14.073"/>
+<status status="FAIL" starttime="20221023 19:59:19.513" endtime="20221023 19:59:19.545">No keyword with name 'Dado que eu verifico se a api esta ONLINE' found.</status>
 </test>
-<status status="PASS" starttime="20221023 14:32:49.684" endtime="20221023 14:33:14.081"/>
+<status status="FAIL" starttime="20221023 19:59:18.891" endtime="20221023 19:59:19.545"/>
 </suite>
 <statistics>
 <total>
-<stat pass="1" fail="0" skip="0">All Tests</stat>
+<stat pass="0" fail="1" skip="0">All Tests</stat>
 </total>
 <tag>
 </tag>
 <suite>
-<stat pass="1" fail="0" skip="0" id="s1" name="desafio API">desafio API</stat>
+<stat pass="0" fail="1" skip="0" id="s1" name="desafio API">desafio API</stat>
 </suite>
 </statistics>
 <errors>
-<msg timestamp="20221023 14:33:08.876" level="WARN">Keyword 'RequestsLibrary.Get Request' is deprecated. Please use `GET On Session` instead.</msg>
+<msg timestamp="20221023 19:59:19.145" level="ERROR">Error in file 'c:\DesafioABC\DesafioAPI\desafio_API.robot' on line 4: Resource file 'ResourseAPI.robot' does not exist.</msg>
 </errors>
 </robot>

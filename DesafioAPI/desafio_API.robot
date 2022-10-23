@@ -1,7 +1,7 @@
 *** Settings ***
 
 Library     RequestsLibrary
-Resource    ResourseAPI.robot
+Resource    resourse_API.robot
 Resource    ../DesafioCadastro/Resourse.robot
 
 *** Test Cases ***
