@@ -1,90 +1,170 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<robot generator="Robot 5.0.1 (Python 3.10.8 on win32)" generated="20221022 19:59:29.998" rpa="false" schemaversion="3">
-<suite id="s1" name="desafio API" source="c:\DesafioABC\DesafioAPI\desafio_API.robot">
-<test id="s1-t1" name="CT002 - Criar uma chamada POST e validar o retorno" line="11">
-<kw name="Dado que eu verifico se a api esta ONLINE" library="ResourseAPI">
-<kw name="Create Session" library="RequestsLibrary">
-<arg>API</arg>
-<arg>${Site_API}</arg>
-<arg>verify=true</arg>
-<doc>Create Session: create a HTTP session to a server</doc>
-<msg timestamp="20221022 19:59:30.402" level="INFO">Creating Session using : alias=API, url=https://fakerestapi.azurewebsites.net/api/v1/, headers={},                     cookies={}, auth=None, timeout=None, proxies=None, verify=True,                     debug=0 </msg>
-<status status="PASS" starttime="20221022 19:59:30.402" endtime="20221022 19:59:30.427"/>
+<robot generator="Robot 5.0.1 (Python 3.10.8 on win32)" generated="20221022 22:15:21.091" rpa="false" schemaversion="3">
+<suite id="s1" name="desafio ABC" source="c:\DesafioABC\DesafioCadastro\desafio_ABC.robot">
+<test id="s1-t1" name="CN001: Realizar cadastro com sucesso" line="8">
+<kw name="Dado que acesso o site &quot;http://automationpractice.com/index.php?controller=authentication&amp;back=my-account&quot;" library="Resourse" sourcename="Dado que acesso o site &quot;${Site}&quot;">
+<kw name="Open Browser" library="SeleniumLibrary">
+<arg>url=${Site}</arg>
+<arg>browser=${BROWSER}</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<msg timestamp="20221022 22:15:21.422" level="INFO">Opening browser 'chrome' to base url 'http://automationpractice.com/index.php?controller=authentication&amp;back=my-account'.</msg>
+<status status="PASS" starttime="20221022 22:15:21.422" endtime="20221022 22:15:29.000"/>
 </kw>
-<kw name="Create Dictionary" library="BuiltIn">
-<var>${Resposta}</var>
-<arg>content-type=application/json</arg>
-<doc>Creates and returns a dictionary based on the given ``items``.</doc>
-<msg timestamp="20221022 19:59:30.428" level="INFO">${Resposta} = {'content-type': 'application/json'}</msg>
-<status status="PASS" starttime="20221022 19:59:30.427" endtime="20221022 19:59:30.429"/>
+<status status="PASS" starttime="20221022 22:15:21.421" endtime="20221022 22:15:29.001"/>
 </kw>
-<kw name="Set Suite Variable" library="BuiltIn">
-<arg>${Resposta}</arg>
-<doc>Makes a variable available everywhere within the scope of the current suite.</doc>
-<msg timestamp="20221022 19:59:30.430" level="INFO">${Resposta} = {'content-type': 'application/json'}</msg>
-<status status="PASS" starttime="20221022 19:59:30.429" endtime="20221022 19:59:30.430"/>
+<kw name="E insiro um email valido no campo &quot;paulocabral_90@hotmail.com&quot;" library="Resourse" sourcename="E insiro um email valido no campo &quot;${Email}&quot;">
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>//input[@id='email_create']</arg>
+<arg>${Email}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20221022 22:15:29.004" level="INFO">Typing text 'paulocabral_90@hotmail.com' into text field '//input[@id='email_create']'.</msg>
+<status status="PASS" starttime="20221022 22:15:29.003" endtime="20221022 22:15:29.184"/>
 </kw>
-<status status="PASS" starttime="20221022 19:59:30.401" endtime="20221022 19:59:30.431"/>
+<status status="PASS" starttime="20221022 22:15:29.002" endtime="20221022 22:15:29.184"/>
 </kw>
-<kw name="E realizo um POST" library="ResourseAPI">
-<kw name="Create Dictionary" library="BuiltIn">
-<var>${Headers}</var>
-<arg>content-type=application/json</arg>
-<doc>Creates and returns a dictionary based on the given ``items``.</doc>
-<msg timestamp="20221022 19:59:30.433" level="INFO">${Headers} = {'content-type': 'application/json'}</msg>
-<status status="PASS" starttime="20221022 19:59:30.432" endtime="20221022 19:59:30.433"/>
+<kw name="E clico em Create an account" library="Resourse">
+<kw name="Click Button" library="SeleniumLibrary">
+<arg>//button[@id='SubmitCreate']</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<msg timestamp="20221022 22:15:29.186" level="INFO">Clicking button '//button[@id='SubmitCreate']'.</msg>
+<status status="PASS" starttime="20221022 22:15:29.186" endtime="20221022 22:15:29.289"/>
 </kw>
-<kw name="Post Request" library="RequestsLibrary">
-<var>${Resposta}</var>
-<arg>API</arg>
-<arg>Books</arg>
-<arg>${Cadastro}</arg>
-<arg>headers=${Headers}</arg>
-<doc>*DEPRECATED* Please use `POST On Session` instead.</doc>
-<msg timestamp="20221022 19:59:30.434" level="WARN">Keyword 'RequestsLibrary.Post Request' is deprecated. Please use `POST On Session` instead.</msg>
-<msg timestamp="20221022 19:59:31.267" level="INFO">POST Request : url=https://fakerestapi.azurewebsites.net/api/v1/Books 
- path_url=/api/v1/Books 
- headers={'User-Agent': 'python-requests/2.28.1', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'content-type': 'application/json', 'Content-Length': '31'} 
- body={"id": "201", "title": "Paulo"} 
- </msg>
-<msg timestamp="20221022 19:59:31.268" level="INFO">POST Response : url=https://fakerestapi.azurewebsites.net/api/v1/Books 
- status=200, reason=OK 
- headers={'Content-Type': 'application/json; charset=utf-8; v=1.0', 'Date': 'Sat, 22 Oct 2022 22:59:29 GMT', 'Server': 'Kestrel', 'Transfer-Encoding': 'chunked', 'api-supported-versions': '1.0'} 
- body={"id":201,"title":"Paulo","description":null,"pageCount":0,"excerpt":null,"publishDate":"0001-01-01T00:00:00"} 
- </msg>
-<msg timestamp="20221022 19:59:31.268" level="INFO">${Resposta} = &lt;Response [200]&gt;</msg>
-<status status="PASS" starttime="20221022 19:59:30.434" endtime="20221022 19:59:31.268"/>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>//div[@class='form-group form-ok']</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20221022 22:15:29.290" endtime="20221022 22:15:29.325"/>
 </kw>
-<kw name="Log" library="BuiltIn">
-<arg>${Resposta.text}</arg>
-<doc>Logs the given message with the given level.</doc>
-<msg timestamp="20221022 19:59:31.269" level="INFO">{"id":201,"title":"Paulo","description":null,"pageCount":0,"excerpt":null,"publishDate":"0001-01-01T00:00:00"}</msg>
-<status status="PASS" starttime="20221022 19:59:31.268" endtime="20221022 19:59:31.270"/>
+<status status="PASS" starttime="20221022 22:15:29.185" endtime="20221022 22:15:29.325"/>
 </kw>
-<kw name="Set Test Variable" library="BuiltIn">
-<arg>${Resposta}</arg>
-<doc>Makes a variable available everywhere within the scope of the current test.</doc>
-<msg timestamp="20221022 19:59:31.271" level="INFO">${Resposta} = &lt;Response [200]&gt;</msg>
-<status status="PASS" starttime="20221022 19:59:31.270" endtime="20221022 19:59:31.271"/>
+<kw name="E preencho todos os campos obrigatorios" library="Resourse">
+<kw name="Sleep" library="BuiltIn">
+<arg>5</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<msg timestamp="20221022 22:15:34.343" level="INFO">Slept 5 seconds</msg>
+<status status="PASS" starttime="20221022 22:15:29.328" endtime="20221022 22:15:34.343"/>
 </kw>
-<status status="PASS" starttime="20221022 19:59:30.431" endtime="20221022 19:59:31.271"/>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>${title}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20221022 22:15:34.345" level="INFO">Clicking element '//input[@id='id_gender1']'.</msg>
+<status status="PASS" starttime="20221022 22:15:34.344" endtime="20221022 22:15:34.417"/>
 </kw>
-<kw name="Entao confiro status code" library="ResourseAPI">
-<arg>200</arg>
-<kw name="Should Be Equal As Strings" library="BuiltIn">
-<arg>${Resposta.status_code}</arg>
-<arg>${STATUS_CODE}</arg>
-<doc>Fails if objects are unequal after converting them to strings.</doc>
-<msg timestamp="20221022 19:59:31.275" level="INFO">Argument types are:
-&lt;class 'int'&gt;
-&lt;class 'str'&gt;</msg>
-<status status="PASS" starttime="20221022 19:59:31.273" endtime="20221022 19:59:31.276"/>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>${First_name}</arg>
+<arg>Paulo</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20221022 22:15:34.418" level="INFO">Typing text 'Paulo' into text field '//*[text()='First name ']//..//input[@class='is_required validate form-control']'.</msg>
+<status status="PASS" starttime="20221022 22:15:34.417" endtime="20221022 22:15:34.539"/>
 </kw>
-<status status="PASS" starttime="20221022 19:59:31.272" endtime="20221022 19:59:31.276"/>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>${Last_name}</arg>
+<arg>Cabral</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20221022 22:15:34.541" level="INFO">Typing text 'Cabral' into text field '//*[text()='Last name ']//..//input[@class='is_required validate form-control']'.</msg>
+<status status="PASS" starttime="20221022 22:15:34.540" endtime="20221022 22:15:34.667"/>
 </kw>
-<status status="PASS" starttime="20221022 19:59:30.400" endtime="20221022 19:59:31.277"/>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>${Email}</arg>
+<arg>paulocabral_90@hotmail.com</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20221022 22:15:34.668" level="INFO">Typing text 'paulocabral_90@hotmail.com' into text field '//*[text()='Email ']//..//input[@class='is_required validate form-control']'.</msg>
+<status status="PASS" starttime="20221022 22:15:34.667" endtime="20221022 22:15:34.833"/>
+</kw>
+<kw name="Input Password" library="SeleniumLibrary">
+<arg>${Password}</arg>
+<arg>12345</arg>
+<doc>Types the given password into the text field identified by ``locator``.</doc>
+<msg timestamp="20221022 22:15:34.834" level="INFO">Typing password into text field '//*[text()='Password ']//..//input[@class='is_required validate form-control']'.</msg>
+<msg timestamp="20221022 22:15:34.900" level="INFO">Temporally setting log level to: NONE</msg>
+<msg timestamp="20221022 22:15:34.971" level="INFO">Log level changed from NONE to INFO.</msg>
+<status status="PASS" starttime="20221022 22:15:34.833" endtime="20221022 22:15:34.972"/>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>${Date_day}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20221022 22:15:34.973" level="INFO">Clicking element '//select[@id='days']//option[@value='11']'.</msg>
+<status status="PASS" starttime="20221022 22:15:34.972" endtime="20221022 22:15:35.036"/>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>${Date_months}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20221022 22:15:35.037" level="INFO">Clicking element '//select[@id='months']//option[@value='7']'.</msg>
+<status status="PASS" starttime="20221022 22:15:35.036" endtime="20221022 22:15:35.096"/>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>${Date_years}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20221022 22:15:35.097" level="INFO">Clicking element '//select[@id='years']//option[@value='1990']'.</msg>
+<status status="PASS" starttime="20221022 22:15:35.096" endtime="20221022 22:15:35.154"/>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>${company}</arg>
+<arg>Paulo LTDA</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20221022 22:15:35.155" level="INFO">Typing text 'Paulo LTDA' into text field '//input[@id='company']'.</msg>
+<status status="PASS" starttime="20221022 22:15:35.155" endtime="20221022 22:15:35.291"/>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>${address1}</arg>
+<arg>Rua teste da silva</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20221022 22:15:35.292" level="INFO">Typing text 'Rua teste da silva' into text field '//input[@id='address1']'.</msg>
+<status status="PASS" starttime="20221022 22:15:35.291" endtime="20221022 22:15:35.437"/>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>${city}</arg>
+<arg>Curitiba</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20221022 22:15:35.438" level="INFO">Typing text 'Curitiba' into text field '//input[@id='city']'.</msg>
+<status status="PASS" starttime="20221022 22:15:35.437" endtime="20221022 22:15:35.557"/>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>${id_state}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20221022 22:15:35.558" level="INFO">Clicking element '//select[@id='id_state']//option[@value='7']'.</msg>
+<status status="PASS" starttime="20221022 22:15:35.558" endtime="20221022 22:15:35.615"/>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>${postcode}</arg>
+<arg>00000</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20221022 22:15:35.616" level="INFO">Typing text '00000' into text field '//input[@id='postcode']'.</msg>
+<status status="PASS" starttime="20221022 22:15:35.615" endtime="20221022 22:15:35.746"/>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>${phone_mobile}</arg>
+<arg>+554199681-6096</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20221022 22:15:35.747" level="INFO">Typing text '+554199681-6096' into text field '//input[@id='phone_mobile']'.</msg>
+<status status="PASS" starttime="20221022 22:15:35.746" endtime="20221022 22:15:35.889"/>
+</kw>
+<status status="PASS" starttime="20221022 22:15:29.326" endtime="20221022 22:15:35.890"/>
+</kw>
+<kw name="Quando clico em &quot;Register&quot;" library="Resourse">
+<kw name="Click Button" library="SeleniumLibrary">
+<arg>//button[@id='submitAccount']</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<msg timestamp="20221022 22:15:35.894" level="INFO">Clicking button '//button[@id='submitAccount']'.</msg>
+<status status="PASS" starttime="20221022 22:15:35.893" endtime="20221022 22:15:37.706"/>
+</kw>
+<status status="PASS" starttime="20221022 22:15:35.891" endtime="20221022 22:15:37.707"/>
+</kw>
+<kw name="Então devo ser redirecionado para pagina &quot;MY ACCOUNT&quot;" library="Resourse">
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>//span[@class='navigation_page']</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20221022 22:15:37.709" endtime="20221022 22:15:37.747"/>
+</kw>
+<kw name="Close All Browsers" library="SeleniumLibrary">
+<doc>Closes all open browsers and resets the browser cache.</doc>
+<status status="PASS" starttime="20221022 22:15:37.747" endtime="20221022 22:15:40.017"/>
+</kw>
+<status status="PASS" starttime="20221022 22:15:37.708" endtime="20221022 22:15:40.018"/>
+</kw>
+<status status="PASS" starttime="20221022 22:15:21.419" endtime="20221022 22:15:40.018"/>
 </test>
-<status status="PASS" starttime="20221022 19:59:30.007" endtime="20221022 19:59:31.281"/>
+<doc>criacao de cadastro</doc>
+<status status="PASS" starttime="20221022 22:15:21.100" endtime="20221022 22:15:40.021"/>
 </suite>
 <statistics>
 <total>
@@ -93,10 +173,9 @@
 <tag>
 </tag>
 <suite>
-<stat pass="1" fail="0" skip="0" id="s1" name="desafio API">desafio API</stat>
+<stat pass="1" fail="0" skip="0" id="s1" name="desafio ABC">desafio ABC</stat>
 </suite>
 </statistics>
 <errors>
-<msg timestamp="20221022 19:59:30.434" level="WARN">Keyword 'RequestsLibrary.Post Request' is deprecated. Please use `POST On Session` instead.</msg>
 </errors>
 </robot>
