@@ -3,6 +3,7 @@
 Library           RequestsLibrary
 Library           Collections
 Library           SeleniumLibrary
+Library           String
 
 *** Variables ***
 ${Site_API}    https://fakerestapi.azurewebsites.net/api/v1/
@@ -38,7 +39,7 @@ E realizo um POST
     Set Test Variable      ${Resposta}     
 
 E verifico se o post foi criado com sucesso
-    ${Resposta}    Get Request    API    Books/201
+    ${Resposta}    Get Request    API    Books/200
     Log                  ${Resposta.text}
     Set Test Variable    ${Resposta} 
     

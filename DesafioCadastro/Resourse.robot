@@ -6,7 +6,7 @@ Library    Screenshot
 
 *** Variables ***
 
-${BROWSER}    chrome
+${BROWSER}       chrome
 ${title}         //input[@id='id_gender1'] 
 ${First_name}    //*[text()='First name ']//..//input[@class='is_required validate form-control']    
 ${Last_name}     //*[text()='Last name ']//..//input[@class='is_required validate form-control']     
