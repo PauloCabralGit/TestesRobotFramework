@@ -1,170 +1,196 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<robot generator="Robot 5.0.1 (Python 3.10.8 on win32)" generated="20221022 22:15:21.091" rpa="false" schemaversion="3">
+<robot generator="Robot 5.0.1 (Python 3.10.8 on win32)" generated="20221022 22:43:47.189" rpa="false" schemaversion="3">
 <suite id="s1" name="desafio ABC" source="c:\DesafioABC\DesafioCadastro\desafio_ABC.robot">
-<test id="s1-t1" name="CN001: Realizar cadastro com sucesso" line="8">
+<test id="s1-t1" name="CN002: Verificar campos obrigatorios" line="15">
 <kw name="Dado que acesso o site &quot;http://automationpractice.com/index.php?controller=authentication&amp;back=my-account&quot;" library="Resourse" sourcename="Dado que acesso o site &quot;${Site}&quot;">
 <kw name="Open Browser" library="SeleniumLibrary">
 <arg>url=${Site}</arg>
 <arg>browser=${BROWSER}</arg>
 <doc>Opens a new browser instance to the optional ``url``.</doc>
-<msg timestamp="20221022 22:15:21.422" level="INFO">Opening browser 'chrome' to base url 'http://automationpractice.com/index.php?controller=authentication&amp;back=my-account'.</msg>
-<status status="PASS" starttime="20221022 22:15:21.422" endtime="20221022 22:15:29.000"/>
+<msg timestamp="20221022 22:43:47.523" level="INFO">Opening browser 'chrome' to base url 'http://automationpractice.com/index.php?controller=authentication&amp;back=my-account'.</msg>
+<status status="PASS" starttime="20221022 22:43:47.522" endtime="20221022 22:43:53.931"/>
 </kw>
-<status status="PASS" starttime="20221022 22:15:21.421" endtime="20221022 22:15:29.001"/>
+<status status="PASS" starttime="20221022 22:43:47.520" endtime="20221022 22:43:53.932"/>
 </kw>
 <kw name="E insiro um email valido no campo &quot;paulocabral_90@hotmail.com&quot;" library="Resourse" sourcename="E insiro um email valido no campo &quot;${Email}&quot;">
 <kw name="Input Text" library="SeleniumLibrary">
 <arg>//input[@id='email_create']</arg>
 <arg>${Email}</arg>
 <doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<msg timestamp="20221022 22:15:29.004" level="INFO">Typing text 'paulocabral_90@hotmail.com' into text field '//input[@id='email_create']'.</msg>
-<status status="PASS" starttime="20221022 22:15:29.003" endtime="20221022 22:15:29.184"/>
+<msg timestamp="20221022 22:43:53.935" level="INFO">Typing text 'paulocabral_90@hotmail.com' into text field '//input[@id='email_create']'.</msg>
+<status status="PASS" starttime="20221022 22:43:53.934" endtime="20221022 22:43:54.166"/>
 </kw>
-<status status="PASS" starttime="20221022 22:15:29.002" endtime="20221022 22:15:29.184"/>
+<status status="PASS" starttime="20221022 22:43:53.933" endtime="20221022 22:43:54.166"/>
 </kw>
 <kw name="E clico em Create an account" library="Resourse">
 <kw name="Click Button" library="SeleniumLibrary">
 <arg>//button[@id='SubmitCreate']</arg>
 <doc>Clicks the button identified by ``locator``.</doc>
-<msg timestamp="20221022 22:15:29.186" level="INFO">Clicking button '//button[@id='SubmitCreate']'.</msg>
-<status status="PASS" starttime="20221022 22:15:29.186" endtime="20221022 22:15:29.289"/>
+<msg timestamp="20221022 22:43:54.170" level="INFO">Clicking button '//button[@id='SubmitCreate']'.</msg>
+<status status="PASS" starttime="20221022 22:43:54.169" endtime="20221022 22:43:54.282"/>
 </kw>
 <kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
 <arg>//div[@class='form-group form-ok']</arg>
 <doc>Waits until the element ``locator`` is visible.</doc>
-<status status="PASS" starttime="20221022 22:15:29.290" endtime="20221022 22:15:29.325"/>
+<status status="PASS" starttime="20221022 22:43:54.282" endtime="20221022 22:43:54.316"/>
 </kw>
-<status status="PASS" starttime="20221022 22:15:29.185" endtime="20221022 22:15:29.325"/>
+<status status="PASS" starttime="20221022 22:43:54.168" endtime="20221022 22:43:54.316"/>
 </kw>
-<kw name="E preencho todos os campos obrigatorios" library="Resourse">
+<kw name="E verifico se o campo &quot;First name &quot; e obrigatorio" library="Resourse" sourcename="E verifico se o campo &quot;${Campo}&quot; e obrigatorio">
 <kw name="Sleep" library="BuiltIn">
 <arg>5</arg>
 <doc>Pauses the test executed for the given time.</doc>
-<msg timestamp="20221022 22:15:34.343" level="INFO">Slept 5 seconds</msg>
-<status status="PASS" starttime="20221022 22:15:29.328" endtime="20221022 22:15:34.343"/>
+<msg timestamp="20221022 22:43:59.322" level="INFO">Slept 5 seconds</msg>
+<status status="PASS" starttime="20221022 22:43:54.318" endtime="20221022 22:43:59.322"/>
+</kw>
+<kw name="Clear Element Text" library="SeleniumLibrary">
+<arg>//*[text()='${Campo}']//..//input[@class='is_required validate form-control']</arg>
+<doc>Clears the value of the text-input-element identified by ``locator``.</doc>
+<status status="PASS" starttime="20221022 22:43:59.322" endtime="20221022 22:43:59.379"/>
 </kw>
 <kw name="Click Element" library="SeleniumLibrary">
-<arg>${title}</arg>
+<arg>//*[text()='${Campo}']//..//input[@class='is_required validate form-control']</arg>
 <doc>Click the element identified by ``locator``.</doc>
-<msg timestamp="20221022 22:15:34.345" level="INFO">Clicking element '//input[@id='id_gender1']'.</msg>
-<status status="PASS" starttime="20221022 22:15:34.344" endtime="20221022 22:15:34.417"/>
-</kw>
-<kw name="Input Text" library="SeleniumLibrary">
-<arg>${First_name}</arg>
-<arg>Paulo</arg>
-<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<msg timestamp="20221022 22:15:34.418" level="INFO">Typing text 'Paulo' into text field '//*[text()='First name ']//..//input[@class='is_required validate form-control']'.</msg>
-<status status="PASS" starttime="20221022 22:15:34.417" endtime="20221022 22:15:34.539"/>
-</kw>
-<kw name="Input Text" library="SeleniumLibrary">
-<arg>${Last_name}</arg>
-<arg>Cabral</arg>
-<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<msg timestamp="20221022 22:15:34.541" level="INFO">Typing text 'Cabral' into text field '//*[text()='Last name ']//..//input[@class='is_required validate form-control']'.</msg>
-<status status="PASS" starttime="20221022 22:15:34.540" endtime="20221022 22:15:34.667"/>
-</kw>
-<kw name="Input Text" library="SeleniumLibrary">
-<arg>${Email}</arg>
-<arg>paulocabral_90@hotmail.com</arg>
-<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<msg timestamp="20221022 22:15:34.668" level="INFO">Typing text 'paulocabral_90@hotmail.com' into text field '//*[text()='Email ']//..//input[@class='is_required validate form-control']'.</msg>
-<status status="PASS" starttime="20221022 22:15:34.667" endtime="20221022 22:15:34.833"/>
-</kw>
-<kw name="Input Password" library="SeleniumLibrary">
-<arg>${Password}</arg>
-<arg>12345</arg>
-<doc>Types the given password into the text field identified by ``locator``.</doc>
-<msg timestamp="20221022 22:15:34.834" level="INFO">Typing password into text field '//*[text()='Password ']//..//input[@class='is_required validate form-control']'.</msg>
-<msg timestamp="20221022 22:15:34.900" level="INFO">Temporally setting log level to: NONE</msg>
-<msg timestamp="20221022 22:15:34.971" level="INFO">Log level changed from NONE to INFO.</msg>
-<status status="PASS" starttime="20221022 22:15:34.833" endtime="20221022 22:15:34.972"/>
+<msg timestamp="20221022 22:43:59.380" level="INFO">Clicking element '//*[text()='First name ']//..//input[@class='is_required validate form-control']'.</msg>
+<status status="PASS" starttime="20221022 22:43:59.379" endtime="20221022 22:43:59.439"/>
 </kw>
 <kw name="Click Element" library="SeleniumLibrary">
-<arg>${Date_day}</arg>
+<arg>//*[text()='Your address']</arg>
 <doc>Click the element identified by ``locator``.</doc>
-<msg timestamp="20221022 22:15:34.973" level="INFO">Clicking element '//select[@id='days']//option[@value='11']'.</msg>
-<status status="PASS" starttime="20221022 22:15:34.972" endtime="20221022 22:15:35.036"/>
+<msg timestamp="20221022 22:43:59.441" level="INFO">Clicking element '//*[text()='Your address']'.</msg>
+<status status="PASS" starttime="20221022 22:43:59.440" endtime="20221022 22:43:59.511"/>
 </kw>
-<kw name="Click Element" library="SeleniumLibrary">
-<arg>${Date_months}</arg>
-<doc>Click the element identified by ``locator``.</doc>
-<msg timestamp="20221022 22:15:35.037" level="INFO">Clicking element '//select[@id='months']//option[@value='7']'.</msg>
-<status status="PASS" starttime="20221022 22:15:35.036" endtime="20221022 22:15:35.096"/>
-</kw>
-<kw name="Click Element" library="SeleniumLibrary">
-<arg>${Date_years}</arg>
-<doc>Click the element identified by ``locator``.</doc>
-<msg timestamp="20221022 22:15:35.097" level="INFO">Clicking element '//select[@id='years']//option[@value='1990']'.</msg>
-<status status="PASS" starttime="20221022 22:15:35.096" endtime="20221022 22:15:35.154"/>
-</kw>
-<kw name="Input Text" library="SeleniumLibrary">
-<arg>${company}</arg>
-<arg>Paulo LTDA</arg>
-<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<msg timestamp="20221022 22:15:35.155" level="INFO">Typing text 'Paulo LTDA' into text field '//input[@id='company']'.</msg>
-<status status="PASS" starttime="20221022 22:15:35.155" endtime="20221022 22:15:35.291"/>
-</kw>
-<kw name="Input Text" library="SeleniumLibrary">
-<arg>${address1}</arg>
-<arg>Rua teste da silva</arg>
-<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<msg timestamp="20221022 22:15:35.292" level="INFO">Typing text 'Rua teste da silva' into text field '//input[@id='address1']'.</msg>
-<status status="PASS" starttime="20221022 22:15:35.291" endtime="20221022 22:15:35.437"/>
-</kw>
-<kw name="Input Text" library="SeleniumLibrary">
-<arg>${city}</arg>
-<arg>Curitiba</arg>
-<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<msg timestamp="20221022 22:15:35.438" level="INFO">Typing text 'Curitiba' into text field '//input[@id='city']'.</msg>
-<status status="PASS" starttime="20221022 22:15:35.437" endtime="20221022 22:15:35.557"/>
-</kw>
-<kw name="Click Element" library="SeleniumLibrary">
-<arg>${id_state}</arg>
-<doc>Click the element identified by ``locator``.</doc>
-<msg timestamp="20221022 22:15:35.558" level="INFO">Clicking element '//select[@id='id_state']//option[@value='7']'.</msg>
-<status status="PASS" starttime="20221022 22:15:35.558" endtime="20221022 22:15:35.615"/>
-</kw>
-<kw name="Input Text" library="SeleniumLibrary">
-<arg>${postcode}</arg>
-<arg>00000</arg>
-<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<msg timestamp="20221022 22:15:35.616" level="INFO">Typing text '00000' into text field '//input[@id='postcode']'.</msg>
-<status status="PASS" starttime="20221022 22:15:35.615" endtime="20221022 22:15:35.746"/>
-</kw>
-<kw name="Input Text" library="SeleniumLibrary">
-<arg>${phone_mobile}</arg>
-<arg>+554199681-6096</arg>
-<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<msg timestamp="20221022 22:15:35.747" level="INFO">Typing text '+554199681-6096' into text field '//input[@id='phone_mobile']'.</msg>
-<status status="PASS" starttime="20221022 22:15:35.746" endtime="20221022 22:15:35.889"/>
-</kw>
-<status status="PASS" starttime="20221022 22:15:29.326" endtime="20221022 22:15:35.890"/>
-</kw>
-<kw name="Quando clico em &quot;Register&quot;" library="Resourse">
-<kw name="Click Button" library="SeleniumLibrary">
-<arg>//button[@id='submitAccount']</arg>
-<doc>Clicks the button identified by ``locator``.</doc>
-<msg timestamp="20221022 22:15:35.894" level="INFO">Clicking button '//button[@id='submitAccount']'.</msg>
-<status status="PASS" starttime="20221022 22:15:35.893" endtime="20221022 22:15:37.706"/>
-</kw>
-<status status="PASS" starttime="20221022 22:15:35.891" endtime="20221022 22:15:37.707"/>
-</kw>
-<kw name="Então devo ser redirecionado para pagina &quot;MY ACCOUNT&quot;" library="Resourse">
 <kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
-<arg>//span[@class='navigation_page']</arg>
+<arg>//div[@class='required form-group form-error']</arg>
 <doc>Waits until the element ``locator`` is visible.</doc>
-<status status="PASS" starttime="20221022 22:15:37.709" endtime="20221022 22:15:37.747"/>
+<status status="PASS" starttime="20221022 22:43:59.512" endtime="20221022 22:43:59.548"/>
 </kw>
+<kw name="Capture Page Screenshot" library="SeleniumLibrary">
+<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
+<msg timestamp="20221022 22:43:59.670" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-11.png"&gt;&lt;img src="selenium-screenshot-11.png" width="800px"&gt;&lt;/a&gt;</msg>
+<status status="PASS" starttime="20221022 22:43:59.549" endtime="20221022 22:43:59.670"/>
+</kw>
+<status status="PASS" starttime="20221022 22:43:54.317" endtime="20221022 22:43:59.670"/>
+</kw>
+<kw name="E verifico se o campo &quot;Last name &quot; e obrigatorio" library="Resourse" sourcename="E verifico se o campo &quot;${Campo}&quot; e obrigatorio">
+<kw name="Sleep" library="BuiltIn">
+<arg>5</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<msg timestamp="20221022 22:44:04.673" level="INFO">Slept 5 seconds</msg>
+<status status="PASS" starttime="20221022 22:43:59.672" endtime="20221022 22:44:04.673"/>
+</kw>
+<kw name="Clear Element Text" library="SeleniumLibrary">
+<arg>//*[text()='${Campo}']//..//input[@class='is_required validate form-control']</arg>
+<doc>Clears the value of the text-input-element identified by ``locator``.</doc>
+<status status="PASS" starttime="20221022 22:44:04.674" endtime="20221022 22:44:04.724"/>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>//*[text()='${Campo}']//..//input[@class='is_required validate form-control']</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20221022 22:44:04.725" level="INFO">Clicking element '//*[text()='Last name ']//..//input[@class='is_required validate form-control']'.</msg>
+<status status="PASS" starttime="20221022 22:44:04.725" endtime="20221022 22:44:04.775"/>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>//*[text()='Your address']</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20221022 22:44:04.776" level="INFO">Clicking element '//*[text()='Your address']'.</msg>
+<status status="PASS" starttime="20221022 22:44:04.775" endtime="20221022 22:44:04.824"/>
+</kw>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>//div[@class='required form-group form-error']</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20221022 22:44:04.825" endtime="20221022 22:44:04.851"/>
+</kw>
+<kw name="Capture Page Screenshot" library="SeleniumLibrary">
+<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
+<msg timestamp="20221022 22:44:04.966" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-12.png"&gt;&lt;img src="selenium-screenshot-12.png" width="800px"&gt;&lt;/a&gt;</msg>
+<status status="PASS" starttime="20221022 22:44:04.851" endtime="20221022 22:44:04.966"/>
+</kw>
+<status status="PASS" starttime="20221022 22:43:59.671" endtime="20221022 22:44:04.967"/>
+</kw>
+<kw name="E verifico se o campo &quot;Email &quot; e obrigatorio" library="Resourse" sourcename="E verifico se o campo &quot;${Campo}&quot; e obrigatorio">
+<kw name="Sleep" library="BuiltIn">
+<arg>5</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<msg timestamp="20221022 22:44:09.978" level="INFO">Slept 5 seconds</msg>
+<status status="PASS" starttime="20221022 22:44:04.969" endtime="20221022 22:44:09.978"/>
+</kw>
+<kw name="Clear Element Text" library="SeleniumLibrary">
+<arg>//*[text()='${Campo}']//..//input[@class='is_required validate form-control']</arg>
+<doc>Clears the value of the text-input-element identified by ``locator``.</doc>
+<status status="PASS" starttime="20221022 22:44:09.979" endtime="20221022 22:44:10.036"/>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>//*[text()='${Campo}']//..//input[@class='is_required validate form-control']</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20221022 22:44:10.037" level="INFO">Clicking element '//*[text()='Email ']//..//input[@class='is_required validate form-control']'.</msg>
+<status status="PASS" starttime="20221022 22:44:10.036" endtime="20221022 22:44:10.093"/>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>//*[text()='Your address']</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20221022 22:44:10.093" level="INFO">Clicking element '//*[text()='Your address']'.</msg>
+<status status="PASS" starttime="20221022 22:44:10.093" endtime="20221022 22:44:10.137"/>
+</kw>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>//div[@class='required form-group form-error']</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20221022 22:44:10.137" endtime="20221022 22:44:10.158"/>
+</kw>
+<kw name="Capture Page Screenshot" library="SeleniumLibrary">
+<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
+<msg timestamp="20221022 22:44:10.263" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-13.png"&gt;&lt;img src="selenium-screenshot-13.png" width="800px"&gt;&lt;/a&gt;</msg>
+<status status="PASS" starttime="20221022 22:44:10.158" endtime="20221022 22:44:10.263"/>
+</kw>
+<status status="PASS" starttime="20221022 22:44:04.968" endtime="20221022 22:44:10.263"/>
+</kw>
+<kw name="E verifico se o campo &quot;Password &quot; e obrigatorio" library="Resourse" sourcename="E verifico se o campo &quot;${Campo}&quot; e obrigatorio">
+<kw name="Sleep" library="BuiltIn">
+<arg>5</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<msg timestamp="20221022 22:44:15.277" level="INFO">Slept 5 seconds</msg>
+<status status="PASS" starttime="20221022 22:44:10.265" endtime="20221022 22:44:15.277"/>
+</kw>
+<kw name="Clear Element Text" library="SeleniumLibrary">
+<arg>//*[text()='${Campo}']//..//input[@class='is_required validate form-control']</arg>
+<doc>Clears the value of the text-input-element identified by ``locator``.</doc>
+<status status="PASS" starttime="20221022 22:44:15.279" endtime="20221022 22:44:15.327"/>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>//*[text()='${Campo}']//..//input[@class='is_required validate form-control']</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20221022 22:44:15.328" level="INFO">Clicking element '//*[text()='Password ']//..//input[@class='is_required validate form-control']'.</msg>
+<status status="PASS" starttime="20221022 22:44:15.328" endtime="20221022 22:44:15.387"/>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>//*[text()='Your address']</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20221022 22:44:15.388" level="INFO">Clicking element '//*[text()='Your address']'.</msg>
+<status status="PASS" starttime="20221022 22:44:15.387" endtime="20221022 22:44:15.431"/>
+</kw>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>//div[@class='required form-group form-error']</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20221022 22:44:15.431" endtime="20221022 22:44:15.455"/>
+</kw>
+<kw name="Capture Page Screenshot" library="SeleniumLibrary">
+<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
+<msg timestamp="20221022 22:44:15.567" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-14.png"&gt;&lt;img src="selenium-screenshot-14.png" width="800px"&gt;&lt;/a&gt;</msg>
+<status status="PASS" starttime="20221022 22:44:15.456" endtime="20221022 22:44:15.567"/>
+</kw>
+<status status="PASS" starttime="20221022 22:44:10.265" endtime="20221022 22:44:15.568"/>
+</kw>
+<kw name="Então fecho o browser" library="Resourse">
 <kw name="Close All Browsers" library="SeleniumLibrary">
 <doc>Closes all open browsers and resets the browser cache.</doc>
-<status status="PASS" starttime="20221022 22:15:37.747" endtime="20221022 22:15:40.017"/>
+<status status="PASS" starttime="20221022 22:44:15.570" endtime="20221022 22:44:17.878"/>
 </kw>
-<status status="PASS" starttime="20221022 22:15:37.708" endtime="20221022 22:15:40.018"/>
+<status status="PASS" starttime="20221022 22:44:15.569" endtime="20221022 22:44:17.879"/>
 </kw>
-<status status="PASS" starttime="20221022 22:15:21.419" endtime="20221022 22:15:40.018"/>
+<status status="PASS" starttime="20221022 22:43:47.518" endtime="20221022 22:44:17.880"/>
 </test>
 <doc>criacao de cadastro</doc>
-<status status="PASS" starttime="20221022 22:15:21.100" endtime="20221022 22:15:40.021"/>
+<status status="PASS" starttime="20221022 22:43:47.197" endtime="20221022 22:44:17.883"/>
 </suite>
 <statistics>
 <total>
