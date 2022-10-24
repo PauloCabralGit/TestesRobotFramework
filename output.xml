@@ -1,33 +1,279 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<robot generator="Robot 5.0.1 (Python 3.10.8 on win32)" generated="20221023 19:59:18.883" rpa="false" schemaversion="3">
-<suite id="s1" name="desafio API" source="c:\DesafioABC\DesafioAPI\desafio_API.robot">
-<test id="s1-t1" name="CT002 - Criar uma chamada POST e validar o retorno" line="11">
-<kw name="Dado que eu verifico se a api esta ONLINE">
-<msg timestamp="20221023 19:59:19.521" level="FAIL">No keyword with name 'Dado que eu verifico se a api esta ONLINE' found.</msg>
-<status status="FAIL" starttime="20221023 19:59:19.521" endtime="20221023 19:59:19.521"/>
+<robot generator="Robot 5.0.1 (Python 3.10.8 on win32)" generated="20221023 21:00:55.122" rpa="false" schemaversion="3">
+<suite id="s1" name="desafio ABC" source="c:\DesafioABC\DesafioCadastro\desafio_ABC.robot">
+<test id="s1-t1" name="CN002: Verificar campos obrigatorios" line="15">
+<kw name="Dado que acesso o site &quot;http://automationpractice.com/index.php?controller=authentication&amp;back=my-account&quot;" library="Resourse" sourcename="Dado que acesso o site &quot;${Site}&quot;">
+<kw name="Open Browser" library="SeleniumLibrary">
+<arg>url=${Site}</arg>
+<arg>browser=${BROWSER}</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<msg timestamp="20221023 21:00:55.552" level="INFO">Opening browser 'chrome' to base url 'http://automationpractice.com/index.php?controller=authentication&amp;back=my-account'.</msg>
+<status status="PASS" starttime="20221023 21:00:55.551" endtime="20221023 21:01:03.920"/>
 </kw>
-<kw name="E realizo um POST">
-<status status="NOT RUN" starttime="20221023 19:59:19.529" endtime="20221023 19:59:19.529"/>
+<status status="PASS" starttime="20221023 21:00:55.550" endtime="20221023 21:01:03.920"/>
 </kw>
-<kw name="Entao confiro status code">
-<arg>200</arg>
-<status status="NOT RUN" starttime="20221023 19:59:19.537" endtime="20221023 19:59:19.545"/>
+<kw name="E insiro um email valido no campo &quot;paulocabral_90@hotmail.com&quot;" library="Resourse" sourcename="E insiro um email valido no campo &quot;${Email}&quot;">
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>//input[@id='email_create']</arg>
+<arg>${Email}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20221023 21:01:03.923" level="INFO">Typing text 'paulocabral_90@hotmail.com' into text field '//input[@id='email_create']'.</msg>
+<status status="PASS" starttime="20221023 21:01:03.922" endtime="20221023 21:01:04.299"/>
 </kw>
-<status status="FAIL" starttime="20221023 19:59:19.513" endtime="20221023 19:59:19.545">No keyword with name 'Dado que eu verifico se a api esta ONLINE' found.</status>
+<status status="PASS" starttime="20221023 21:01:03.921" endtime="20221023 21:01:04.299"/>
+</kw>
+<kw name="E clico em Create an account" library="Resourse">
+<kw name="Click Button" library="SeleniumLibrary">
+<arg>//button[@id='SubmitCreate']</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<msg timestamp="20221023 21:01:04.302" level="INFO">Clicking button '//button[@id='SubmitCreate']'.</msg>
+<status status="PASS" starttime="20221023 21:01:04.301" endtime="20221023 21:01:04.425"/>
+</kw>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>//div[@class='form-group form-ok']</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20221023 21:01:04.425" endtime="20221023 21:01:04.463"/>
+</kw>
+<status status="PASS" starttime="20221023 21:01:04.300" endtime="20221023 21:01:04.463"/>
+</kw>
+<kw name="E verifico se o campo &quot;First name &quot; e obrigatorio e apos preencho o campo &quot;Paulo&quot;" library="Resourse" sourcename="E verifico se o campo &quot;${Campo}&quot; e obrigatorio e apos preencho o campo &quot;${dado}&quot;">
+<kw name="Sleep" library="BuiltIn">
+<arg>5</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<msg timestamp="20221023 21:01:09.470" level="INFO">Slept 5 seconds</msg>
+<status status="PASS" starttime="20221023 21:01:04.465" endtime="20221023 21:01:09.470"/>
+</kw>
+<kw name="Clear Element Text" library="SeleniumLibrary">
+<arg>//*[text()='${Campo}']//..//input[@class='is_required validate form-control']</arg>
+<doc>Clears the value of the text-input-element identified by ``locator``.</doc>
+<status status="PASS" starttime="20221023 21:01:09.471" endtime="20221023 21:01:09.527"/>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>//*[text()='${Campo}']//..//input[@class='is_required validate form-control']</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20221023 21:01:09.528" level="INFO">Clicking element '//*[text()='First name ']//..//input[@class='is_required validate form-control']'.</msg>
+<status status="PASS" starttime="20221023 21:01:09.528" endtime="20221023 21:01:09.588"/>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>//*[text()='Your address']</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20221023 21:01:09.589" level="INFO">Clicking element '//*[text()='Your address']'.</msg>
+<status status="PASS" starttime="20221023 21:01:09.588" endtime="20221023 21:01:09.664"/>
+</kw>
+<kw name="Capture Page Screenshot" library="SeleniumLibrary">
+<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
+<msg timestamp="20221023 21:01:09.884" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-1.png"&gt;&lt;img src="selenium-screenshot-1.png" width="800px"&gt;&lt;/a&gt;</msg>
+<status status="PASS" starttime="20221023 21:01:09.664" endtime="20221023 21:01:09.884"/>
+</kw>
+<kw name="Click Button" library="SeleniumLibrary">
+<arg>//button[@id='submitAccount']</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<msg timestamp="20221023 21:01:09.886" level="INFO">Clicking button '//button[@id='submitAccount']'.</msg>
+<status status="PASS" starttime="20221023 21:01:09.885" endtime="20221023 21:01:12.688"/>
+</kw>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>//div[@class='alert alert-danger']</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20221023 21:01:12.688" endtime="20221023 21:01:12.725"/>
+</kw>
+<kw name="Capture Page Screenshot" library="SeleniumLibrary">
+<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
+<msg timestamp="20221023 21:01:12.851" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-2.png"&gt;&lt;img src="selenium-screenshot-2.png" width="800px"&gt;&lt;/a&gt;</msg>
+<status status="PASS" starttime="20221023 21:01:12.726" endtime="20221023 21:01:12.851"/>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>//*[text()='${Campo}']//..//input[@class='is_required validate form-control']</arg>
+<arg>${dado}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20221023 21:01:12.852" level="INFO">Typing text 'Paulo' into text field '//*[text()='First name ']//..//input[@class='is_required validate form-control']'.</msg>
+<status status="PASS" starttime="20221023 21:01:12.851" endtime="20221023 21:01:12.975"/>
+</kw>
+<status status="PASS" starttime="20221023 21:01:04.464" endtime="20221023 21:01:12.976"/>
+</kw>
+<kw name="E verifico se o campo &quot;Last name &quot; e obrigatorio e apos preencho o campo &quot;Cabral&quot;" library="Resourse" sourcename="E verifico se o campo &quot;${Campo}&quot; e obrigatorio e apos preencho o campo &quot;${dado}&quot;">
+<kw name="Sleep" library="BuiltIn">
+<arg>5</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<msg timestamp="20221023 21:01:17.980" level="INFO">Slept 5 seconds</msg>
+<status status="PASS" starttime="20221023 21:01:12.977" endtime="20221023 21:01:17.980"/>
+</kw>
+<kw name="Clear Element Text" library="SeleniumLibrary">
+<arg>//*[text()='${Campo}']//..//input[@class='is_required validate form-control']</arg>
+<doc>Clears the value of the text-input-element identified by ``locator``.</doc>
+<status status="PASS" starttime="20221023 21:01:17.981" endtime="20221023 21:01:18.030"/>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>//*[text()='${Campo}']//..//input[@class='is_required validate form-control']</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20221023 21:01:18.032" level="INFO">Clicking element '//*[text()='Last name ']//..//input[@class='is_required validate form-control']'.</msg>
+<status status="PASS" starttime="20221023 21:01:18.031" endtime="20221023 21:01:18.091"/>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>//*[text()='Your address']</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20221023 21:01:18.093" level="INFO">Clicking element '//*[text()='Your address']'.</msg>
+<status status="PASS" starttime="20221023 21:01:18.092" endtime="20221023 21:01:18.146"/>
+</kw>
+<kw name="Capture Page Screenshot" library="SeleniumLibrary">
+<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
+<msg timestamp="20221023 21:01:18.249" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-3.png"&gt;&lt;img src="selenium-screenshot-3.png" width="800px"&gt;&lt;/a&gt;</msg>
+<status status="PASS" starttime="20221023 21:01:18.147" endtime="20221023 21:01:18.250"/>
+</kw>
+<kw name="Click Button" library="SeleniumLibrary">
+<arg>//button[@id='submitAccount']</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<msg timestamp="20221023 21:01:18.251" level="INFO">Clicking button '//button[@id='submitAccount']'.</msg>
+<status status="PASS" starttime="20221023 21:01:18.250" endtime="20221023 21:01:21.522"/>
+</kw>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>//div[@class='alert alert-danger']</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20221023 21:01:21.522" endtime="20221023 21:01:21.552"/>
+</kw>
+<kw name="Capture Page Screenshot" library="SeleniumLibrary">
+<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
+<msg timestamp="20221023 21:01:21.728" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-4.png"&gt;&lt;img src="selenium-screenshot-4.png" width="800px"&gt;&lt;/a&gt;</msg>
+<status status="PASS" starttime="20221023 21:01:21.552" endtime="20221023 21:01:21.728"/>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>//*[text()='${Campo}']//..//input[@class='is_required validate form-control']</arg>
+<arg>${dado}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20221023 21:01:21.730" level="INFO">Typing text 'Cabral' into text field '//*[text()='Last name ']//..//input[@class='is_required validate form-control']'.</msg>
+<status status="PASS" starttime="20221023 21:01:21.729" endtime="20221023 21:01:21.965"/>
+</kw>
+<status status="PASS" starttime="20221023 21:01:12.977" endtime="20221023 21:01:21.965"/>
+</kw>
+<kw name="E verifico se o campo &quot;Email &quot; e obrigatorio e apos preencho o campo &quot;paulocabral_90@hotmail.com&quot;" library="Resourse" sourcename="E verifico se o campo &quot;${Campo}&quot; e obrigatorio e apos preencho o campo &quot;${dado}&quot;">
+<kw name="Sleep" library="BuiltIn">
+<arg>5</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<msg timestamp="20221023 21:01:26.975" level="INFO">Slept 5 seconds</msg>
+<status status="PASS" starttime="20221023 21:01:21.968" endtime="20221023 21:01:26.975"/>
+</kw>
+<kw name="Clear Element Text" library="SeleniumLibrary">
+<arg>//*[text()='${Campo}']//..//input[@class='is_required validate form-control']</arg>
+<doc>Clears the value of the text-input-element identified by ``locator``.</doc>
+<status status="PASS" starttime="20221023 21:01:26.976" endtime="20221023 21:01:27.131"/>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>//*[text()='${Campo}']//..//input[@class='is_required validate form-control']</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20221023 21:01:27.134" level="INFO">Clicking element '//*[text()='Email ']//..//input[@class='is_required validate form-control']'.</msg>
+<status status="PASS" starttime="20221023 21:01:27.132" endtime="20221023 21:01:27.197"/>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>//*[text()='Your address']</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20221023 21:01:27.198" level="INFO">Clicking element '//*[text()='Your address']'.</msg>
+<status status="PASS" starttime="20221023 21:01:27.198" endtime="20221023 21:01:27.336"/>
+</kw>
+<kw name="Capture Page Screenshot" library="SeleniumLibrary">
+<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
+<msg timestamp="20221023 21:01:27.559" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-5.png"&gt;&lt;img src="selenium-screenshot-5.png" width="800px"&gt;&lt;/a&gt;</msg>
+<status status="PASS" starttime="20221023 21:01:27.336" endtime="20221023 21:01:27.559"/>
+</kw>
+<kw name="Click Button" library="SeleniumLibrary">
+<arg>//button[@id='submitAccount']</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<msg timestamp="20221023 21:01:27.560" level="INFO">Clicking button '//button[@id='submitAccount']'.</msg>
+<status status="PASS" starttime="20221023 21:01:27.560" endtime="20221023 21:01:29.040"/>
+</kw>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>//div[@class='alert alert-danger']</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20221023 21:01:29.041" endtime="20221023 21:01:29.163"/>
+</kw>
+<kw name="Capture Page Screenshot" library="SeleniumLibrary">
+<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
+<msg timestamp="20221023 21:01:29.282" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-6.png"&gt;&lt;img src="selenium-screenshot-6.png" width="800px"&gt;&lt;/a&gt;</msg>
+<status status="PASS" starttime="20221023 21:01:29.164" endtime="20221023 21:01:29.283"/>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>//*[text()='${Campo}']//..//input[@class='is_required validate form-control']</arg>
+<arg>${dado}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20221023 21:01:29.284" level="INFO">Typing text 'paulocabral_90@hotmail.com' into text field '//*[text()='Email ']//..//input[@class='is_required validate form-control']'.</msg>
+<status status="PASS" starttime="20221023 21:01:29.283" endtime="20221023 21:01:29.422"/>
+</kw>
+<status status="PASS" starttime="20221023 21:01:21.967" endtime="20221023 21:01:29.423"/>
+</kw>
+<kw name="E verifico se o campo &quot;Password &quot; e obrigatorio e apos preencho o campo &quot;12345&quot;" library="Resourse" sourcename="E verifico se o campo &quot;${Campo}&quot; e obrigatorio e apos preencho o campo &quot;${dado}&quot;">
+<kw name="Sleep" library="BuiltIn">
+<arg>5</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<msg timestamp="20221023 21:01:34.425" level="INFO">Slept 5 seconds</msg>
+<status status="PASS" starttime="20221023 21:01:29.424" endtime="20221023 21:01:34.425"/>
+</kw>
+<kw name="Clear Element Text" library="SeleniumLibrary">
+<arg>//*[text()='${Campo}']//..//input[@class='is_required validate form-control']</arg>
+<doc>Clears the value of the text-input-element identified by ``locator``.</doc>
+<status status="PASS" starttime="20221023 21:01:34.425" endtime="20221023 21:01:34.475"/>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>//*[text()='${Campo}']//..//input[@class='is_required validate form-control']</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20221023 21:01:34.476" level="INFO">Clicking element '//*[text()='Password ']//..//input[@class='is_required validate form-control']'.</msg>
+<status status="PASS" starttime="20221023 21:01:34.475" endtime="20221023 21:01:34.532"/>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>//*[text()='Your address']</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20221023 21:01:34.533" level="INFO">Clicking element '//*[text()='Your address']'.</msg>
+<status status="PASS" starttime="20221023 21:01:34.533" endtime="20221023 21:01:34.597"/>
+</kw>
+<kw name="Capture Page Screenshot" library="SeleniumLibrary">
+<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
+<msg timestamp="20221023 21:01:34.750" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-7.png"&gt;&lt;img src="selenium-screenshot-7.png" width="800px"&gt;&lt;/a&gt;</msg>
+<status status="PASS" starttime="20221023 21:01:34.599" endtime="20221023 21:01:34.751"/>
+</kw>
+<kw name="Click Button" library="SeleniumLibrary">
+<arg>//button[@id='submitAccount']</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<msg timestamp="20221023 21:01:34.753" level="INFO">Clicking button '//button[@id='submitAccount']'.</msg>
+<status status="PASS" starttime="20221023 21:01:34.752" endtime="20221023 21:01:37.869"/>
+</kw>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>//div[@class='alert alert-danger']</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20221023 21:01:37.869" endtime="20221023 21:01:37.894"/>
+</kw>
+<kw name="Capture Page Screenshot" library="SeleniumLibrary">
+<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
+<msg timestamp="20221023 21:01:38.000" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-8.png"&gt;&lt;img src="selenium-screenshot-8.png" width="800px"&gt;&lt;/a&gt;</msg>
+<status status="PASS" starttime="20221023 21:01:37.894" endtime="20221023 21:01:38.000"/>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>//*[text()='${Campo}']//..//input[@class='is_required validate form-control']</arg>
+<arg>${dado}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20221023 21:01:38.001" level="INFO">Typing text '12345' into text field '//*[text()='Password ']//..//input[@class='is_required validate form-control']'.</msg>
+<status status="PASS" starttime="20221023 21:01:38.001" endtime="20221023 21:01:38.133"/>
+</kw>
+<status status="PASS" starttime="20221023 21:01:29.424" endtime="20221023 21:01:38.133"/>
+</kw>
+<kw name="Então fecho o browser" library="Resourse">
+<kw name="Close All Browsers" library="SeleniumLibrary">
+<doc>Closes all open browsers and resets the browser cache.</doc>
+<status status="PASS" starttime="20221023 21:01:38.135" endtime="20221023 21:01:40.536"/>
+</kw>
+<status status="PASS" starttime="20221023 21:01:38.134" endtime="20221023 21:01:40.536"/>
+</kw>
+<status status="PASS" starttime="20221023 21:00:55.547" endtime="20221023 21:01:40.538"/>
 </test>
-<status status="FAIL" starttime="20221023 19:59:18.891" endtime="20221023 19:59:19.545"/>
+<doc>criacao de cadastro</doc>
+<status status="PASS" starttime="20221023 21:00:55.130" endtime="20221023 21:01:40.540"/>
 </suite>
 <statistics>
 <total>
-<stat pass="0" fail="1" skip="0">All Tests</stat>
+<stat pass="1" fail="0" skip="0">All Tests</stat>
 </total>
 <tag>
 </tag>
 <suite>
-<stat pass="0" fail="1" skip="0" id="s1" name="desafio API">desafio API</stat>
+<stat pass="1" fail="0" skip="0" id="s1" name="desafio ABC">desafio ABC</stat>
 </suite>
 </statistics>
 <errors>
-<msg timestamp="20221023 19:59:19.145" level="ERROR">Error in file 'c:\DesafioABC\DesafioAPI\desafio_API.robot' on line 4: Resource file 'ResourseAPI.robot' does not exist.</msg>
 </errors>
 </robot>

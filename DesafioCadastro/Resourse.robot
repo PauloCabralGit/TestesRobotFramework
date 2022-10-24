@@ -23,6 +23,7 @@ ${id_state}      //select[@id='id_state']//option[@value='7']
 ${postcode}      //input[@id='postcode']    
 ${phone_mobile}  //input[@id='phone_mobile']    
 
+
 *** Keywords ***
 
 Dado que acesso o site "${Site}"
@@ -60,15 +61,16 @@ Então devo ser redirecionado para pagina "MY ACCOUNT"
   Wait Until Element Is Visible    //span[@class='navigation_page'] 
   Close All Browsers
 
-E verifico se o campo "${Campo}" e obrigatorio
+E verifico se o campo "${Campo}" e obrigatorio e apos preencho o campo "${dado}"
     Sleep    5      
     Clear Element Text    //*[text()='${Campo}']//..//input[@class='is_required validate form-control']
     Click Element         //*[text()='${Campo}']//..//input[@class='is_required validate form-control']
     Click Element         //*[text()='Your address']    
-    Wait Until Element Is Visible    //div[@class='required form-group form-error'] 
+    Capture Page Screenshot
     Click Button    //button[@id='submitAccount']
-    Capture Page Screenshot 
-
+    Wait Until Element Is Visible    //div[@class='alert alert-danger']
+    Capture Page Screenshot              
+    Input Text    //*[text()='${Campo}']//..//input[@class='is_required validate form-control']    ${dado}    
       
 Então fecho o browser
     Close All Browsers
