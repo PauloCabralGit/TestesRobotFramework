@@ -42,7 +42,7 @@ E preencho todos os campos
     Click Element    ${title} 
     Input Text       ${First_name}    Paulo 
     Input Text       ${Last_name}     Cabral
-    Input Text       ${Email}         paulocabral_90@hotmail.com
+    Input Text       ${Email}         paulocabral_90@hotmai.com
     Input Password   ${Password}      12345
     Click Element    ${Date_day}
     Click Element    ${Date_months}
