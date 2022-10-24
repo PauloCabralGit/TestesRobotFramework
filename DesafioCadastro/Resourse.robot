@@ -35,6 +35,7 @@ E insiro um email valido no campo "${Email}"
 E clico em Create an account
     Click Button    //button[@id='SubmitCreate'] 
     Wait Until Element Is Visible    //div[@class='form-group form-ok'] 
+    Capture Page Screenshot
     
 E preencho todos os campos
     Sleep    5  
@@ -56,6 +57,7 @@ E preencho todos os campos
     
 Quando clico em "Register"
     Click Button    //button[@id='submitAccount']
+    Capture Page Screenshot
 
 Então devo ser redirecionado para pagina "MY ACCOUNT"
   Wait Until Element Is Visible    //span[@class='navigation_page'] 
