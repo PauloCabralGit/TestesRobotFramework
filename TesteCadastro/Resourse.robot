@@ -49,7 +49,7 @@ ${Expiry_Year}                 css:[data-qa="expiry-year"]
 
 Give access to the site "${Site}"
     Open Browser    url=${Site}    browser=${BROWSER}    options=add_argument("--host-resolver-rules=MAP *.doubleclick.net 0.0.0.0,MAP *.googlesyndication.com 0.0.0.0,MAP *.google-analytics.com 0.0.0.0,MAP *.googletagservices.com 0.0.0.0,MAP adservice.google.com 0.0.0.0")
-    Maximize Browser Window
+    Set Window Size    1920    1080
 
 And I enter the name "${Name}"
     Input Text    ${Signup_Name}    ${Name}
