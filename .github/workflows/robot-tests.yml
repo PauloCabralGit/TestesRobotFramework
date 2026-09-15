@@ -1,0 +1,72 @@
+name: Robot Framework Tests
+
+on:
+  push:
+    branches: [ master ]
+  pull_request:
+    branches: [ master ]
+  workflow_dispatch:
+
+# The Cadastro suite drives a real signup/login/checkout/delete flow against a
+# shared account on a public external site (automationexercise.com). Running
+# two instances of this workflow at the same time would race on that same
+# account, so only one run is allowed at a time; the rest queue up.
+concurrency:
+  group: ${{ github.workflow }}
+  cancel-in-progress: false
+
+jobs:
+  api-tests:
+    name: API Tests
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+          cache: 'pip'
+
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+
+      - name: Run API tests
+        run: robot --outputdir results/api TesteAPI/API.robot
+
+      - name: Upload API test results
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: api-test-results
+          path: results/api
+
+  cadastro-tests:
+    name: Cadastro (Browser) Tests
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+          cache: 'pip'
+
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+
+      - name: Install Xvfb (virtual display for Chrome)
+        run: sudo apt-get update && sudo apt-get install -y xvfb
+
+      - name: Run Cadastro tests
+        run: xvfb-run --auto-servernum robot --outputdir results/cadastro TesteCadastro/beginning.robot
+
+      - name: Upload Cadastro test results
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: cadastro-test-results
+          path: results/cadastro

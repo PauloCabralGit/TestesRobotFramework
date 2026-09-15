@@ -6,74 +6,134 @@ Library    Screenshot
 
 *** Variables ***
 
-${BROWSER}       chrome
-${title}         //input[@id='id_gender1'] 
-${First_name}    //*[text()='First name ']//..//input[@class='is_required validate form-control']    
-${Last_name}     //*[text()='Last name ']//..//input[@class='is_required validate form-control']     
-${Limpa_email}   //*[text()='Email ']//..//input[@class='is_required validate form-control']
-${Email}         //*[text()='Email ']//..//input[@class='is_required validate form-control']        
-${Password}      //*[text()='Password ']//..//input[@class='is_required validate form-control']   
-${Date_day}      //select[@id='days']//option[@value='11']
-${Date_months}   //select[@id='months']//option[@value='7']
-${Date_years}    //select[@id='years']//option[@value='1990']
-${company}       //input[@id='company']    
-${address1}      //input[@id='address1']    
-${city}          //input[@id='city']    
-${id_state}      //select[@id='id_state']//option[@value='7']
-${postcode}      //input[@id='postcode']    
-${phone_mobile}  //input[@id='phone_mobile']    
+${BROWSER}                  chrome
+${Base_URL}                 https://automationexercise.com
+
+${Signup_Name}               css:[data-qa="signup-name"]
+${Signup_Email}              css:[data-qa="signup-email"]
+${Login_Email}               css:[data-qa="login-email"]
+${Login_Password}            css:[data-qa="login-password"]
+${Signup_Button}             css:[data-qa="signup-button"]
+${Login_Button}              css:[data-qa="login-button"]
+${Title_Mr}                  id:id_gender1
+${Password}                  id:password
+${Date_day}                  id:days
+${Date_months}               id:months
+${Date_years}                id:years
+${First_name}                id:first_name
+${Last_name}                 id:last_name
+${Company}                   id:company
+${Address1}                  id:address1
+${Country}                   id:country
+${State}                     id:state
+${City}                      id:city
+${Zipcode}                   id:zipcode
+${Phone_mobile}              id:mobile_number
+${Create_Account_Button}     css:[data-qa="create-account"]
+
+${Category_Woman}            css:a[href="#Women"]
+${Category_Dress}            css:a[href="/category_products/1"]
+${Add_To_Cart_Button}        css:.product-image-wrapper a.add-to-cart
+${Modal_Title}                css:.modal-title
+${Continue_Shopping_Button}  css:.close-modal
+${View_Cart_Link}             xpath=//a[@href='/view_cart']
+${Proceed_To_Checkout_Button}  css:.check_out
+${Name_On_Card}                css:[data-qa="name-on-card"]
+${Card_Number}                 css:[data-qa="card-number"]
+${CVC}                         css:[data-qa="cvc"]
+${Expiry_Month}                css:[data-qa="expiry-month"]
+${Expiry_Year}                 css:[data-qa="expiry-year"]
 
 
 *** Keywords ***
 
-Dado que acesso o site "${Site}"
-    Open Browser  url=${Site}   browser=${BROWSER} 
+Give access to the site "${Site}"
+    Open Browser    url=${Site}    browser=${BROWSER}    options=add_argument("--host-resolver-rules=MAP *.doubleclick.net 0.0.0.0,MAP *.googlesyndication.com 0.0.0.0,MAP *.google-analytics.com 0.0.0.0,MAP *.googletagservices.com 0.0.0.0,MAP adservice.google.com 0.0.0.0")
+    Maximize Browser Window
 
-E insiro um email valido no campo "${Email}"
-    Input Text    //input[@id='email_create']  ${Email}
+And I enter the name "${Name}"
+    Input Text    ${Signup_Name}    ${Name}
 
-E clico em Create an account
-    Click Button    //button[@id='SubmitCreate'] 
-    Wait Until Element Is Visible    //div[@class='form-group form-ok'] 
-    Capture Page Screenshot
-    
-E preencho todos os campos
-    Sleep    5  
-    Click Element    ${title} 
-    Input Text       ${First_name}    Paulo 
-    Input Text       ${Last_name}     Cabral
-    Input Text       ${Email}         paulocabral_90@hotmai.com
-    Input Password   ${Password}      12345
-    Click Element    ${Date_day}
-    Click Element    ${Date_months}
-    Click Element    ${Date_years}
-    Input Text       ${company}        Paulo LTDA
-    Input Text       ${address1}       Rua teste da silva
-    Input Text       ${city}           Curitiba
-    Click Element    ${id_state} 
-    Input Text       ${postcode}       00000   
-    Input Text       ${phone_mobile}   +554199681-6096   
-        
-    
-Quando clico em "Register"
-    Click Button    //button[@id='submitAccount']
-    Capture Page Screenshot
+And I enter the email "${Email}"
+    Input Text    ${Signup_Email}    ${Email}
 
-Então devo ser redirecionado para pagina "MY ACCOUNT"
-  Wait Until Element Is Visible    //span[@class='navigation_page'] 
-  Close All Browsers
+And I enter the password "${Password}"
+    Input Password    ${Login_Password}    ${Password}
 
-E verifico se o campo "${Campo}" e obrigatorio e apos preencho o campo "${dado}"
-    Sleep    5      
-    Clear Element Text    //*[text()='${Campo}']//..//input[@class='is_required validate form-control']
-    Click Element         //*[text()='${Campo}']//..//input[@class='is_required validate form-control']
-    Click Element         //*[text()='Your address']    
-    Capture Page Screenshot
-    Click Button    //button[@id='submitAccount']
-    Wait Until Element Is Visible    //div[@class='alert alert-danger']
-    Capture Page Screenshot              
-    Input Text    //*[text()='${Campo}']//..//input[@class='is_required validate form-control']    ${dado}    
-      
-Então fecho o browser
+And I enter on login email "${Email}"
+    Input Text    ${Login_Email}    ${Email}
+
+And I click on login
+    Scroll Element Into View    ${Login_Button}
+    Execute Javascript    document.querySelector('[data-qa="login-button"]').click();     
+
+And I click on Signup
+    Scroll Element Into View    ${Signup_Button}
+    Execute Javascript    document.querySelector('[data-qa="signup-button"]').click();
+
+Then I confirm that the signup form is still displayed
+    Page Should Contain Element    ${Signup_Name}
+
+And I fill in all the fields
+    Wait Until Element Is Visible    ${Title_Mr}    timeout=15s
+    Click Element                 ${Title_Mr}
+    Input Password                ${Password}      SenhaTeste123
+    Select From List By Value     ${Date_day}      11
+    Select From List By Value     ${Date_months}   7
+    Select From List By Value     ${Date_years}    1990
+    Input Text                    ${First_name}    Paulo
+    Input Text                    ${Last_name}     Cabral
+    Input Text                    ${Company}       Paulo LTDA
+    Input Text                    ${Address1}      Rua teste da silva
+    Select From List By Value     ${Country}       Canada
+    Input Text                    ${State}         Ontario
+    Input Text                    ${City}          Curitiba
+    Input Text                    ${Zipcode}       00000
+    Input Text                    ${Phone_mobile}  +5541996816096
+
+When I click on Register
+    Scroll Element Into View    ${Create_Account_Button}
+    Execute Javascript    document.querySelector('[data-qa="create-account"]').click();
+
+Then I should be redirected to the "MY ACCOUNT" page
+    Wait Until Page Contains    Account Created!    timeout=15s
+
+Then I should be redirected to the "account information" page
+    Wait Until Element Is Visible    ${Password}    timeout=15s
+
+And I delete the account
+    Go To                     ${Base_URL}/delete_account
+    Wait Until Page Contains  Account Deleted!    timeout=15s
     Close All Browsers
- 
+
+Then I close the browser
+    Close All Browsers
+
+I click on "${Element}"
+    Run Keyword If    '${Element}' == 'Woman'                  Click Element    ${Category_Woman}
+    ...    ELSE IF    '${Element}' == 'Dress'                   Click Category Dress
+    ...    ELSE IF    '${Element}' == 'Add to cart'              Click Element    ${Add_To_Cart_Button}
+    ...    ELSE IF    '${Element}' == 'Continue Shopping'        Click Element    ${Continue_Shopping_Button}
+    ...    ELSE IF    '${Element}' == 'View Cart'                Click Element    ${View_Cart_Link}
+    ...    ELSE IF    '${Element}' == 'Proceed To Checkout'      Click Element    ${Proceed_To_Checkout_Button}
+    ...    ELSE IF    '${Element}' == 'Place Order'              Click Element    ${Proceed_To_Checkout_Button}
+    ...    ELSE IF    '${Element}' == 'Pay and Confirm Order'    Execute Javascript    document.querySelector('[data-qa="pay-button"]').click();
+    ...    ELSE                                                  Fail    Elemento "${Element}" nao mapeado no keyword "And I click on"
+
+Click Category Dress
+    Wait Until Element Is Visible    ${Category_Dress}    timeout=5s
+    Click Element                    ${Category_Dress}
+
+Then I confirm that the product was added to the cart
+    Wait Until Element Is Visible    ${Modal_Title}    timeout=10s
+    Element Text Should Be           ${Modal_Title}     Added!
+
+And I fill in the payment details
+    Input Text    ${Name_On_Card}    Paulo Cabral
+    Input Text    ${Card_Number}     4111111111111111
+    Input Text    ${CVC}             123
+    Input Text    ${Expiry_Month}    12
+    Input Text    ${Expiry_Year}     2030
+
+Then I confirm that the order was placed successfully
+    Wait Until Page Contains    Order Placed!    timeout=20s

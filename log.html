@@ -5,16 +5,60 @@
 <meta http-equiv="Pragma" content="no-cache">
 <meta http-equiv="Expires" content="-1">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta content="Robot Framework 5.0.1 (Python 3.10.8 on win32)" name="Generator">
+<meta content="Robot Framework 7.2.2 (Python 3.13.4 on win32)" name="Generator">
 <link rel="icon" type="image/x-icon" href="data:image/x-icon;base64,AAABAAEAEBAAAAEAIABoBAAAFgAAACgAAAAQAAAAIAAAAAEAIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAKcAAAD/AAAA/wAAAP8AAAD/AAAA/wAAAP8AAAD/AAAA/wAAAP8AAAD/AAAAqAAAAAAAAAAAAAAAAAAAALIAAAD/AAAA4AAAANwAAADcAAAA3AAAANwAAADcAAAA3AAAANwAAADcAAAA4AAAAP8AAACxAAAAAAAAAKYAAAD/AAAAuwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAC/AAAA/wAAAKkAAAD6AAAAzAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAN8AAAD/AAAA+gAAAMMAAAAAAAAAAgAAAGsAAABrAAAAawAAAGsAAABrAAAAawAAAGsAAABrAAAADAAAAAAAAADaAAAA/wAAAPoAAADDAAAAAAAAAIsAAAD/AAAA/wAAAP8AAAD/AAAA/wAAAP8AAAD/AAAA/wAAANEAAAAAAAAA2gAAAP8AAAD6AAAAwwAAAAAAAAAAAAAAMgAAADIAAAAyAAAAMgAAADIAAAAyAAAAMgAAADIAAAAFAAAAAAAAANoAAAD/AAAA+gAAAMMAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADaAAAA/wAAAPoAAADDAAAAAAAAADwAAAB8AAAAAAAAAGAAAABcAAAAAAAAAH8AAABKAAAAAAAAAAAAAAAAAAAA2gAAAP8AAAD6AAAAwwAAAAAAAADCAAAA/wAAACkAAADqAAAA4QAAAAAAAAD7AAAA/wAAALAAAAAGAAAAAAAAANoAAAD/AAAA+gAAAMMAAAAAAAAAIwAAAP4AAAD/AAAA/wAAAGAAAAAAAAAAAAAAAMkAAAD/AAAAigAAAAAAAADaAAAA/wAAAPoAAADDAAAAAAAAAAAAAAAIAAAAcAAAABkAAAAAAAAAAAAAAAAAAAAAAAAAEgAAAAAAAAAAAAAA2gAAAP8AAAD7AAAAywAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAN4AAAD/AAAAqwAAAP8AAACvAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAALIAAAD/AAAAsgAAAAAAAAC5AAAA/wAAAMoAAADAAAAAwAAAAMAAAADAAAAAwAAAAMAAAADAAAAAwAAAAMkAAAD/AAAAvAAAAAAAAAAAAAAAAAAAAKwAAAD/AAAA/wAAAP8AAAD/AAAA/wAAAP8AAAD/AAAA/wAAAP8AAAD/AAAArQAAAAAAAAAAwAMAAIABAAAf+AAAP/wAAD/8AAAgBAAAP/wAAD/8AAA//AAAJIwAADHEAAA//AAAP/wAAB/4AACAAQAAwAMAAA==">
-<style media="all" type="text/css">
+<style media="all">
+:root {
+    --text-color: black;
+    --background-color: white;
+    --primary-color: #ddd;
+    --secondary-color: #ccc;
+    --link-color: #15c;
+    --link-hover-color: #61c;
+    --highlight-color: #eee;
+    --target-color: #f9f9f9;
+    --pass-color: #97bd61;
+    --fail-color: #ce3e01;
+    --warn-color: #fed84f;
+    --pass-link-color: #098a09;
+    --warn-link-color: #927201;
+    --fail-link-color: #ce3e01;
+    --ascending-icon: url(data:image/gif;base64,R0lGODlhCwAJAKEAAAAAAH9/fwAAAAAAACH5BAEAAAIALAAAAAALAAkAAAIUlBWnFr3cnIr0WQOyBmvzp13CpxQAOw==);
+    --descending-icon: url(data:image/gif;base64,R0lGODlhCwAJAKEAAAAAAH9/fwAAAAAAACH5BAEAAAIALAAAAAALAAkAAAIUlAWnBr3cnIr0WROyDmvzp13CpxQAOw==);
+}
+@media (prefers-color-scheme: dark) {
+    :root {
+        color-scheme: dark;
+    }
+}
+[data-theme="dark"] {
+    --text-color: #e2e1d7;
+    --background-color: #1c2227;
+    --primary-color: #26373b;
+    --secondary-color: #424f5a;
+    --link-color: #8cc4ff;
+    --link-hover-color: #bb86fc;
+    --highlight-color: #002b36;
+    --target-color: #1a252e;
+    --pass-link-color: #97bd61;
+    --warn-link-color: #fed84f;
+    --fail-link-color: #ff9b8f;
+    --ascending-icon: url(data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAsAAAAJAgMAAACZCj6+AAAAAXNSR0IB2cksfwAAAAlwSFlzAAALEwAACxMBAJqcGAAAAAlQTFRFAAAAfn5+////f/cqYgAAAAN0Uk5TAP//RFDWIQAAACdJREFUeJxjYHBgYGAMYGBgDWFgEA1lAAOtVQwMXCsYGJgWADkNDAA78QP9oKr7vwAAAABJRU5ErkJggg==);
+    --descending-icon: url(data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAsAAAAJAgMAAACZCj6+AAAAAXNSR0IB2cksfwAAAAlwSFlzAAALEwAACxMBAJqcGAAAAAlQTFRFAAAA////fn5+K6jOaAAAAAN0Uk5TAP//RFDWIQAAACdJREFUeJxjYHBgYGAMYGBgDWFgEA1lAAOtVQwMXCsYGJgWADkNDAA78QP9oKr7vwAAAABJRU5ErkJggg==);
+}
 /* Generic and misc styles */
 body {
     font-family: Helvetica, sans-serif;
     font-size: 0.8em;
-    color: black;
+    color: black; /* Fallback value */
+    color: var(--text-color);
     padding: 6px;
-    background: white;
+    background: white; /* Fallback value */
+    background: var(--background-color);
+    margin-left: 15px;
+}
+body[theme-toggled] {
+    transition: background 0.3s, background-color 0.3s, color 0.3s, border-color 0.3s;
 }
 table {
     table-layout: fixed;
@@ -29,20 +73,37 @@ br {
     mso-data-placement: same-cell; /* maintain line breaks in Excel */
 }
 hr {
-    background: #ccc;
+    background: #ccc; /* Fallback value */
+    background: var(--secondary-color);
     height: 1px;
     border: 0;
 }
 a, a:link, a:visited {
     text-decoration: none;
-    color: #15c;
+    color: #15c; /* Fallback value */
+    color: var(--link-color);
 }
 a > img {
-    border: 1px solid #15c !important;
+    border-width: 1px !important;
+    border-style: solid !important;
+    border-color: #15c !important; /* Fallback value */
+    border-color: var(--link-color) !important;
 }
 a:hover, a:active {
     text-decoration: underline;
-    color: #61c;
+    color: #61c; /* Fallback value */
+    color: var(--link-hover-color);
+}
+select {
+    background-color: white; /* Fallback value */
+    background-color: var(--background-color);
+    color: black; /* Fallback value */
+    color: var(--text-color);
+    border-width: 2px;
+    border-style: solid;
+    border-color: #ccc; /* Fallback value */
+    border-color: var(--secondary-color);
+    border-radius: 4px;
 }
 .parent-name {
     font-size: 0.7em;
@@ -55,7 +116,7 @@ a:hover, a:active {
 #header {
     width: 65em;
     height: 3em;
-    margin: 6px 0;
+    margin: 20px 0 6px 0;
 }
 h1 {
     float: left;
@@ -83,14 +144,17 @@ h2 {
 }
 /* Status text colors -- !important allows using them in links */
 .fail {
-    color: #ce3e01 !important;
+    color: #ce3e01 !important; /* Fallback value */
+    color: var(--fail-link-color) !important;
     font-weight: bold;
 }
 .pass {
-    color: #098a09 !important;
+    color: #098a09 !important; /* Fallback value */
+    color: var(--pass-link-color) !important;
 }
 .skip {
-    color: #927201 !important;
+    color: #927201 !important; /* Fallback value */
+    color: var(--warn-link-color) !important;
     font-weight: bold;
 }
 .label {
@@ -98,8 +162,10 @@ h2 {
     font-size: 0.75em;
     letter-spacing: 1px;
     white-space: nowrap;
-    color: black;
-    background-color: #ddd;
+    color: black; /* Fallback value */
+    color: var(--text-color);
+    background-color: #ddd; /* Fallback value */
+    background-color: var(--primary-color);
     border-radius: 3px;
 }
 .label.debug, .label.trace, .label.error, .label.keyword {
@@ -109,15 +175,18 @@ h2 {
     font-weight: bold;
 }
 .label.pass {
-    background-color: #97bd61;
+    background-color: #97bd61; /* Fallback value */
+    background-color: var(--pass-color);
     color: #000 !important;
 }
 .label.fail, .label.error {
-    background-color: #ce3e01;
+    background-color: #ce3e01; /* Fallback value */
+    background-color: var(--fail-color);
     color: #fff !important;
 }
 .label.skip, .label.warn {
-    background-color: #fed84f;
+    background-color: #fed84f; /* Fallback value */
+    background-color: var(--warn-color);
     color: #000 !important;
 }
 /* Top right header */
@@ -146,7 +215,8 @@ h2 {
     padding: 0.3em 0;
     font-size: 0.9em;
     border-bottom-left-radius: 4px;
-    background: #ddd;
+    background: #ddd; /* Fallback value */
+    background: var(--primary-color);
 }
 /* Statistics table */
 .statistics {
@@ -156,15 +226,20 @@ h2 {
     margin-bottom: 1em;
 }
 .statistics tr:hover {
-    background: #f4f4f4;
+    background: #eee; /* Fallback value */
+    background: var(--highlight-color);
     cursor: pointer;
 }
 .statistics th, .statistics td {
-    border: 1px solid #ccc;
+    border-width: 1px;
+    border-style: solid;
+    border-color: #ccc; /* Fallback value */
+    border-color: var(--secondary-color);
     padding: 0.1em 0.3em;
 }
 .statistics th {
-    background-color: #ddd;
+    background-color: #ddd; /* Fallback value */
+    background-color: var(--primary-color);
     padding: 0.2em 0.3em;
 }
 .statistics td {
@@ -200,27 +275,33 @@ th.stats-col-graph:hover {
 }
 /* Statistics graph */
 .graph, .empty-graph {
-    border: 1px solid #ccc;
+    border-width: 1px;
+    border-style: solid;
+    border-color: #ccc; /* Fallback value */
+    border-color: var(--secondary-color);
     width: auto;
     height: 7px;
     padding: 0;
-    background: #aaa;
 }
 .empty-graph {
-    background: #eee;
+    background: #eee; /* Fallback value */
+    background: var(--highlight-color);
 }
 .pass-bar, .fail-bar, .skip-bar {
     float: left;
     height: 100%;
 }
 .fail-bar {
-    background: #ce3e01;
+    background: #ce3e01; /* Fallback value */
+    background: var(--fail-color);
 }
 .pass-bar {
-    background: #97bd61;
+    background: #97bd61; /* Fallback value */
+    background: var(--pass-color);
 }
 .skip-bar {
-    background: #fed84f;
+    background: #fed84f; /* Fallback value */
+    background: var(--warn-color);
 }
 /* Tablesorter - adapted from provided Blue Skin */
 .tablesorter-header {
@@ -230,30 +311,84 @@ th.stats-col-graph:hover {
     cursor: pointer;
 }
 .tablesorter-header:hover {
-    background-color: #ccc;
+    background-color: #ccc; /* Fallback value */
+    background-color: var(--secondary-color);
 }
 .tablesorter-headerAsc {
-    background-image: url(data:image/gif;base64,R0lGODlhCwAJAKEAAAAAAH9/fwAAAAAAACH5BAEAAAIALAAAAAALAAkAAAIUlBWnFr3cnIr0WQOyBmvzp13CpxQAOw==);
-    background-color: #ccc !important;
+    background-image: url(data:image/gif;base64,R0lGODlhCwAJAKEAAAAAAH9/fwAAAAAAACH5BAEAAAIALAAAAAALAAkAAAIUlBWnFr3cnIr0WQOyBmvzp13CpxQAOw==); /* Fallback value */
+    background-image: var(--ascending-icon);
+    background-color: #ccc !important; /* Fallback value */
+    background-color: var(--secondary-color) !important;
 }
 .tablesorter-headerDesc {
-    background-image: url(data:image/gif;base64,R0lGODlhCwAJAKEAAAAAAH9/fwAAAAAAACH5BAEAAAIALAAAAAALAAkAAAIUlAWnBr3cnIr0WROyDmvzp13CpxQAOw==);
-    background-color: #ccc !important;
+    background-image: url(data:image/gif;base64,R0lGODlhCwAJAKEAAAAAAH9/fwAAAAAAACH5BAEAAAIALAAAAAALAAkAAAIUlAWnBr3cnIr0WROyDmvzp13CpxQAOw==); /* Fallback value */
+    background-image: var(--descending-icon);
+    background-color: #ccc !important; /* Fallback value */
+    background-color: var(--secondary-color) !important;
 }
 .sorter-false {
     background-image: none;
     cursor: default;
 }
 .sorter-false:hover {
-    background-color: #ddd;
+    background-color: #ddd; /* Fallback value */
+    background-color: var(--primary-color);
+}
+#theme-toggle {
+    position: fixed;
+    right: 0;
+    bottom: 0;
+    width: 28px;
+    height: 28px;
+    border: none;
+    padding: 4px;
+    z-index: 1000;
+    border-top-left-radius: 3px;
+    border-top-right-radius: 3px;
+    background: var(--highlight-color);
+}
+[data-theme="dark"] .dark-mode-icon,
+[data-theme="light"] .light-mode-icon {
+    display: none;
+}
+[data-theme="dark"] .light-mode-icon,
+[data-theme="light"] .dark-mode-icon {
+    display: block;
+}
+@keyframes highlight {
+    0% {
+        background: var(--primary-color)
+    }
+    100% {
+        background: var(--target-color);
+    }
+}
+:target {
+    background: var(--target-color);
+    transition: background 0.3s;
+    animation: highlight 4s;
 }
 </style>
-<style media="all" type="text/css">
+<style media="all">
 /* Icons are from Open Iconic <https://useiconic.com/open/>.
    Licensed under the MIT License. */
+:root {
+    --icon-filter: invert(0);
+    --icon-highlight: var(--secondary-color);
+    --elapsed-color: #666;
+}
+/* @media (prefers-color-scheme: dark) { */
+[data-theme="dark"] {
+    --icon-filter: invert(1);
+    --icon-highlight: #a39990;
+    --elapsed-color: #999;
+}
 /* Containers */
 .suite, .test, #errors {
-    border: 1px solid #ccc;
+    border-color: #ccc; /* Fallback value */
+    border-color: var(--secondary-color);
+    border-width: 1px;
+    border-style: solid;
     padding: 0.3em 0.2em;
     margin: 0.2em 0;
 }
@@ -282,8 +417,10 @@ th.stats-col-graph:hover {
 }
 .element-header:hover {
     cursor: pointer;
-    background-color: #eee;
-    border-color: #ccc;
+    background-color: #eee; /* Fallback value */
+    background-color: var(--highlight-color);
+    border-color: #ccc; /* Fallback value */
+    border-color: var(--secondary-color);
 }
 .element-header-toggle {
     position: absolute;
@@ -293,10 +430,14 @@ th.stats-col-graph:hover {
     background-position: center;
     background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAYAAAAGCAQAAABKxSfDAAAAAmJLR0QA/4ePzL8AAAAJcEhZcwAACxMAAAsTAQCanBgAAAAHdElNRQfeCR0JChSkZz20AAAAGklEQVQI12NgQAKMDKzInP8IDhOqMk4G7AAANQwBE427PYUAAAAASUVORK5CYII=);
     background-image: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI4IiBoZWlnaHQ9IjgiIHZpZXdCb3g9IjAgMCA4IDgiPgogIDxwYXRoIGQ9Ik0wIDB2Mmg4di0yaC04eiIgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoMCAzKSIgLz4KPC9zdmc+), none;
+    filter: var(--icon-filter);
     height: 10px;
     width: 10px;
     background-size: 6px 6px;
-    border: 1px solid #ccc;
+    border-color: #ccc; /* Fallback value */
+    border-color: var(--icon-highlight);
+    border-width: 1px;
+    border-style: solid;
     border-radius: 2px;
 }
 .closed > .element-header-toggle {
@@ -304,7 +445,8 @@ th.stats-col-graph:hover {
     background-image: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI4IiBoZWlnaHQ9IjgiIHZpZXdCb3g9IjAgMCA4IDgiPgogIDxwYXRoIGQ9Ik0zIDB2M2gtM3YyaDN2M2gydi0zaDN2LTJoLTN2LTNoLTJ6IiAvPgo8L3N2Zz4=), none;
 }
 .element-header:hover > .element-header-toggle {
-    background-color: #ccc;
+    background-color: #ccc; /* Fallback value */
+    background-color: var(--icon-highlight);
 }
 .element-header-right:hover ~ .element-header-toggle {
     background-color: transparent;
@@ -324,23 +466,31 @@ th.stats-col-graph:hover {
 }
 .name {
     font-weight: bold;
+    white-space: pre-wrap;
+}
+.arg, .assign {
+    white-space: pre-wrap;
 }
 .elapsed {
     float: right;
-    color: #666;
+    color: #666; /* Fallback value */
+    color: var(--elapsed-color);
     padding-left: 1em;
 }
 .link {
     background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAgAAAAICAYAAADED76LAAAABHNCSVQICAgIfAhkiAAAAAlwSFlzAAALEwAACxMBAJqcGAAAAHlJREFUGJVtzrEJwmAQBtCn6ASuIKTIBhY2gmghBiJYB1udwk10B8FJbKMBcQFbtbkfJHrVwfu+4/idJR64Y9H7E3higj5O3S8Y44ApLnjhnXCNGhV2yNGggDJwiC02gavUbpDFvscRo4QdXOMKDHBufz3HLYKzNn4AbSkV3fncGQYAAAAASUVORK5CYII=);
     background-image: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI4IiBoZWlnaHQ9IjgiIHZpZXdCb3g9IjAgMCA4IDgiPgogIDxwYXRoIGQ9Ik01Ljg4LjAzYy0uMTguMDEtLjM2LjAzLS41My4wOS0uMjcuMS0uNTMuMjUtLjc1LjQ3YS41LjUgMCAxIDAgLjY5LjY5Yy4xMS0uMTEuMjQtLjE3LjM4LS4yMi4zNS0uMTIuNzgtLjA3IDEuMDYuMjIuMzkuMzkuMzkgMS4wNCAwIDEuNDRsLTEuNSAxLjVjLS40NC40NC0uOC40OC0xLjA2LjQ3LS4yNi0uMDEtLjQxLS4xMy0uNDEtLjEzYS41LjUgMCAxIDAtLjUuODhzLjM0LjIyLjg0LjI1Yy41LjAzIDEuMi0uMTYgMS44MS0uNzhsMS41LTEuNWMuNzgtLjc4Ljc4LTIuMDQgMC0yLjgxLS4yOC0uMjgtLjYxLS40NS0uOTctLjUzLS4xOC0uMDQtLjM4LS4wNC0uNTYtLjAzem0tMiAyLjMxYy0uNS0uMDItMS4xOS4xNS0xLjc4Ljc1bC0xLjUgMS41Yy0uNzguNzgtLjc4IDIuMDQgMCAyLjgxLjU2LjU2IDEuMzYuNzIgMi4wNi40Ny4yNy0uMS41My0uMjUuNzUtLjQ3YS41LjUgMCAxIDAtLjY5LS42OWMtLjExLjExLS4yNC4xNy0uMzguMjItLjM1LjEyLS43OC4wNy0xLjA2LS4yMi0uMzktLjM5LS4zOS0xLjA0IDAtMS40NGwxLjUtMS41Yy40LS40Ljc1LS40NSAxLjAzLS40NC4yOC4wMS40Ny4wOS40Ny4wOWEuNS41IDAgMSAwIC40NC0uODhzLS4zNC0uMi0uODQtLjIyeiIKICAvPgo8L3N2Zz4=), none;
+    filter: var(--icon-filter);
 }
 .expand {
     background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAgAAAAICAYAAADED76LAAAABHNCSVQICAgIfAhkiAAAAAlwSFlzAAALEwAACxMBAJqcGAAAADtJREFUGJVjYCACKDAwMByA0ljFDjAwMPxnYGB4ABVQgLL/Q+VQBB6gseGmIivCkERXhFUSWRFOSawAAEl7E3uv1iMcAAAAAElFTkSuQmCC);
     background-image: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI4IiBoZWlnaHQ9IjgiIHZpZXdCb3g9IjAgMCA4IDgiPgogIDxwYXRoIGQ9Ik0xLjUgMGwtMS41IDEuNSA0IDQgNC00LTEuNS0xLjUtMi41IDIuNS0yLjUtMi41eiIgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoMCAxKSIgLz4KPC9zdmc+), none;
+    filter: var(--icon-filter);
 }
 .collapse {
     background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAgAAAAICAYAAADED76LAAAABHNCSVQICAgIfAhkiAAAAAlwSFlzAAALEwAACxMBAJqcGAAAAC5JREFUGJVjYCARNEAxTsn/UIyhCFkSQxG6ThQ+C5IpjWhG1yNb4YDFTdjEMAEACi8Q++9Y9TAAAAAASUVORK5CYII=);
     background-image: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI4IiBoZWlnaHQ9IjgiIHZpZXdCb3g9IjAgMCA4IDgiPgogIDxwYXRoIGQ9Ik00IDBsLTQgNCAxLjUgMS41IDIuNS0yLjUgMi41IDIuNSAxLjUtMS41LTQtNHoiIHRyYW5zZm9ybT0idHJhbnNsYXRlKDAgMSkiIC8+Cjwvc3ZnPg==), none;
+    filter: var(--icon-filter);
 }
 .expand, .collapse, .link {
     float: left;
@@ -352,7 +502,10 @@ th.stats-col-graph:hover {
     background-size: 8px 8px;
     background-repeat: no-repeat;
     background-position: center;
-    border: 1px solid #ccc;
+    border-color: #ccc; /* Fallback value */
+    border-color: var(--icon-highlight);
+    border-width: 1px;
+    border-style: solid;
     border-radius: 2px;
 }
 .link {
@@ -362,7 +515,8 @@ th.stats-col-graph:hover {
     visibility: visible;
 }
 .expand:hover, .collapse:hover, .link:hover {
-    background-color: #ccc;
+    background-color: #ccc; /* Fallback value */
+    background-color: var(--icon-highlight);
 }
 /* Messages and errors */
 .messages .time, .messages .message {
@@ -403,11 +557,16 @@ th.stats-col-graph:hover {
 .message-row:hover .select-message div {
     background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAwAAAAMCAQAAAD8fJRsAAAAAmJLR0QA/4ePzL8AAAAJcEhZcwAACxMAAAsTAQCanBgAAAAHdElNRQfeCR0MOzhWKZQOAAAASUlEQVQY032PsRHAIAwDX9BkicD+W8UMEqegAQJWKZ/+3sLZJhFGQEZzNaIa4ibh66En867VNaIeoP5WppNuIGoAlOm3g5VC1AdYeQv1BZPRSgAAAABJRU5ErkJggg==);
     background-image: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI4IiBoZWlnaHQ9IjgiIHZpZXdCb3g9IjAgMCA4IDgiPgogIDxwYXRoIGQ9Ik0wIDB2MWg4di0xaC04em0wIDJ2MWg2di0xaC02em0wIDJ2MWg4di0xaC04em0wIDJ2MWg2di0xaC02eiIgLz4KPC9zdmc+), none;
-    border: 1px solid #ccc;
+    filter: var(--icon-filter);
+    border-color: #ccc; /* Fallback value */
+    border-color: var(--icon-highlight);
+    border-width: 1px;
+    border-style: solid;
     border-radius: 2px;
 }
 .select-message:hover div {
-    background-color: #ccc;
+    background-color: #ccc; /* Fallback value */
+    background-color: var(--icon-highlight);
     cursor: pointer;
 }
 /* Message tables - these MUST NOT be combined together because otherwise
@@ -439,7 +598,7 @@ th.stats-col-graph:hover {
     cursor: default;
 }
 </style>
-<style media="print" type="text/css">
+<style media="print">
 body {
     background: white !important;
     padding: 0;
@@ -479,7 +638,7 @@ a:link, a:visited {
     background: #ddd !important;
 }
 </style>
-<style media="all" type="text/css">
+<style media="all">
 #javascript-disabled {
     width: 600px;
     margin: 100px auto 0 auto;
@@ -502,7 +661,7 @@ a:link, a:visited {
     font-style: italic;
 }
 </style>
-<style media="all" type="text/css">
+<style media="all">
 .doc > * {
     margin: 0.7em 1em 0.1em 1em;
     padding: 0;
@@ -514,14 +673,12 @@ a:link, a:visited {
     margin-top: 0.1em;
 }
 .doc table {
-    border: 1px solid #ccc;
     background: transparent;
     border-collapse: collapse;
     empty-cells: show;
     font-size: 0.9em;
 }
 .doc table th, .doc table td {
-    border: 1px solid #ccc;
     background: transparent;
     padding: 0.1em 0.3em;
     height: 1.2em;
@@ -531,24 +688,32 @@ a:link, a:visited {
     letter-spacing: 0.1em;
 }
 .doc pre {
+    border-radius: 2px;
     font-size: 1.1em;
     letter-spacing: 0.05em;
-    background: #f4f4f4;
+    background: #eee; /* Fallback value */
+    background: var(--highlight-color);
 }
 .doc code {
+    border-radius: 2px;
     padding: 0 0.2em;
     letter-spacing: 0.05em;
-    background: #eee;
+    background: #eee; /* Fallback value */
+    background: var(--highlight-color);
 }
 .doc li {
     list-style-position: inside;
     list-style-type: square;
 }
-.doc img {
-    border: 1px solid #ccc;
+.doc img, .doc table, .doc table th, .doc table td {
+    border-width: 1px;
+    border-style: solid;
+    border-color: #ccc; /* Fallback value */
+    border-color: var(--secondary-color);
 }
 .doc hr {
-    background: #ccc;
+    background: #ccc; /* Fallback value */
+    background: var(--secondary-color);
     height: 1px;
     border: 0;
 }
@@ -560,6 +725,9 @@ function toggleSuite(suiteId) {
 }
 function toggleTest(testId) {
     toggleElement(testId, ['keyword']);
+    var test = window.testdata.findLoaded(testId);
+    if (test.status == "FAIL" || test.status == "SKIP")
+        expandFailed(test);
 }
 function toggleKeyword(kwId) {
     toggleElement(kwId, ['keyword']);
@@ -623,7 +791,7 @@ function loadAndExpandElementIds(ids) {
     }
 }
 function expandFailed(element) {
-    if (element.status == "FAIL") {
+    if (element.status == "FAIL" || (element.type == "test" && element.status == "SKIP")) {
         window.elementsToExpand = [element];
         window.expandDecider = function (e) {
             return e.status == "FAIL";
@@ -847,7 +1015,6 @@ window.model = (function () {
         suite.populateSuites = createIterablePopulator('Suite');
         suite.childrenNames = ['keyword', 'suite', 'test'];
         suite.callWhenChildrenReady = function (callable) { callable(); };
-        suite.message = data.message;
         suite.children = function () {
             return suite.keywords().concat(suite.tests()).concat(suite.suites());
         };
@@ -938,6 +1105,7 @@ window.model = (function () {
             name: data.name,
             doc: data.doc,
             status: data.status,
+            message: data.message,
             times: data.times,
             id: data.parent ? data.parent.id + '-' + data.id : data.id
         };
@@ -958,7 +1126,6 @@ window.model = (function () {
                 return test.keywords();
         };
         test.tags = data.tags;
-        test.message = data.message;
         test.matchesTagPattern = function (pattern) {
             return containsTagPattern(test.tags, pattern);
         };
@@ -969,13 +1136,12 @@ window.model = (function () {
     }
     function Keyword(data) {
         var kw = createModelObject(data);
-        var flatTypes = ['RETURN', 'BREAK', 'CONTINUE'];
         kw.libname = data.libname;
         kw.fullName = (kw.libname ? kw.libname + '.' : '') + kw.name;
         kw.type = data.type;
         kw.template = 'keywordTemplate';
         kw.arguments = data.args;
-        kw.assign = data.assign + (data.assign ? ' =' : '');
+        kw.assign = data.assign + (data.assign ? ' =  ' : '');
         kw.tags = data.tags;
         kw.timeout = data.timeout;
         kw.populateKeywords = createIterablePopulator('Keyword');
@@ -1086,58 +1252,48 @@ window.stats = (function () {
             });
     }
     function calculatePercents(total, passed, failed, skipped) {
-        if (total == 0) {
+        if (total == 0)
             return [0.0, 0.0, 0.0];
-        }
         var pass = 100.0 * passed / total;
         var skip = 100.0 * skipped / total;
         var fail = 100.0 * failed / total;
         if (pass > 0 && pass < 0.1)
-            pass = 0.1
+            pass = 0.1;
         if (fail > 0 && fail < 0.1)
-            fail = 0.1
+            fail = 0.1;
         if (skip > 0 && skip < 0.1)
-            skip = 0.1
+            skip = 0.1;
         if (pass > 99.95 && pass < 100)
-            pass = 99.9
+            pass = 99.9;
         if (fail > 99.95 && fail < 100)
-            fail = 99.9
+            fail = 99.9;
         if (skip > 99.95 && skip < 100)
-            skip = 99.9
-        return [Math.round(pass*10)/10, Math.round(skip*10)/10, Math.round(fail*10)/10];
+            skip = 99.9;
+        return [round1(pass), round1(skip), round1(fail)];
     }
     function calculateWidths(num1, num2, num3) {
         if (num1 + num2 + num3 === 0)
             return [0.0, 0.0, 0.0];
         // Make small percentages better visible
         if (num1 > 0 && num1 < 1)
-            num1 = 1
+            num1 = 1.0;
         if (num2 > 0 && num2 < 1)
-            num2 = 1
+            num2 = 1.0;
         if (num3 > 0 && num3 < 1)
-            num3 = 1
+            num3 = 1.0;
         // Handle situation where some are rounded up
         while (num1 + num2 + num3 > 100) {
-            if (num1 > num2 && num1 > num3)
-                num1 -= 0.1;
-            else if (num2 > num1 && num2 > num3)
-                num2 -= 0.1;
-            else if (num3 > num1 && num3 > num2)
-                num3 -= 0.1;
-            else if (num1 > num3 && num1 == num2) {
-                num1 -= 0.1;
-                num2 -= 0.1;
-            }
-            else if (num1 > num2 && num1 == num3) {
-                num1 -= 0.1;
-                num3 -= 0.1;
-            }
-            else if (num2 > num1 && num2 == num3) {
-                num2 -= 0.1;
-                num3 -= 0.1;
-            }
+            if (num1 >= num2 && num1 >= num3)
+                num1 = round1(num1 - 0.1);
+            else if (num2 >= num1 && num2 >= num3)
+                num2 = round1(num2 - 0.1);
+            else
+                num3 = round1(num3 - 0.1);
         }
-        return [Math.ceil(num1*10)/10, Math.ceil(num2*10)/10, Math.ceil(num3*10)/10];
+        return [num1, num2, num3];
+    }
+    function round1(num) {
+        return Math.round(num*10) / 10;
     }
     return {
         Statistics: Statistics
@@ -1354,8 +1510,9 @@ window.testdata = function () {
     var _statistics = null;
     var LEVELS = ['TRACE', 'DEBUG', 'INFO', 'WARN', 'ERROR', 'FAIL', 'SKIP'];
     var STATUSES = ['FAIL', 'PASS', 'SKIP', 'NOT RUN'];
-    var KEYWORD_TYPES = ['KEYWORD', 'SETUP', 'TEARDOWN', 'FOR', 'ITERATION', 'IF', 'ELSE IF', 'ELSE', 'RETURN',
-                         'TRY', 'EXCEPT', 'FINALLY', 'WHILE', 'CONTINUE', 'BREAK'];
+    var KEYWORD_TYPES = ['KEYWORD', 'SETUP', 'TEARDOWN', 'FOR', 'ITERATION', 'IF',
+                         'ELSE IF', 'ELSE', 'RETURN', 'VAR', 'TRY', 'EXCEPT', 'FINALLY',
+                         'WHILE', 'GROUP', 'CONTINUE', 'BREAK', 'ERROR'];
     function addElement(elem) {
         if (!elem.id)
             elem.id = uniqueId();
@@ -1398,6 +1555,7 @@ window.testdata = function () {
         return createKeyword(parent, element, strings, index - messages.length);
     }
     function createKeyword(parent, element, strings, index) {
+        var status = element[8];
         var kw = model.Keyword({
             parent: parent,
             type: KEYWORD_TYPES[element[0]],
@@ -1413,7 +1571,12 @@ window.testdata = function () {
                 this.doc = function () { return doc; };
                 return doc;
             },
-            status: parseStatus(element[8], strings),
+            status: parseStatus(status),
+            message: function () {
+                var msg = status.length == 4 ? strings.get(status[3]) : '';
+                this.message = function () { return msg; };
+                return msg;
+            },
             times: model.Times(times(element[8])),
             isChildrenLoaded: typeof(element[9]) !== 'number'
         });
@@ -1624,6 +1787,20 @@ window.testdata = function () {
 }();
 </script>
 <script type="text/javascript">
+const lightModeIcon = `
+<svg class="light-mode-icon" xmlns="http://www.w3.org/2000/svg" enable-background="new 0 0 24 24"
+    viewBox="0 0 24 24" fill="var(--text-color)">
+    <rect fill="none" height="24" width="24" />
+    <path
+        d="M12,7c-2.76,0-5,2.24-5,5s2.24,5,5,5s5-2.24,5-5S14.76,7,12,7L12,7z M2,13l2,0c0.55,0,1-0.45,1-1s-0.45-1-1-1l-2,0 c-0.55,0-1,0.45-1,1S1.45,13,2,13z M20,13l2,0c0.55,0,1-0.45,1-1s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S19.45,13,20,13z M11,2v2 c0,0.55,0.45,1,1,1s1-0.45,1-1V2c0-0.55-0.45-1-1-1S11,1.45,11,2z M11,20v2c0,0.55,0.45,1,1,1s1-0.45,1-1v-2c0-0.55-0.45-1-1-1 C11.45,19,11,19.45,11,20z M5.99,4.58c-0.39-0.39-1.03-0.39-1.41,0c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06 c0.39,0.39,1.03,0.39,1.41,0s0.39-1.03,0-1.41L5.99,4.58z M18.36,16.95c-0.39-0.39-1.03-0.39-1.41,0c-0.39,0.39-0.39,1.03,0,1.41 l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0c0.39-0.39,0.39-1.03,0-1.41L18.36,16.95z M19.42,5.99c0.39-0.39,0.39-1.03,0-1.41 c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06c-0.39,0.39-0.39,1.03,0,1.41s1.03,0.39,1.41,0L19.42,5.99z M7.05,18.36 c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06c-0.39,0.39-0.39,1.03,0,1.41s1.03,0.39,1.41,0L7.05,18.36z" />
+</svg>`
+const darkModeIcon = `
+<svg class="dark-mode-icon" xmlns="http://www.w3.org/2000/svg" enable-background="new 0 0 24 24"
+    viewBox="0 0 24 24" fill="var(--text-color)">
+    <rect fill="none" height="24" width="24" />
+    <path
+        d="M11.01,3.05C6.51,3.54,3,7.36,3,12c0,4.97,4.03,9,9,9c4.63,0,8.45-3.5,8.95-8c0.09-0.79-0.78-1.42-1.54-0.95 c-0.84,0.54-1.84,0.85-2.91,0.85c-2.98,0-5.4-2.42-5.4-5.4c0-1.06,0.31-2.06,0.84-2.89C12.39,3.94,11.9,2.98,11.01,3.05z" />
+</svg>`
 function removeJavaScriptDisabledWarning() {
     // Not using jQuery here for maximum speed
     document.getElementById('javascript-disabled').style.display = 'none';
@@ -1659,6 +1836,10 @@ function setTitle(suiteName, type) {
 function addHeader() {
     var generated = util.timestamp(window.output.generated);
     $.tmpl('<h1>${title}</h1>' +
+           '<button id=theme-toggle>' +
+             lightModeIcon +
+             darkModeIcon +
+           '</button>' +
            '<div id="generated">' +
              '<span>Generated<br>${generated}</span><br>' +
              '<span id="generated-ago">${ago} ago</span>' +
@@ -1670,6 +1851,7 @@ function addHeader() {
         ago: util.createGeneratedAgoString(generated),
         title: document.title
     }).appendTo($('#header'));
+    document.getElementById('theme-toggle')?.addEventListener('click', theme.onClick);
 }
 function addReportOrLogLink(myType) {
     var url;
@@ -1798,30 +1980,116 @@ function stopPropagation(event) {
     if (event.stopPropagation)
         event.stopPropagation();
 }
+const theme = function () {
+    const storageKey = 'theme-preference';
+    const urlParams = new URLSearchParams(window.location.search);
+    var storage;
+    var theme;
+    function init(givenStorage) {
+        storage = givenStorage;
+        theme = { value: getPreference() };
+        document.body.setAttribute('data-theme', theme.value);
+        reflectPreference();
+        window.matchMedia('(prefers-color-scheme: dark)')
+            .addEventListener('change', ({matches:isDark}) => {
+                theme.value = isDark ? 'dark' : 'light';
+                setPreference();
+            });
+        window.addEventListener('storage', ({key, newValue}) => {
+            if (key === storage.fullKey(storageKey)) {
+                theme.value = newValue === 'dark' ? 'dark' : 'light';
+                setPreference();
+            }
+        });
+    }
+    function getPreference() {
+        if (urlParams.has('theme')) {
+            var urlTheme = urlParams.get('theme') === 'dark' ? 'dark' : 'light';
+            storage.set(storageKey, urlTheme);
+            urlParams.delete('theme');
+            return urlTheme;
+        }
+        if (storage.get(storageKey))
+            return storage.get(storageKey) === 'dark' ? 'dark' : 'light';
+        return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+    }
+    function setPreference() {
+        storage.set(storageKey, theme.value);
+        reflectPreference();
+    }
+    function reflectPreference() {
+        document.body.setAttribute('data-theme', theme.value);
+        document.querySelector('#theme-toggle')?.setAttribute('aria-label', theme.value);
+        const event = new Event('theme-change', {value: theme.value});
+        document.dispatchEvent(event);
+    }
+    function onClick() {
+        theme.value = theme.value === 'light' ? 'dark' : 'light';
+        document.body.setAttribute('theme-toggled', "");
+        setPreference();
+    }
+    return {init: init, getPreference: getPreference, setPreference: setPreference,
+        reflectPreference: reflectPreference, onClick: onClick};
+}();
+</script>
+<script type="text/javascript">
+storage = function () {
+    var prefix = 'robot-framework-';
+    var storage;
+    function init(user) {
+        if (user)
+            prefix += user + '-';
+        storage = getStorage();
+    }
+    function getStorage() {
+        // Use localStorage if it's accessible, normal object otherwise.
+        // Inspired by https://stackoverflow.com/questions/11214404
+        try {
+            localStorage.setItem(prefix, prefix);
+            localStorage.removeItem(prefix);
+            return localStorage;
+        } catch (exception) {
+            return {};
+        }
+    }
+    function get(key, defaultValue) {
+        var value = storage[fullKey(key)];
+        if (typeof value === 'undefined')
+            return defaultValue;
+        return value;
+    }
+    function set(key, value) {
+        storage[fullKey(key)] = value;
+    }
+    function fullKey(key) {
+        return prefix + key;
+    }
+    return {init: init, get: get, set: set, fullKey: fullKey};
+}();
 </script>
 <script type="text/javascript">
 window.output = {};
 </script>
 <script type="text/javascript">
-window.output["suite"] = [1,2,3,4,[],[1,0,39873],[],[[5,0,0,[],[1,526,39345],[[0,6,7,0,0,0,0,0,[1,528,7839],[[0,8,9,0,10,11,0,0,[1,529,7837],[[531,2,12]]]]],[0,13,7,0,0,0,0,0,[1,8368,201],[[0,14,9,0,15,16,0,0,[1,8370,198],[[8370,2,17]]]]],[0,18,7,0,0,0,0,0,[1,8570,326],[[0,19,9,0,20,21,0,0,[1,8571,116],[[8571,2,22]]],[0,23,9,0,24,25,0,0,[1,8687,39],[]],[0,26,9,0,27,0,0,0,[1,8726,170],[[8896,2,28]]]]],[0,29,7,0,0,0,0,0,[1,8897,7411],[[0,30,31,0,32,33,0,0,[1,8898,5001],[[13899,2,34]]],[0,35,9,0,36,37,0,0,[1,13899,50],[]],[0,38,9,0,39,37,0,0,[1,13949,56],[[13949,2,40]]],[0,38,9,0,39,41,0,0,[1,14006,70],[[14007,2,42]]],[0,26,9,0,27,0,0,0,[1,14077,128],[[14205,2,43]]],[0,19,9,0,20,44,0,0,[1,14206,1825],[[14206,2,45]]],[0,23,9,0,24,46,0,0,[1,16031,34],[]],[0,26,9,0,27,0,0,0,[1,16066,124],[[16189,2,47]]],[0,14,9,0,15,48,0,0,[1,16190,118],[[16191,2,49]]]]],[0,50,7,0,0,0,0,0,[1,16310,6895],[[0,30,31,0,32,33,0,0,[1,16311,5010],[[21321,2,34]]],[0,35,9,0,36,37,0,0,[1,21321,46],[]],[0,38,9,0,39,37,0,0,[1,21367,72],[[21368,2,51]]],[0,38,9,0,39,41,0,0,[1,21440,59],[[21440,2,42]]],[0,26,9,0,27,0,0,0,[1,21500,103],[[21602,2,52]]],[0,19,9,0,20,44,0,0,[1,21603,1348],[[21604,2,45]]],[0,23,9,0,24,46,0,0,[1,22952,24],[]],[0,26,9,0,27,0,0,0,[1,22976,114],[[23089,2,53]]],[0,14,9,0,15,48,0,0,[1,23090,115],[[23090,2,54]]]]],[0,55,7,0,0,0,0,0,[1,23206,7030],[[0,30,31,0,32,33,0,0,[1,23207,5012],[[28219,2,34]]],[0,35,9,0,36,37,0,0,[1,28219,68],[]],[0,38,9,0,39,37,0,0,[1,28287,62],[[28288,2,56]]],[0,38,9,0,39,41,0,0,[1,28349,59],[[28350,2,42]]],[0,26,9,0,27,0,0,0,[1,28409,123],[[28531,2,57]]],[0,19,9,0,20,44,0,0,[1,28532,1380],[[28533,2,45]]],[0,23,9,0,24,46,0,0,[1,29913,24],[]],[0,26,9,0,27,0,0,0,[1,29937,154],[[30090,2,58]]],[0,14,9,0,15,48,0,0,[1,30091,144],[[30091,2,59]]]]],[0,60,7,0,0,0,0,0,[1,30237,6970],[[0,30,31,0,32,33,0,0,[1,30238,5012],[[35249,2,34]]],[0,35,9,0,36,37,0,0,[1,35250,48],[]],[0,38,9,0,39,37,0,0,[1,35299,62],[[35299,2,61]]],[0,38,9,0,39,41,0,0,[1,35362,58],[[35363,2,42]]],[0,26,9,0,27,0,0,0,[1,35421,106],[[35527,2,62]]],[0,19,9,0,20,44,0,0,[1,35528,1385],[[35528,2,45]]],[0,23,9,0,24,46,0,0,[1,36913,21],[]],[0,26,9,0,27,0,0,0,[1,36935,120],[[37054,2,63]]],[0,14,9,0,15,48,0,0,[1,37055,151],[[37056,2,64]]]]],[0,65,7,0,0,0,0,0,[1,37208,2662],[[0,66,9,0,67,0,0,0,[1,37209,2660],[]]]]]]],[],[1,1,0,0]];
+window.output["suite"] = [1,2,3,4,[],[1,0,51184],[],[[5,0,0,[],[1,223,7709],[[0,6,7,0,0,0,0,0,[1,224,2744],[[0,8,9,0,10,11,0,0,[1,224,2717],[[224,2,12]]],[0,13,9,0,14,0,0,0,[1,2941,26],[]]]],[0,15,7,0,0,0,0,0,[1,2969,106],[[0,16,9,0,17,18,0,0,[1,2969,105],[[2970,2,19]]]]],[0,20,7,0,0,0,0,0,[1,3075,72],[[0,16,9,0,17,21,0,0,[1,3075,71],[[3075,2,22]]]]],[0,23,7,0,0,0,0,0,[1,3147,583],[[0,24,9,0,25,26,0,0,[1,3147,285],[]],[0,27,9,0,28,29,0,0,[1,3432,297],[[3433,2,30]]]]],[0,31,7,0,0,0,0,0,[1,3730,848],[[0,32,9,0,33,34,0,0,[1,3731,17],[]],[0,35,9,0,36,37,0,0,[1,3748,50],[[3748,2,38]]],[0,39,9,0,40,41,0,0,[1,3798,57],[[3798,2,42],[3819,2,43]]],[0,44,9,0,45,46,0,0,[1,3855,61],[[3856,2,47]]],[0,44,9,0,45,48,0,0,[1,3917,61],[[3917,2,49]]],[0,44,9,0,45,50,0,0,[1,3978,62],[[3979,2,51]]],[0,16,9,0,17,52,0,0,[1,4041,71],[[4041,2,53]]],[0,16,9,0,17,54,0,0,[1,4113,67],[[4113,2,55]]],[0,16,9,0,17,56,0,0,[1,4180,65],[[4180,2,57]]],[0,16,9,0,17,58,0,0,[1,4245,76],[[4245,2,59]]],[0,44,9,0,45,60,0,0,[1,4321,42],[[4322,2,61]]],[0,16,9,0,17,62,0,0,[1,4363,52],[[4363,2,63]]],[0,16,9,0,17,64,0,0,[1,4415,54],[[4415,2,65]]],[0,16,9,0,17,66,0,0,[1,4469,49],[[4470,2,67]]],[0,16,9,0,17,68,0,0,[1,4519,59],[[4519,2,69]]]]],[0,70,7,0,0,0,0,0,[1,4578,1185],[[0,24,9,0,25,71,0,0,[1,4579,297],[]],[0,27,9,0,28,72,0,0,[1,4876,888],[[4876,2,73]]]]],[0,74,7,0,0,0,0,0,[1,5764,2167],[[0,75,9,0,76,0,0,0,[1,5764,2167],[]]]]]],[77,0,0,[],[1,7932,12751],[[0,6,7,0,0,0,0,0,[1,7933,2978],[[0,8,9,0,10,11,0,0,[1,7933,2945],[[7933,2,12]]],[0,13,9,0,14,0,0,0,[1,10878,32],[]]]],[0,23,7,0,0,0,0,0,[1,10911,301],[[0,24,9,0,25,26,0,0,[1,10912,288],[]],[0,27,9,0,28,29,0,0,[1,11200,12],[[11201,2,30]]]]],[0,78,7,0,0,0,0,0,[1,11213,4049],[[0,79,9,0,80,81,0,0,[1,11213,4049],[[15261,2,82]]]]],[0,83,7,0,0,0,0,0,[1,15263,115],[[0,16,9,0,17,84,0,0,[1,15263,114],[[15264,2,85]]]]],[0,86,7,0,0,0,0,0,[1,15378,54],[[0,39,9,0,40,87,0,0,[1,15379,53],[[15379,2,88],[15398,2,43]]]]],[0,89,7,0,0,0,0,0,[1,15432,3080],[[0,24,9,0,25,90,0,0,[1,15433,281],[]],[0,27,9,0,28,91,0,0,[1,15714,2798],[[15715,2,92]]]]],[0,74,7,0,0,0,0,0,[1,18513,2169],[[0,75,9,0,76,0,0,0,[1,18513,2168],[]]]]]],[93,0,0,[],[1,20686,13397],[[0,6,7,0,0,0,0,0,[1,20686,2659],[[0,8,9,0,10,11,0,0,[1,20686,2630],[[20686,2,12]]],[0,13,9,0,14,0,0,0,[1,23316,29],[]]]],[0,83,7,0,0,0,0,0,[1,23346,106],[[0,16,9,0,17,84,0,0,[1,23347,106],[[23347,2,85]]]]],[0,86,7,0,0,0,0,0,[1,23454,55],[[0,39,9,0,40,87,0,0,[1,23454,54],[[23455,2,88],[23475,2,43]]]]],[0,89,7,0,0,0,0,0,[1,23509,2751],[[0,24,9,0,25,90,0,0,[1,23509,268],[]],[0,27,9,0,28,91,0,0,[1,23778,2482],[[23778,2,92]]]]],[0,94,7,0,0,0,0,0,[1,26260,67],[[0,95,96,0,97,98,0,0,[1,26261,67],[[0,35,9,0,36,99,0,0,[1,26261,66],[[26261,2,100]]]]]]],[0,101,7,0,0,0,0,0,[1,26328,855],[[0,95,96,0,97,98,0,0,[1,26329,854],[[0,102,7,0,0,0,0,0,[1,26329,854],[[0,32,9,0,33,103,0,0,[1,26329,250],[]],[0,35,9,0,36,104,0,0,[1,26579,603],[[26580,2,105]]]]]]]]],[0,106,7,0,0,0,0,0,[1,27184,50],[[0,95,96,0,97,98,0,0,[1,27184,49],[[0,35,9,0,36,107,0,0,[1,27185,48],[[27185,2,108]]]]]]],[0,109,7,0,0,0,0,0,[1,27234,506],[[0,32,9,0,33,110,0,0,[1,27234,480],[]],[0,111,9,0,112,113,0,0,[1,27714,25],[[27715,2,114]]]]],[0,115,7,0,0,0,0,0,[1,27740,54],[[0,95,96,0,97,98,0,0,[1,27740,53],[[0,35,9,0,36,116,0,0,[1,27741,53],[[27741,2,117]]]]]]],[0,118,7,0,0,0,0,0,[1,27795,565],[[0,95,96,0,97,98,0,0,[1,27795,564],[[0,35,9,0,36,119,0,0,[1,27796,564],[[27796,2,120]]]]]]],[0,121,7,0,0,0,0,0,[1,28361,1276],[[0,95,96,0,97,98,0,0,[1,28362,1275],[[0,35,9,0,36,122,0,0,[1,28363,1273],[[28364,2,123]]]]]]],[0,124,7,0,0,0,0,0,[1,29637,366],[[0,95,96,0,97,98,0,0,[1,29637,366],[[0,35,9,0,36,122,0,0,[1,29638,365],[[29638,2,123]]]]]]],[0,125,7,0,0,0,0,0,[1,30004,275],[[0,16,9,0,17,126,0,0,[1,30004,68],[[30005,2,127]]],[0,16,9,0,17,128,0,0,[1,30073,64],[[30073,2,129]]],[0,16,9,0,17,130,0,0,[1,30137,45],[[30137,2,131]]],[0,16,9,0,17,132,0,0,[1,30182,46],[[30182,2,133]]],[0,16,9,0,17,134,0,0,[1,30229,51],[[30229,2,135]]]]],[0,136,7,0,0,0,0,0,[1,30280,1616],[[0,95,96,0,97,98,0,0,[1,30280,1615],[[0,27,9,0,28,137,0,0,[1,30281,1615],[[30281,2,138]]]]]]],[0,139,7,0,0,0,0,0,[1,31897,10],[[0,140,9,0,141,142,0,0,[1,31897,10],[]]]],[0,74,7,0,0,0,0,0,[1,31910,2171],[[0,75,9,0,76,0,0,0,[1,31910,2170],[]]]]]],[143,0,0,[],[1,34084,17100],[[0,6,7,0,0,0,0,0,[1,34085,2939],[[0,8,9,0,10,11,0,0,[1,34086,2919],[[34086,2,12]]],[0,13,9,0,14,0,0,0,[1,37005,20],[]]]],[0,83,7,0,0,0,0,0,[1,37025,104],[[0,16,9,0,17,84,0,0,[1,37025,104],[[37025,2,85]]]]],[0,86,7,0,0,0,0,0,[1,37129,83],[[0,39,9,0,40,87,0,0,[1,37130,82],[[37130,2,88],[37152,2,43]]]]],[0,89,7,0,0,0,0,0,[1,37212,11481],[[0,24,9,0,25,90,0,0,[1,37213,296],[]],[0,27,9,0,28,91,0,0,[1,37509,11184],[[37509,2,92]]]]],[0,144,7,0,0,0,0,0,[1,48694,2487],[[0,145,9,0,146,147,0,0,[1,48694,333],[[48694,2,148]]],[0,140,9,0,141,149,0,0,[1,49028,8],[]],[0,75,9,0,76,0,0,0,[1,49036,2144],[]]]],[0,74,7,0,0,0,0,0,[1,51182,1],[[0,75,9,0,76,0,0,0,[1,51182,0],[]]]]]]],[],[4,4,0,0]];
 </script>
 <script type="text/javascript">
 window.output["strings"] = [];
 </script>
 <script type="text/javascript">
-window.output["strings"] = window.output["strings"].concat(["*","*desafio ABC","*c:\\DesafioABC\\DesafioCadastro\\desafio_ABC.robot","eNqzSVTIKEpNs1VKy8xJtdLX13e20ndJLU5My8x3dHKGMZ0TUxKLS4ry9VMg/HignF5RflJ+iZIdmRpt9BPtAE0+KpA=","*<p>criacao de cadastro\x3c/p>","*CN002: Verificar campos obrigatorios","*Dado que acesso o site &quot;http://automationpractice.com/index.php?controller=authentication&amp;back=my-account&quot;","*Resourse","*Open Browser","*SeleniumLibrary","*<p>Opens a new browser instance to the optional <code>url\x3c/code>.\x3c/p>","*url=${Site}, browser=${BROWSER}","eNq1zMENwjAMAMBVrD7Ii+YPTRmBGVxjSERiR64rYHsqduB/umtnKfKAxfS1skGgbNo4gCssuDJsViFMCNn4nobs3k8x4uba0ItKNyQvxCNpi0Vu/B577hdScdNa2dJuM8tufv6ArZ8XpGdqnyMS6SY+zH9pp4hzGL/aflQP","*E insiro um email valido no campo &quot;paulocabral_90@hotmail.com&quot;","*Input Text","*<p>Types the given <code>text\x3c/code> into the text field identified by <code>locator\x3c/code>.\x3c/p>","*//input[@id='email_create'], ${Email}","*Typing text 'paulocabral_90@hotmail.com' into text field '//input[@id='email_create']'.","*E clico em Create an account","*Click Button","*<p>Clicks the button identified by <code>locator\x3c/code>.\x3c/p>","*//button[@id='SubmitCreate']","*Clicking button '//button[@id='SubmitCreate']'.","*Wait Until Element Is Visible","*<p>Waits until the element <code>locator\x3c/code> is visible.\x3c/p>","*//div[@class='form-group form-ok']","*Capture Page Screenshot","*<p>Takes a screenshot of the current page and embeds it into a log file.\x3c/p>","*\x3c/td>\x3c/tr><tr><td colspan=\"3\"><a href=\"selenium-screenshot-5.png\"><img src=\"selenium-screenshot-5.png\" width=\"800px\">\x3c/a>","*E verifico se o campo &quot;First name &quot; e obrigatorio e apos preencho o campo &quot;Paulo&quot;","*Sleep","*BuiltIn","*<p>Pauses the test executed for the given time.\x3c/p>","*5","*Slept 5 seconds","*Clear Element Text","*<p>Clears the value of the text-input-element identified by <code>locator\x3c/code>.\x3c/p>","*//*[text()='${Campo}']//..//input[@class='is_required validate form-control']","*Click Element","*<p>Click the element identified by <code>locator\x3c/code>.\x3c/p>","*Clicking element '//*[text()='First name ']//..//input[@class='is_required validate form-control']'.","*//*[text()='Your address']","*Clicking element '//*[text()='Your address']'.","*\x3c/td>\x3c/tr><tr><td colspan=\"3\"><a href=\"selenium-screenshot-6.png\"><img src=\"selenium-screenshot-6.png\" width=\"800px\">\x3c/a>","*//button[@id='submitAccount']","*Clicking button '//button[@id='submitAccount']'.","*//div[@class='alert alert-danger']","*\x3c/td>\x3c/tr><tr><td colspan=\"3\"><a href=\"selenium-screenshot-7.png\"><img src=\"selenium-screenshot-7.png\" width=\"800px\">\x3c/a>","*//*[text()='${Campo}']//..//input[@class='is_required validate form-control'], ${dado}","*Typing text 'Paulo' into text field '//*[text()='First name ']//..//input[@class='is_required validate form-control']'.","*E verifico se o campo &quot;Last name &quot; e obrigatorio e apos preencho o campo &quot;Cabral&quot;","*Clicking element '//*[text()='Last name ']//..//input[@class='is_required validate form-control']'.","*\x3c/td>\x3c/tr><tr><td colspan=\"3\"><a href=\"selenium-screenshot-8.png\"><img src=\"selenium-screenshot-8.png\" width=\"800px\">\x3c/a>","*\x3c/td>\x3c/tr><tr><td colspan=\"3\"><a href=\"selenium-screenshot-9.png\"><img src=\"selenium-screenshot-9.png\" width=\"800px\">\x3c/a>","*Typing text 'Cabral' into text field '//*[text()='Last name ']//..//input[@class='is_required validate form-control']'.","*E verifico se o campo &quot;Email &quot; e obrigatorio e apos preencho o campo &quot;paulocabral_90@hotmail.com&quot;","*Clicking element '//*[text()='Email ']//..//input[@class='is_required validate form-control']'.","*\x3c/td>\x3c/tr><tr><td colspan=\"3\"><a href=\"selenium-screenshot-10.png\"><img src=\"selenium-screenshot-10.png\" width=\"800px\">\x3c/a>","*\x3c/td>\x3c/tr><tr><td colspan=\"3\"><a href=\"selenium-screenshot-11.png\"><img src=\"selenium-screenshot-11.png\" width=\"800px\">\x3c/a>","*Typing text 'paulocabral_90@hotmail.com' into text field '//*[text()='Email ']//..//input[@class='is_required validate form-control']'.","*E verifico se o campo &quot;Password &quot; e obrigatorio e apos preencho o campo &quot;12345&quot;","*Clicking element '//*[text()='Password ']//..//input[@class='is_required validate form-control']'.","*\x3c/td>\x3c/tr><tr><td colspan=\"3\"><a href=\"selenium-screenshot-12.png\"><img src=\"selenium-screenshot-12.png\" width=\"800px\">\x3c/a>","*\x3c/td>\x3c/tr><tr><td colspan=\"3\"><a href=\"selenium-screenshot-13.png\"><img src=\"selenium-screenshot-13.png\" width=\"800px\">\x3c/a>","*Typing text '12345' into text field '//*[text()='Password ']//..//input[@class='is_required validate form-control']'.","*Então fecho o browser","*Close All Browsers","*<p>Closes all open browsers and resets the browser cache.\x3c/p>"]);
+window.output["strings"] = window.output["strings"].concat(["*","*Beginning","*C:\\Users\\Ketleen Oliveira\\TestesRobotFramework\\TesteCadastro\\beginning.robot","*TesteCadastro/beginning.robot","*<p>criacao de cadastro\x3c/p>","*CN001: Successful user registration","*Give access to the site &quot;https://automationexercise.com/login&quot;","*Resourse","*Open Browser","*SeleniumLibrary","*<p>Opens a new browser instance to the optional <code>url\x3c/code>.\x3c/p>","eNp1zsEKwjAMBuBXGcODii2+wA4KHkXZDh4la0Mtdo2k7WSI726dHgQ1uf3/R0hiV01ujY14L/K0TNeAnKN1vTs0m3pM6RIt+VCB1kdgkzr0cVoKcaIQBWMg1yMLTg5DtV3ti7nUlFqHyll1lh5jsZTjLl6tITLZDl5bBc/TUlH30wjw4IZoVfhLIpj8cW8VfhvQ7+ptP0E5ewCKLlGs","*Opening browser 'chrome' to base url '<a href=\"https://automationexercise.com/login\">https://automationexercise.com/login\x3c/a>'.","*Maximize Browser Window","*<p>Maximizes current browser window.\x3c/p>","*And I enter the name &quot;Paulo Cabral&quot;","*Input Text","*<p>Types the given <code>text\x3c/code> into the text field identified by <code>locator\x3c/code>.\x3c/p>","*${Signup_Name}    ${Name}","*Typing text 'Paulo Cabral' into text field 'css:[data-qa=\"signup-name\"]'.","*And I enter the email &quot;paulocabral_90@hotmail.com&quot;","*${Signup_Email}    ${Email}","*Typing text 'paulocabral_90@hotmail.com' into text field 'css:[data-qa=\"signup-email\"]'.","*And I click on Signup","*Scroll Element Into View","*<p>Scrolls the element identified by <code>locator\x3c/code> into view.\x3c/p>","*${Signup_Button}","*Execute Javascript","*<p>Executes the given JavaScript code with possible arguments.\x3c/p>","*document.querySelector('[data-qa=\"signup-button\"]').click();","*Executing JavaScript:\ndocument.querySelector('[data-qa=\"signup-button\"]').click();\nWithout any arguments.","*And I fill in all the fields","*Wait Until Element Is Visible","*<p>Waits until the element <code>locator\x3c/code> is visible.\x3c/p>","*${Title_Mr}    timeout=15s","*Click Element","*<p>Click the element identified by <code>locator\x3c/code>.\x3c/p>","*${Title_Mr}","*Clicking element 'id:id_gender1'.","*Input Password","*<p>Types the given password into the text field identified by <code>locator\x3c/code>.\x3c/p>","*${Password}    SenhaTeste123","*Typing password into text field 'id:password'.","*Temporally setting log level to: NONE","*Select From List By Value","*<p>Selects options from selection list <code>locator\x3c/code> by <code>values\x3c/code>.\x3c/p>","*${Date_day}    11","*Selecting options from selection list 'id:days' by value 11.","*${Date_months}    7","*Selecting options from selection list 'id:months' by value 7.","*${Date_years}    1990","*Selecting options from selection list 'id:years' by value 1990.","*${First_name}    Paulo","*Typing text 'Paulo' into text field 'id:first_name'.","*${Last_name}    Cabral","*Typing text 'Cabral' into text field 'id:last_name'.","*${Company}    Paulo LTDA","*Typing text 'Paulo LTDA' into text field 'id:company'.","*${Address1}    Rua teste da silva","*Typing text 'Rua teste da silva' into text field 'id:address1'.","*${Country}    Canada","*Selecting options from selection list 'id:country' by value Canada.","*${State}    Ontario","*Typing text 'Ontario' into text field 'id:state'.","*${City}    Curitiba","*Typing text 'Curitiba' into text field 'id:city'.","*${Zipcode}    00000","*Typing text '00000' into text field 'id:zipcode'.","*${Phone_mobile}    +5541996816096","*Typing text '+5541996816096' into text field 'id:mobile_number'.","*When I click on Register","*${Create_Account_Button}","*document.querySelector('[data-qa=\"create-account\"]').click();","*Executing JavaScript:\ndocument.querySelector('[data-qa=\"create-account\"]').click();\nWithout any arguments.","*Then I close the browser","*Close All Browsers","*<p>Closes all open browsers and resets the browser cache.\x3c/p>","*CN002: Verify required fields","*Then I confirm that the signup form is still displayed","*Page Should Contain Element","*<p>Verifies that element <code>locator\x3c/code> is found on the current page.\x3c/p>","*${Signup_Name}","*Current page contains element 'css:[data-qa=\"signup-name\"]'.","*And I enter on login email &quot;paulocabral_90@hotmail.com&quot;","*${Login_Email}    ${Email}","*Typing text 'paulocabral_90@hotmail.com' into text field 'css:[data-qa=\"login-email\"]'.","*And I enter the password &quot;SenhaTeste123&quot;","*${Login_Password}    ${Password}","*Typing password into text field 'css:[data-qa=\"login-password\"]'.","*And I click on login","*${Login_Button}","*document.querySelector('[data-qa=\"login-button\"]').click();","*Executing JavaScript:\ndocument.querySelector('[data-qa=\"login-button\"]').click();\nWithout any arguments.","*CN003: By product registration","*then I click on &quot;Woman&quot;","*Run Keyword If","*BuiltIn","*<p>Runs the given keyword with the given arguments, if <code>condition\x3c/code> is true.\x3c/p>","eNq1kMFqAjEQhl9lWIToQV+geLDbFSxCBaU9lLJMk6mG3c2sMVu7iO/ebFxbEaxemlMy88//fxnR2SU5FWTcXsBwCOKFCzQC/IlzLTNou02hs4vR0ZJtnQbVvikm03kCk3FzFedeD5Y2mxOv4ziExrXpkVLgGCRad4nHS9IFp7GXpPeVc3ydKWbjtKkI5isuS22WF//aCtOj8NaEZ01biP+gbgQH5qk22VW/mWVJpGDBEK9IZlxddG6lYSet9FbqWY6S4Mkqsv/hjjWgUeCX+qFtcZKTfJGsHMEjfuJGWl2GMMWyasYH64psPaecpGPbFa8KHfbXOIxKrPvvITx6E72BbHC7vbsfEH/GqPPwPqAwRL9YERhkKLAkVAyGIaN6y1ZBNPKYEwh+4M2/AYZ/+WY=","*${Category_Woman}","*Clicking element 'css:a[href=\"#Women\"]'.","*And I click on &quot;Dress&quot;","*Click Category Dress","*${Category_Dress}    timeout=5s","*${Category_Dress}","*Clicking element 'css:a[href=\"/category_products/1\"]'.","*And I click on &quot;Add to cart&quot;","*${Add_To_Cart_Button}","*Clicking element 'css:.product-image-wrapper a.add-to-cart'.","*Then I confirm that the product was added to the cart","*${Modal_Title}    timeout=10s","*Element Text Should Be","*<p>Verifies that element <code>locator\x3c/code> contains exact the text <code>expected\x3c/code>.\x3c/p>","*${Modal_Title}    Added!","*Verifying element 'css:.modal-title' contains exact text 'Added!'.","*And I click on &quot;Continue Shopping&quot;","*${Continue_Shopping_Button}","*Clicking element 'css:.close-modal'.","*And I click on &quot;View Cart&quot;","*${View_Cart_Link}","*Clicking element 'xpath=//a[@href='/view_cart']'.","*And I click on &quot;Proceed To Checkout&quot;","*${Proceed_To_Checkout_Button}","*Clicking element 'css:.check_out'.","*And I click on &quot;Place Order&quot;","*And I fill in the payment details","*${Name_On_Card}    Paulo Cabral","*Typing text 'Paulo Cabral' into text field 'css:[data-qa=\"name-on-card\"]'.","*${Card_Number}    4111111111111111","*Typing text '4111111111111111' into text field 'css:[data-qa=\"card-number\"]'.","*${CVC}    123","*Typing text '123' into text field 'css:[data-qa=\"cvc\"]'.","*${Expiry_Month}    12","*Typing text '12' into text field 'css:[data-qa=\"expiry-month\"]'.","*${Expiry_Year}    2030","*Typing text '2030' into text field 'css:[data-qa=\"expiry-year\"]'.","*And I click on &quot;Pay and Confirm Order&quot;","*document.querySelector('[data-qa=\"pay-button\"]').click();","*Executing JavaScript:\ndocument.querySelector('[data-qa=\"pay-button\"]').click();\nWithout any arguments.","*Then I confirm that the order was placed successfully","*Wait Until Page Contains","*<p>Waits until <code>text\x3c/code> appears on the current page.\x3c/p>","*Order Placed!    timeout=20s","*CN004: Delete account","*And I delete the account","*Go To","*<p>Navigates the current browser window to the provided <code>url\x3c/code>.\x3c/p>","*${Base_URL}/delete_account","*Opening url '<a href=\"https://automationexercise.com/delete_account\">https://automationexercise.com/delete_account\x3c/a>'","*Account Deleted!    timeout=15s"]);
 </script>
 <script type="text/javascript">
-window.output["stats"] = [[{"elapsed":"00:00:39","fail":0,"label":"All Tests","pass":1,"skip":0}],[],[{"elapsed":"00:00:40","fail":0,"id":"s1","label":"desafio ABC","name":"desafio ABC","pass":1,"skip":0}]];
+window.output["stats"] = [[{"elapsed":"00:00:51","fail":0,"label":"All Tests","pass":4,"skip":0}],[],[{"elapsed":"00:00:51","fail":0,"id":"s1","label":"Beginning","name":"Beginning","pass":4,"skip":0}]];
 </script>
 <script type="text/javascript">
 window.output["errors"] = [];
 </script>
 <script type="text/javascript">
-window.output["baseMillis"] = 1666574501465;
+window.output["baseMillis"] = 1789505759011;
 </script>
 <script type="text/javascript">
-window.output["generated"] = 39960;
+window.output["generated"] = 51220;
 </script>
 <script type="text/javascript">
 window.output["expand_keywords"] = null;
@@ -1831,7 +2099,7 @@ window.settings = {"defaultLevel":"INFO","minLevel":"INFO","reportURL":"report.h
 </script>
 <title></title>
 </head>
-<body>
+<body data-theme="dark">
 <div id="javascript-disabled">
   <h1>Opening Robot Framework log failed</h1>
   <ul>
@@ -1841,12 +2109,13 @@ window.settings = {"defaultLevel":"INFO","minLevel":"INFO","reportURL":"report.h
   </ul>
 </div>
 <script type="text/javascript">removeJavaScriptDisabledWarning();</script>
-
 <div id="header"></div>
 <div id="statistics-container"></div>
 
 <script type="text/javascript">
 $(document).ready(function() {
+    storage.init();
+    theme.init(storage);
     try {
         var topsuite = window.testdata.suite();
     } catch (error) {
@@ -1854,6 +2123,7 @@ $(document).ready(function() {
         return;
     }
     initLayout(topsuite.name, 'Log');
+    theme.reflectPreference();
     addStatistics();
     addErrors();
     addExecutionLog(topsuite);
@@ -1894,25 +2164,6 @@ function drawErrorsRecursively(errors, target) {
         // Errors may have moved scroll position. Resetting location re-scrolls.
         if (window.location.hash)
             window.location.replace(window.location.hash);
-        highlightLinkTarget();
-    }
-}
-
-function highlightLinkTarget() {
-    if (window.location.hash) {
-        var target = $(window.location.hash);
-        highlight(target);
-    }
-}
-
-function highlight(element, color) {
-    if (color === undefined)
-        color = 242;
-    if (color < 255) {
-        element.css({'background-color': 'rgb('+color+','+color+','+color+')'});
-        setTimeout(function () { highlight(element, color+1); }, 300);
-    } else {
-        element.css({'background-color': ''});
     }
 }
 
@@ -1928,9 +2179,8 @@ function makeElementVisible(id) {
         util.map(ids, expandElementWithId);
         if (ids.length) {
             expandFailed(window.testdata.findLoaded(util.last(ids)));
-            window.location.hash = '';
             window.location.hash = id;
-            highlightLinkTarget();
+            document.getElementById(id).scrollIntoView();
         }
     });
 }
@@ -1954,7 +2204,7 @@ function addExecutionLog(main) {
 
 <script type="text/x-jquery-tmpl" id="tagStatisticsRowTemplate">
   <tr class="row-${$item.index}">
-    <td class="stats-col-name" title="{{html doc}}">
+    <td class="stats-col-name" title="${doc}">
       <div class="stat-name">
         <span>{{html label}}</span>
         {{if info}}(${info}){{/if}}
@@ -2128,8 +2378,9 @@ function addExecutionLog(main) {
       <div class="element-header-left" title="${type}  {{if name}}{{html fullName}}  {{/if}}[${status}]">
         <span class="elapsed" title="Elapsed time">${times.elapsedTime}</span>
         <span class="label ${status.toLowerCase()}">${type}</span>
-        <span>{{html assign}}</span>
+        <span class="assign">{{html assign}}</span>
         <span class="name"><span class="parent-name">{{html libname}}{{if libname}} . {{/if}}</span>{{html name}}</span>
+        &nbsp;
         <span class="arg">{{html arguments}}</span>
       </div>
       <div class="element-header-right" onclick="stopPropagation(event)">
@@ -2163,6 +2414,12 @@ function addExecutionLog(main) {
           <th>Start / End / Elapsed:</th>
           <td>${times.startTime} / ${times.endTime} / ${times.elapsedTime}</td>
         </tr>
+        {{if message()}}
+        <tr>
+          <th>Message:</th>
+          <td class="message">{{html message()}}</td>
+        </tr>
+        {{/if}}
       </table>
     </div>
   </div>
@@ -2185,6 +2442,7 @@ function addExecutionLog(main) {
   <div id="log-level-selector">
   Log level:
     <select onchange="logLevelSelected(this.options[selectedIndex].value)">
+      <option value="3">WARN</option>
       <option value="2">INFO</option>
       <option value="1">DEBUG</option>
       {{if showTrace()}}<option value="0">TRACE</option>{{/if}}

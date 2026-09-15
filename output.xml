@@ -1,282 +1,873 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<robot generator="Robot 5.0.1 (Python 3.10.8 on win32)" generated="20221023 22:21:41.456" rpa="false" schemaversion="3">
-<suite id="s1" name="desafio ABC" source="c:\DesafioABC\DesafioCadastro\desafio_ABC.robot">
-<test id="s1-t1" name="CN002: Verificar campos obrigatorios" line="15">
-<kw name="Dado que acesso o site &quot;http://automationpractice.com/index.php?controller=authentication&amp;back=my-account&quot;" library="Resourse" sourcename="Dado que acesso o site &quot;${Site}&quot;">
-<kw name="Open Browser" library="SeleniumLibrary">
+<robot generator="Robot 7.2.2 (Python 3.13.4 on win32)" generated="2026-09-15T17:55:59.010308" rpa="false" schemaversion="5">
+<suite id="s1" name="Beginning" source="C:\Users\Ketleen Oliveira\TestesRobotFramework\TesteCadastro\beginning.robot">
+<test id="s1-t1" name="CN001: Successful user registration" line="8">
+<kw name="Give access to the site &quot;https://automationexercise.com/login&quot;" owner="Resourse" source_name="Give access to the site &quot;${Site}&quot;">
+<kw name="Open Browser" owner="SeleniumLibrary">
+<msg time="2026-09-15T17:55:59.235373" level="INFO">Opening browser 'chrome' to base url 'https://automationexercise.com/login'.</msg>
 <arg>url=${Site}</arg>
 <arg>browser=${BROWSER}</arg>
+<arg>options=add_argument("--host-resolver-rules=MAP *.doubleclick.net 0.0.0.0,MAP *.googlesyndication.com 0.0.0.0,MAP *.google-analytics.com 0.0.0.0,MAP *.googletagservices.com 0.0.0.0,MAP adservice.google.com 0.0.0.0")</arg>
 <doc>Opens a new browser instance to the optional ``url``.</doc>
-<msg timestamp="20221023 22:21:41.996" level="INFO">Opening browser 'chrome' to base url 'http://automationpractice.com/index.php?controller=authentication&amp;back=my-account'.</msg>
-<status status="PASS" starttime="20221023 22:21:41.994" endtime="20221023 22:21:49.831"/>
+<status status="PASS" start="2026-09-15T17:55:59.235162" elapsed="2.716615"/>
 </kw>
-<status status="PASS" starttime="20221023 22:21:41.993" endtime="20221023 22:21:49.832"/>
+<kw name="Maximize Browser Window" owner="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" start="2026-09-15T17:56:01.952094" elapsed="0.026173"/>
 </kw>
-<kw name="E insiro um email valido no campo &quot;paulocabral_90@hotmail.com&quot;" library="Resourse" sourcename="E insiro um email valido no campo &quot;${Email}&quot;">
-<kw name="Input Text" library="SeleniumLibrary">
-<arg>//input[@id='email_create']</arg>
+<status status="PASS" start="2026-09-15T17:55:59.234673" elapsed="2.743975"/>
+</kw>
+<kw name="And I enter the name &quot;Paulo Cabral&quot;" owner="Resourse" source_name="And I enter the name &quot;${Name}&quot;">
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2026-09-15T17:56:01.980714" level="INFO">Typing text 'Paulo Cabral' into text field 'css:[data-qa="signup-name"]'.</msg>
+<arg>${Signup_Name}</arg>
+<arg>${Name}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2026-09-15T17:56:01.980292" elapsed="0.104584"/>
+</kw>
+<status status="PASS" start="2026-09-15T17:56:01.979530" elapsed="0.105541"/>
+</kw>
+<kw name="And I enter the email &quot;paulocabral_90@hotmail.com&quot;" owner="Resourse" source_name="And I enter the email &quot;${Email}&quot;">
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2026-09-15T17:56:02.086271" level="INFO">Typing text 'paulocabral_90@hotmail.com' into text field 'css:[data-qa="signup-email"]'.</msg>
+<arg>${Signup_Email}</arg>
 <arg>${Email}</arg>
 <doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<msg timestamp="20221023 22:21:49.835" level="INFO">Typing text 'paulocabral_90@hotmail.com' into text field '//input[@id='email_create']'.</msg>
-<status status="PASS" starttime="20221023 22:21:49.835" endtime="20221023 22:21:50.033"/>
+<status status="PASS" start="2026-09-15T17:56:02.086016" elapsed="0.071084"/>
 </kw>
-<status status="PASS" starttime="20221023 22:21:49.833" endtime="20221023 22:21:50.034"/>
+<status status="PASS" start="2026-09-15T17:56:02.085632" elapsed="0.071603"/>
 </kw>
-<kw name="E clico em Create an account" library="Resourse">
-<kw name="Click Button" library="SeleniumLibrary">
-<arg>//button[@id='SubmitCreate']</arg>
-<doc>Clicks the button identified by ``locator``.</doc>
-<msg timestamp="20221023 22:21:50.036" level="INFO">Clicking button '//button[@id='SubmitCreate']'.</msg>
-<status status="PASS" starttime="20221023 22:21:50.036" endtime="20221023 22:21:50.152"/>
+<kw name="And I click on Signup" owner="Resourse">
+<kw name="Scroll Element Into View" owner="SeleniumLibrary">
+<arg>${Signup_Button}</arg>
+<doc>Scrolls the element identified by ``locator`` into view.</doc>
+<status status="PASS" start="2026-09-15T17:56:02.157905" elapsed="0.284987"/>
 </kw>
-<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
-<arg>//div[@class='form-group form-ok']</arg>
+<kw name="Execute Javascript" owner="SeleniumLibrary">
+<msg time="2026-09-15T17:56:02.443536" level="INFO">Executing JavaScript:
+document.querySelector('[data-qa="signup-button"]').click();
+Without any arguments.</msg>
+<arg>document.querySelector('[data-qa="signup-button"]').click();</arg>
+<doc>Executes the given JavaScript code with possible arguments.</doc>
+<status status="PASS" start="2026-09-15T17:56:02.443087" elapsed="0.297433"/>
+</kw>
+<status status="PASS" start="2026-09-15T17:56:02.157611" elapsed="0.583057"/>
+</kw>
+<kw name="And I fill in all the fields" owner="Resourse">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${Title_Mr}</arg>
+<arg>timeout=15s</arg>
 <doc>Waits until the element ``locator`` is visible.</doc>
-<status status="PASS" starttime="20221023 22:21:50.152" endtime="20221023 22:21:50.191"/>
+<status status="PASS" start="2026-09-15T17:56:02.741517" elapsed="0.017360"/>
 </kw>
-<kw name="Capture Page Screenshot" library="SeleniumLibrary">
-<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
-<msg timestamp="20221023 22:21:50.361" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-5.png"&gt;&lt;img src="selenium-screenshot-5.png" width="800px"&gt;&lt;/a&gt;</msg>
-<status status="PASS" starttime="20221023 22:21:50.191" endtime="20221023 22:21:50.361"/>
-</kw>
-<status status="PASS" starttime="20221023 22:21:50.035" endtime="20221023 22:21:50.361"/>
-</kw>
-<kw name="E verifico se o campo &quot;First name &quot; e obrigatorio e apos preencho o campo &quot;Paulo&quot;" library="Resourse" sourcename="E verifico se o campo &quot;${Campo}&quot; e obrigatorio e apos preencho o campo &quot;${dado}&quot;">
-<kw name="Sleep" library="BuiltIn">
-<arg>5</arg>
-<doc>Pauses the test executed for the given time.</doc>
-<msg timestamp="20221023 22:21:55.364" level="INFO">Slept 5 seconds</msg>
-<status status="PASS" starttime="20221023 22:21:50.363" endtime="20221023 22:21:55.364"/>
-</kw>
-<kw name="Clear Element Text" library="SeleniumLibrary">
-<arg>//*[text()='${Campo}']//..//input[@class='is_required validate form-control']</arg>
-<doc>Clears the value of the text-input-element identified by ``locator``.</doc>
-<status status="PASS" starttime="20221023 22:21:55.364" endtime="20221023 22:21:55.414"/>
-</kw>
-<kw name="Click Element" library="SeleniumLibrary">
-<arg>//*[text()='${Campo}']//..//input[@class='is_required validate form-control']</arg>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2026-09-15T17:56:02.759359" level="INFO">Clicking element 'id:id_gender1'.</msg>
+<arg>${Title_Mr}</arg>
 <doc>Click the element identified by ``locator``.</doc>
-<msg timestamp="20221023 22:21:55.414" level="INFO">Clicking element '//*[text()='First name ']//..//input[@class='is_required validate form-control']'.</msg>
-<status status="PASS" starttime="20221023 22:21:55.414" endtime="20221023 22:21:55.470"/>
+<status status="PASS" start="2026-09-15T17:56:02.759111" elapsed="0.049589"/>
 </kw>
-<kw name="Click Element" library="SeleniumLibrary">
-<arg>//*[text()='Your address']</arg>
-<doc>Click the element identified by ``locator``.</doc>
-<msg timestamp="20221023 22:21:55.472" level="INFO">Clicking element '//*[text()='Your address']'.</msg>
-<status status="PASS" starttime="20221023 22:21:55.471" endtime="20221023 22:21:55.541"/>
+<kw name="Input Password" owner="SeleniumLibrary">
+<msg time="2026-09-15T17:56:02.809138" level="INFO">Typing password into text field 'id:password'.</msg>
+<msg time="2026-09-15T17:56:02.829591" level="INFO">Temporally setting log level to: NONE</msg>
+<arg>${Password}</arg>
+<arg>SenhaTeste123</arg>
+<doc>Types the given password into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2026-09-15T17:56:02.808902" elapsed="0.056544"/>
 </kw>
-<kw name="Capture Page Screenshot" library="SeleniumLibrary">
-<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
-<msg timestamp="20221023 22:21:55.670" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-6.png"&gt;&lt;img src="selenium-screenshot-6.png" width="800px"&gt;&lt;/a&gt;</msg>
-<status status="PASS" starttime="20221023 22:21:55.542" endtime="20221023 22:21:55.670"/>
+<kw name="Select From List By Value" owner="SeleniumLibrary">
+<msg time="2026-09-15T17:56:02.866564" level="INFO">Selecting options from selection list 'id:days' by value 11.</msg>
+<arg>${Date_day}</arg>
+<arg>11</arg>
+<doc>Selects options from selection list ``locator`` by ``values``.</doc>
+<status status="PASS" start="2026-09-15T17:56:02.865984" elapsed="0.061341"/>
 </kw>
-<kw name="Click Button" library="SeleniumLibrary">
-<arg>//button[@id='submitAccount']</arg>
-<doc>Clicks the button identified by ``locator``.</doc>
-<msg timestamp="20221023 22:21:55.671" level="INFO">Clicking button '//button[@id='submitAccount']'.</msg>
-<status status="PASS" starttime="20221023 22:21:55.671" endtime="20221023 22:21:57.496"/>
+<kw name="Select From List By Value" owner="SeleniumLibrary">
+<msg time="2026-09-15T17:56:02.927834" level="INFO">Selecting options from selection list 'id:months' by value 7.</msg>
+<arg>${Date_months}</arg>
+<arg>7</arg>
+<doc>Selects options from selection list ``locator`` by ``values``.</doc>
+<status status="PASS" start="2026-09-15T17:56:02.927549" elapsed="0.061338"/>
 </kw>
-<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
-<arg>//div[@class='alert alert-danger']</arg>
-<doc>Waits until the element ``locator`` is visible.</doc>
-<status status="PASS" starttime="20221023 22:21:57.496" endtime="20221023 22:21:57.530"/>
+<kw name="Select From List By Value" owner="SeleniumLibrary">
+<msg time="2026-09-15T17:56:02.989764" level="INFO">Selecting options from selection list 'id:years' by value 1990.</msg>
+<arg>${Date_years}</arg>
+<arg>1990</arg>
+<doc>Selects options from selection list ``locator`` by ``values``.</doc>
+<status status="PASS" start="2026-09-15T17:56:02.989345" elapsed="0.062039"/>
 </kw>
-<kw name="Capture Page Screenshot" library="SeleniumLibrary">
-<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
-<msg timestamp="20221023 22:21:57.654" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-7.png"&gt;&lt;img src="selenium-screenshot-7.png" width="800px"&gt;&lt;/a&gt;</msg>
-<status status="PASS" starttime="20221023 22:21:57.531" endtime="20221023 22:21:57.655"/>
-</kw>
-<kw name="Input Text" library="SeleniumLibrary">
-<arg>//*[text()='${Campo}']//..//input[@class='is_required validate form-control']</arg>
-<arg>${dado}</arg>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2026-09-15T17:56:03.051953" level="INFO">Typing text 'Paulo' into text field 'id:first_name'.</msg>
+<arg>${First_name}</arg>
+<arg>Paulo</arg>
 <doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<msg timestamp="20221023 22:21:57.656" level="INFO">Typing text 'Paulo' into text field '//*[text()='First name ']//..//input[@class='is_required validate form-control']'.</msg>
-<status status="PASS" starttime="20221023 22:21:57.655" endtime="20221023 22:21:57.773"/>
+<status status="PASS" start="2026-09-15T17:56:03.051620" elapsed="0.071490"/>
 </kw>
-<status status="PASS" starttime="20221023 22:21:50.362" endtime="20221023 22:21:57.773"/>
-</kw>
-<kw name="E verifico se o campo &quot;Last name &quot; e obrigatorio e apos preencho o campo &quot;Cabral&quot;" library="Resourse" sourcename="E verifico se o campo &quot;${Campo}&quot; e obrigatorio e apos preencho o campo &quot;${dado}&quot;">
-<kw name="Sleep" library="BuiltIn">
-<arg>5</arg>
-<doc>Pauses the test executed for the given time.</doc>
-<msg timestamp="20221023 22:22:02.786" level="INFO">Slept 5 seconds</msg>
-<status status="PASS" starttime="20221023 22:21:57.776" endtime="20221023 22:22:02.786"/>
-</kw>
-<kw name="Clear Element Text" library="SeleniumLibrary">
-<arg>//*[text()='${Campo}']//..//input[@class='is_required validate form-control']</arg>
-<doc>Clears the value of the text-input-element identified by ``locator``.</doc>
-<status status="PASS" starttime="20221023 22:22:02.786" endtime="20221023 22:22:02.832"/>
-</kw>
-<kw name="Click Element" library="SeleniumLibrary">
-<arg>//*[text()='${Campo}']//..//input[@class='is_required validate form-control']</arg>
-<doc>Click the element identified by ``locator``.</doc>
-<msg timestamp="20221023 22:22:02.833" level="INFO">Clicking element '//*[text()='Last name ']//..//input[@class='is_required validate form-control']'.</msg>
-<status status="PASS" starttime="20221023 22:22:02.832" endtime="20221023 22:22:02.904"/>
-</kw>
-<kw name="Click Element" library="SeleniumLibrary">
-<arg>//*[text()='Your address']</arg>
-<doc>Click the element identified by ``locator``.</doc>
-<msg timestamp="20221023 22:22:02.905" level="INFO">Clicking element '//*[text()='Your address']'.</msg>
-<status status="PASS" starttime="20221023 22:22:02.905" endtime="20221023 22:22:02.964"/>
-</kw>
-<kw name="Capture Page Screenshot" library="SeleniumLibrary">
-<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
-<msg timestamp="20221023 22:22:03.067" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-8.png"&gt;&lt;img src="selenium-screenshot-8.png" width="800px"&gt;&lt;/a&gt;</msg>
-<status status="PASS" starttime="20221023 22:22:02.965" endtime="20221023 22:22:03.068"/>
-</kw>
-<kw name="Click Button" library="SeleniumLibrary">
-<arg>//button[@id='submitAccount']</arg>
-<doc>Clicks the button identified by ``locator``.</doc>
-<msg timestamp="20221023 22:22:03.069" level="INFO">Clicking button '//button[@id='submitAccount']'.</msg>
-<status status="PASS" starttime="20221023 22:22:03.068" endtime="20221023 22:22:04.416"/>
-</kw>
-<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
-<arg>//div[@class='alert alert-danger']</arg>
-<doc>Waits until the element ``locator`` is visible.</doc>
-<status status="PASS" starttime="20221023 22:22:04.417" endtime="20221023 22:22:04.441"/>
-</kw>
-<kw name="Capture Page Screenshot" library="SeleniumLibrary">
-<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
-<msg timestamp="20221023 22:22:04.554" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-9.png"&gt;&lt;img src="selenium-screenshot-9.png" width="800px"&gt;&lt;/a&gt;</msg>
-<status status="PASS" starttime="20221023 22:22:04.441" endtime="20221023 22:22:04.555"/>
-</kw>
-<kw name="Input Text" library="SeleniumLibrary">
-<arg>//*[text()='${Campo}']//..//input[@class='is_required validate form-control']</arg>
-<arg>${dado}</arg>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2026-09-15T17:56:03.124128" level="INFO">Typing text 'Cabral' into text field 'id:last_name'.</msg>
+<arg>${Last_name}</arg>
+<arg>Cabral</arg>
 <doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<msg timestamp="20221023 22:22:04.555" level="INFO">Typing text 'Cabral' into text field '//*[text()='Last name ']//..//input[@class='is_required validate form-control']'.</msg>
-<status status="PASS" starttime="20221023 22:22:04.555" endtime="20221023 22:22:04.670"/>
+<status status="PASS" start="2026-09-15T17:56:03.123642" elapsed="0.066764"/>
 </kw>
-<status status="PASS" starttime="20221023 22:21:57.775" endtime="20221023 22:22:04.670"/>
-</kw>
-<kw name="E verifico se o campo &quot;Email &quot; e obrigatorio e apos preencho o campo &quot;paulocabral_90@hotmail.com&quot;" library="Resourse" sourcename="E verifico se o campo &quot;${Campo}&quot; e obrigatorio e apos preencho o campo &quot;${dado}&quot;">
-<kw name="Sleep" library="BuiltIn">
-<arg>5</arg>
-<doc>Pauses the test executed for the given time.</doc>
-<msg timestamp="20221023 22:22:09.684" level="INFO">Slept 5 seconds</msg>
-<status status="PASS" starttime="20221023 22:22:04.672" endtime="20221023 22:22:09.684"/>
-</kw>
-<kw name="Clear Element Text" library="SeleniumLibrary">
-<arg>//*[text()='${Campo}']//..//input[@class='is_required validate form-control']</arg>
-<doc>Clears the value of the text-input-element identified by ``locator``.</doc>
-<status status="PASS" starttime="20221023 22:22:09.684" endtime="20221023 22:22:09.752"/>
-</kw>
-<kw name="Click Element" library="SeleniumLibrary">
-<arg>//*[text()='${Campo}']//..//input[@class='is_required validate form-control']</arg>
-<doc>Click the element identified by ``locator``.</doc>
-<msg timestamp="20221023 22:22:09.753" level="INFO">Clicking element '//*[text()='Email ']//..//input[@class='is_required validate form-control']'.</msg>
-<status status="PASS" starttime="20221023 22:22:09.752" endtime="20221023 22:22:09.814"/>
-</kw>
-<kw name="Click Element" library="SeleniumLibrary">
-<arg>//*[text()='Your address']</arg>
-<doc>Click the element identified by ``locator``.</doc>
-<msg timestamp="20221023 22:22:09.815" level="INFO">Clicking element '//*[text()='Your address']'.</msg>
-<status status="PASS" starttime="20221023 22:22:09.814" endtime="20221023 22:22:09.873"/>
-</kw>
-<kw name="Capture Page Screenshot" library="SeleniumLibrary">
-<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
-<msg timestamp="20221023 22:22:09.996" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-10.png"&gt;&lt;img src="selenium-screenshot-10.png" width="800px"&gt;&lt;/a&gt;</msg>
-<status status="PASS" starttime="20221023 22:22:09.874" endtime="20221023 22:22:09.997"/>
-</kw>
-<kw name="Click Button" library="SeleniumLibrary">
-<arg>//button[@id='submitAccount']</arg>
-<doc>Clicks the button identified by ``locator``.</doc>
-<msg timestamp="20221023 22:22:09.998" level="INFO">Clicking button '//button[@id='submitAccount']'.</msg>
-<status status="PASS" starttime="20221023 22:22:09.997" endtime="20221023 22:22:11.377"/>
-</kw>
-<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
-<arg>//div[@class='alert alert-danger']</arg>
-<doc>Waits until the element ``locator`` is visible.</doc>
-<status status="PASS" starttime="20221023 22:22:11.378" endtime="20221023 22:22:11.402"/>
-</kw>
-<kw name="Capture Page Screenshot" library="SeleniumLibrary">
-<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
-<msg timestamp="20221023 22:22:11.555" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-11.png"&gt;&lt;img src="selenium-screenshot-11.png" width="800px"&gt;&lt;/a&gt;</msg>
-<status status="PASS" starttime="20221023 22:22:11.402" endtime="20221023 22:22:11.556"/>
-</kw>
-<kw name="Input Text" library="SeleniumLibrary">
-<arg>//*[text()='${Campo}']//..//input[@class='is_required validate form-control']</arg>
-<arg>${dado}</arg>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2026-09-15T17:56:03.190876" level="INFO">Typing text 'Paulo LTDA' into text field 'id:company'.</msg>
+<arg>${Company}</arg>
+<arg>Paulo LTDA</arg>
 <doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<msg timestamp="20221023 22:22:11.556" level="INFO">Typing text 'paulocabral_90@hotmail.com' into text field '//*[text()='Email ']//..//input[@class='is_required validate form-control']'.</msg>
-<status status="PASS" starttime="20221023 22:22:11.556" endtime="20221023 22:22:11.700"/>
+<status status="PASS" start="2026-09-15T17:56:03.190629" elapsed="0.065035"/>
 </kw>
-<status status="PASS" starttime="20221023 22:22:04.671" endtime="20221023 22:22:11.701"/>
-</kw>
-<kw name="E verifico se o campo &quot;Password &quot; e obrigatorio e apos preencho o campo &quot;12345&quot;" library="Resourse" sourcename="E verifico se o campo &quot;${Campo}&quot; e obrigatorio e apos preencho o campo &quot;${dado}&quot;">
-<kw name="Sleep" library="BuiltIn">
-<arg>5</arg>
-<doc>Pauses the test executed for the given time.</doc>
-<msg timestamp="20221023 22:22:16.714" level="INFO">Slept 5 seconds</msg>
-<status status="PASS" starttime="20221023 22:22:11.703" endtime="20221023 22:22:16.715"/>
-</kw>
-<kw name="Clear Element Text" library="SeleniumLibrary">
-<arg>//*[text()='${Campo}']//..//input[@class='is_required validate form-control']</arg>
-<doc>Clears the value of the text-input-element identified by ``locator``.</doc>
-<status status="PASS" starttime="20221023 22:22:16.715" endtime="20221023 22:22:16.763"/>
-</kw>
-<kw name="Click Element" library="SeleniumLibrary">
-<arg>//*[text()='${Campo}']//..//input[@class='is_required validate form-control']</arg>
-<doc>Click the element identified by ``locator``.</doc>
-<msg timestamp="20221023 22:22:16.764" level="INFO">Clicking element '//*[text()='Password ']//..//input[@class='is_required validate form-control']'.</msg>
-<status status="PASS" starttime="20221023 22:22:16.764" endtime="20221023 22:22:16.826"/>
-</kw>
-<kw name="Click Element" library="SeleniumLibrary">
-<arg>//*[text()='Your address']</arg>
-<doc>Click the element identified by ``locator``.</doc>
-<msg timestamp="20221023 22:22:16.828" level="INFO">Clicking element '//*[text()='Your address']'.</msg>
-<status status="PASS" starttime="20221023 22:22:16.827" endtime="20221023 22:22:16.885"/>
-</kw>
-<kw name="Capture Page Screenshot" library="SeleniumLibrary">
-<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
-<msg timestamp="20221023 22:22:16.992" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-12.png"&gt;&lt;img src="selenium-screenshot-12.png" width="800px"&gt;&lt;/a&gt;</msg>
-<status status="PASS" starttime="20221023 22:22:16.886" endtime="20221023 22:22:16.992"/>
-</kw>
-<kw name="Click Button" library="SeleniumLibrary">
-<arg>//button[@id='submitAccount']</arg>
-<doc>Clicks the button identified by ``locator``.</doc>
-<msg timestamp="20221023 22:22:16.993" level="INFO">Clicking button '//button[@id='submitAccount']'.</msg>
-<status status="PASS" starttime="20221023 22:22:16.993" endtime="20221023 22:22:18.378"/>
-</kw>
-<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
-<arg>//div[@class='alert alert-danger']</arg>
-<doc>Waits until the element ``locator`` is visible.</doc>
-<status status="PASS" starttime="20221023 22:22:18.378" endtime="20221023 22:22:18.399"/>
-</kw>
-<kw name="Capture Page Screenshot" library="SeleniumLibrary">
-<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
-<msg timestamp="20221023 22:22:18.519" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-13.png"&gt;&lt;img src="selenium-screenshot-13.png" width="800px"&gt;&lt;/a&gt;</msg>
-<status status="PASS" starttime="20221023 22:22:18.400" endtime="20221023 22:22:18.520"/>
-</kw>
-<kw name="Input Text" library="SeleniumLibrary">
-<arg>//*[text()='${Campo}']//..//input[@class='is_required validate form-control']</arg>
-<arg>${dado}</arg>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2026-09-15T17:56:03.256117" level="INFO">Typing text 'Rua teste da silva' into text field 'id:address1'.</msg>
+<arg>${Address1}</arg>
+<arg>Rua teste da silva</arg>
 <doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<msg timestamp="20221023 22:22:18.521" level="INFO">Typing text '12345' into text field '//*[text()='Password ']//..//input[@class='is_required validate form-control']'.</msg>
-<status status="PASS" starttime="20221023 22:22:18.520" endtime="20221023 22:22:18.671"/>
+<status status="PASS" start="2026-09-15T17:56:03.255867" elapsed="0.075505"/>
 </kw>
-<status status="PASS" starttime="20221023 22:22:11.702" endtime="20221023 22:22:18.672"/>
+<kw name="Select From List By Value" owner="SeleniumLibrary">
+<msg time="2026-09-15T17:56:03.332625" level="INFO">Selecting options from selection list 'id:country' by value Canada.</msg>
+<arg>${Country}</arg>
+<arg>Canada</arg>
+<doc>Selects options from selection list ``locator`` by ``values``.</doc>
+<status status="PASS" start="2026-09-15T17:56:03.331968" elapsed="0.041770"/>
 </kw>
-<kw name="Então fecho o browser" library="Resourse">
-<kw name="Close All Browsers" library="SeleniumLibrary">
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2026-09-15T17:56:03.374173" level="INFO">Typing text 'Ontario' into text field 'id:state'.</msg>
+<arg>${State}</arg>
+<arg>Ontario</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2026-09-15T17:56:03.373940" elapsed="0.051932"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2026-09-15T17:56:03.426312" level="INFO">Typing text 'Curitiba' into text field 'id:city'.</msg>
+<arg>${City}</arg>
+<arg>Curitiba</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2026-09-15T17:56:03.426077" elapsed="0.054061"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2026-09-15T17:56:03.480832" level="INFO">Typing text '00000' into text field 'id:zipcode'.</msg>
+<arg>${Zipcode}</arg>
+<arg>00000</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2026-09-15T17:56:03.480436" elapsed="0.049103"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2026-09-15T17:56:03.529975" level="INFO">Typing text '+5541996816096' into text field 'id:mobile_number'.</msg>
+<arg>${Phone_mobile}</arg>
+<arg>+5541996816096</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2026-09-15T17:56:03.529740" elapsed="0.058947"/>
+</kw>
+<status status="PASS" start="2026-09-15T17:56:02.741148" elapsed="0.847752"/>
+</kw>
+<kw name="When I click on Register" owner="Resourse">
+<kw name="Scroll Element Into View" owner="SeleniumLibrary">
+<arg>${Create_Account_Button}</arg>
+<doc>Scrolls the element identified by ``locator`` into view.</doc>
+<status status="PASS" start="2026-09-15T17:56:03.589562" elapsed="0.296754"/>
+</kw>
+<kw name="Execute Javascript" owner="SeleniumLibrary">
+<msg time="2026-09-15T17:56:03.886937" level="INFO">Executing JavaScript:
+document.querySelector('[data-qa="create-account"]').click();
+Without any arguments.</msg>
+<arg>document.querySelector('[data-qa="create-account"]').click();</arg>
+<doc>Executes the given JavaScript code with possible arguments.</doc>
+<status status="PASS" start="2026-09-15T17:56:03.886522" elapsed="0.888007"/>
+</kw>
+<status status="PASS" start="2026-09-15T17:56:03.589257" elapsed="1.185412"/>
+</kw>
+<kw name="Then I close the browser" owner="Resourse">
+<kw name="Close All Browsers" owner="SeleniumLibrary">
 <doc>Closes all open browsers and resets the browser cache.</doc>
-<status status="PASS" starttime="20221023 22:22:18.674" endtime="20221023 22:22:21.334"/>
+<status status="PASS" start="2026-09-15T17:56:04.775401" elapsed="2.166846"/>
 </kw>
-<status status="PASS" starttime="20221023 22:22:18.673" endtime="20221023 22:22:21.335"/>
+<status status="PASS" start="2026-09-15T17:56:04.775095" elapsed="2.167318"/>
 </kw>
-<status status="PASS" starttime="20221023 22:21:41.991" endtime="20221023 22:22:21.336"/>
+<status status="PASS" start="2026-09-15T17:55:59.234129" elapsed="7.708688"/>
+</test>
+<test id="s1-t2" name="CN002: Verify required fields" line="16">
+<kw name="Give access to the site &quot;https://automationexercise.com/login&quot;" owner="Resourse" source_name="Give access to the site &quot;${Site}&quot;">
+<kw name="Open Browser" owner="SeleniumLibrary">
+<msg time="2026-09-15T17:56:06.943994" level="INFO">Opening browser 'chrome' to base url 'https://automationexercise.com/login'.</msg>
+<arg>url=${Site}</arg>
+<arg>browser=${BROWSER}</arg>
+<arg>options=add_argument("--host-resolver-rules=MAP *.doubleclick.net 0.0.0.0,MAP *.googlesyndication.com 0.0.0.0,MAP *.google-analytics.com 0.0.0.0,MAP *.googletagservices.com 0.0.0.0,MAP adservice.google.com 0.0.0.0")</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="PASS" start="2026-09-15T17:56:06.943814" elapsed="2.945088"/>
+</kw>
+<kw name="Maximize Browser Window" owner="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" start="2026-09-15T17:56:09.889065" elapsed="0.032035"/>
+</kw>
+<status status="PASS" start="2026-09-15T17:56:06.943616" elapsed="2.977622"/>
+</kw>
+<kw name="And I click on Signup" owner="Resourse">
+<kw name="Scroll Element Into View" owner="SeleniumLibrary">
+<arg>${Signup_Button}</arg>
+<doc>Scrolls the element identified by ``locator`` into view.</doc>
+<status status="PASS" start="2026-09-15T17:56:09.922948" elapsed="0.288104"/>
+</kw>
+<kw name="Execute Javascript" owner="SeleniumLibrary">
+<msg time="2026-09-15T17:56:10.211629" level="INFO">Executing JavaScript:
+document.querySelector('[data-qa="signup-button"]').click();
+Without any arguments.</msg>
+<arg>document.querySelector('[data-qa="signup-button"]').click();</arg>
+<doc>Executes the given JavaScript code with possible arguments.</doc>
+<status status="PASS" start="2026-09-15T17:56:10.211242" elapsed="0.011774"/>
+</kw>
+<status status="PASS" start="2026-09-15T17:56:09.921944" elapsed="0.301200"/>
+</kw>
+<kw name="Then I confirm that the signup form is still displayed" owner="Resourse">
+<kw name="Page Should Contain Element" owner="SeleniumLibrary">
+<msg time="2026-09-15T17:56:14.272490" level="INFO">Current page contains element 'css:[data-qa="signup-name"]'.</msg>
+<arg>${Signup_Name}</arg>
+<doc>Verifies that element ``locator`` is found on the current page.</doc>
+<status status="PASS" start="2026-09-15T17:56:10.223960" elapsed="4.048746"/>
+</kw>
+<status status="PASS" start="2026-09-15T17:56:10.223537" elapsed="4.049365"/>
+</kw>
+<kw name="And I enter on login email &quot;paulocabral_90@hotmail.com&quot;" owner="Resourse" source_name="And I enter on login email &quot;${Email}&quot;">
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2026-09-15T17:56:14.274817" level="INFO">Typing text 'paulocabral_90@hotmail.com' into text field 'css:[data-qa="login-email"]'.</msg>
+<arg>${Login_Email}</arg>
+<arg>${Email}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2026-09-15T17:56:14.274319" elapsed="0.114428"/>
+</kw>
+<status status="PASS" start="2026-09-15T17:56:14.273631" elapsed="0.115311"/>
+</kw>
+<kw name="And I enter the password &quot;SenhaTeste123&quot;" owner="Resourse" source_name="And I enter the password &quot;${Password}&quot;">
+<kw name="Input Password" owner="SeleniumLibrary">
+<msg time="2026-09-15T17:56:14.389850" level="INFO">Typing password into text field 'css:[data-qa="login-password"]'.</msg>
+<msg time="2026-09-15T17:56:14.409201" level="INFO">Temporally setting log level to: NONE</msg>
+<arg>${Login_Password}</arg>
+<arg>${Password}</arg>
+<doc>Types the given password into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2026-09-15T17:56:14.389615" elapsed="0.053317"/>
+</kw>
+<status status="PASS" start="2026-09-15T17:56:14.389294" elapsed="0.053815"/>
+</kw>
+<kw name="And I click on login" owner="Resourse">
+<kw name="Scroll Element Into View" owner="SeleniumLibrary">
+<arg>${Login_Button}</arg>
+<doc>Scrolls the element identified by ``locator`` into view.</doc>
+<status status="PASS" start="2026-09-15T17:56:14.443710" elapsed="0.281347"/>
+</kw>
+<kw name="Execute Javascript" owner="SeleniumLibrary">
+<msg time="2026-09-15T17:56:14.726081" level="INFO">Executing JavaScript:
+document.querySelector('[data-qa="login-button"]').click();
+Without any arguments.</msg>
+<arg>document.querySelector('[data-qa="login-button"]').click();</arg>
+<doc>Executes the given JavaScript code with possible arguments.</doc>
+<status status="PASS" start="2026-09-15T17:56:14.725391" elapsed="2.797527"/>
+</kw>
+<status status="PASS" start="2026-09-15T17:56:14.443444" elapsed="3.079673"/>
+</kw>
+<kw name="Then I close the browser" owner="Resourse">
+<kw name="Close All Browsers" owner="SeleniumLibrary">
+<doc>Closes all open browsers and resets the browser cache.</doc>
+<status status="PASS" start="2026-09-15T17:56:17.524260" elapsed="2.168225"/>
+</kw>
+<status status="PASS" start="2026-09-15T17:56:17.523786" elapsed="2.169151"/>
+</kw>
+<status status="PASS" start="2026-09-15T17:56:06.943298" elapsed="12.750942"/>
+</test>
+<test id="s1-t3" name="CN003: By product registration" line="24">
+<kw name="Give access to the site &quot;https://automationexercise.com/login&quot;" owner="Resourse" source_name="Give access to the site &quot;${Site}&quot;">
+<kw name="Open Browser" owner="SeleniumLibrary">
+<msg time="2026-09-15T17:56:19.697261" level="INFO">Opening browser 'chrome' to base url 'https://automationexercise.com/login'.</msg>
+<arg>url=${Site}</arg>
+<arg>browser=${BROWSER}</arg>
+<arg>options=add_argument("--host-resolver-rules=MAP *.doubleclick.net 0.0.0.0,MAP *.googlesyndication.com 0.0.0.0,MAP *.google-analytics.com 0.0.0.0,MAP *.googletagservices.com 0.0.0.0,MAP adservice.google.com 0.0.0.0")</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="PASS" start="2026-09-15T17:56:19.697091" elapsed="2.629806"/>
+</kw>
+<kw name="Maximize Browser Window" owner="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" start="2026-09-15T17:56:22.327140" elapsed="0.028783"/>
+</kw>
+<status status="PASS" start="2026-09-15T17:56:19.696883" elapsed="2.659165"/>
+</kw>
+<kw name="And I enter on login email &quot;paulocabral_90@hotmail.com&quot;" owner="Resourse" source_name="And I enter on login email &quot;${Email}&quot;">
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2026-09-15T17:56:22.357904" level="INFO">Typing text 'paulocabral_90@hotmail.com' into text field 'css:[data-qa="login-email"]'.</msg>
+<arg>${Login_Email}</arg>
+<arg>${Email}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2026-09-15T17:56:22.357690" elapsed="0.105511"/>
+</kw>
+<status status="PASS" start="2026-09-15T17:56:22.356943" elapsed="0.106484"/>
+</kw>
+<kw name="And I enter the password &quot;SenhaTeste123&quot;" owner="Resourse" source_name="And I enter the password &quot;${Password}&quot;">
+<kw name="Input Password" owner="SeleniumLibrary">
+<msg time="2026-09-15T17:56:22.465574" level="INFO">Typing password into text field 'css:[data-qa="login-password"]'.</msg>
+<msg time="2026-09-15T17:56:22.486418" level="INFO">Temporally setting log level to: NONE</msg>
+<arg>${Login_Password}</arg>
+<arg>${Password}</arg>
+<doc>Types the given password into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2026-09-15T17:56:22.465303" elapsed="0.053735"/>
+</kw>
+<status status="PASS" start="2026-09-15T17:56:22.464566" elapsed="0.054889"/>
+</kw>
+<kw name="And I click on login" owner="Resourse">
+<kw name="Scroll Element Into View" owner="SeleniumLibrary">
+<arg>${Login_Button}</arg>
+<doc>Scrolls the element identified by ``locator`` into view.</doc>
+<status status="PASS" start="2026-09-15T17:56:22.520296" elapsed="0.268444"/>
+</kw>
+<kw name="Execute Javascript" owner="SeleniumLibrary">
+<msg time="2026-09-15T17:56:22.789444" level="INFO">Executing JavaScript:
+document.querySelector('[data-qa="login-button"]').click();
+Without any arguments.</msg>
+<arg>document.querySelector('[data-qa="login-button"]').click();</arg>
+<doc>Executes the given JavaScript code with possible arguments.</doc>
+<status status="PASS" start="2026-09-15T17:56:22.788969" elapsed="2.481645"/>
+</kw>
+<status status="PASS" start="2026-09-15T17:56:22.520012" elapsed="2.750749"/>
+</kw>
+<kw name="then I click on &quot;Woman&quot;" owner="Resourse" source_name="I click on &quot;${Element}&quot;">
+<kw name="Run Keyword If" owner="BuiltIn">
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2026-09-15T17:56:25.272308" level="INFO">Clicking element 'css:a[href="#Women"]'.</msg>
+<arg>${Category_Woman}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2026-09-15T17:56:25.272125" elapsed="0.066370"/>
+</kw>
+<arg>'${Element}' == 'Woman'</arg>
+<arg>Click Element</arg>
+<arg>${Category_Woman}</arg>
+<arg>ELSE IF</arg>
+<arg>'${Element}' == 'Dress'</arg>
+<arg>Click Category Dress</arg>
+<arg>ELSE IF</arg>
+<arg>'${Element}' == 'Add to cart'</arg>
+<arg>Click Element</arg>
+<arg>${Add_To_Cart_Button}</arg>
+<arg>ELSE IF</arg>
+<arg>'${Element}' == 'Continue Shopping'</arg>
+<arg>Click Element</arg>
+<arg>${Continue_Shopping_Button}</arg>
+<arg>ELSE IF</arg>
+<arg>'${Element}' == 'View Cart'</arg>
+<arg>Click Element</arg>
+<arg>${View_Cart_Link}</arg>
+<arg>ELSE IF</arg>
+<arg>'${Element}' == 'Proceed To Checkout'</arg>
+<arg>Click Element</arg>
+<arg>${Proceed_To_Checkout_Button}</arg>
+<arg>ELSE IF</arg>
+<arg>'${Element}' == 'Place Order'</arg>
+<arg>Click Element</arg>
+<arg>${Proceed_To_Checkout_Button}</arg>
+<arg>ELSE IF</arg>
+<arg>'${Element}' == 'Pay and Confirm Order'</arg>
+<arg>Execute Javascript</arg>
+<arg>document.querySelector('[data-qa="pay-button"]').click();</arg>
+<arg>ELSE</arg>
+<arg>Fail</arg>
+<arg>Elemento "${Element}" nao mapeado no keyword "And I click on"</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<status status="PASS" start="2026-09-15T17:56:25.271795" elapsed="0.066809"/>
+</kw>
+<status status="PASS" start="2026-09-15T17:56:25.271461" elapsed="0.067298"/>
+</kw>
+<kw name="And I click on &quot;Dress&quot;" owner="Resourse" source_name="I click on &quot;${Element}&quot;">
+<kw name="Run Keyword If" owner="BuiltIn">
+<kw name="Click Category Dress" owner="Resourse">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${Category_Dress}</arg>
+<arg>timeout=5s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2026-09-15T17:56:25.340368" elapsed="0.249675"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2026-09-15T17:56:25.590558" level="INFO">Clicking element 'css:a[href="/category_products/1"]'.</msg>
+<arg>${Category_Dress}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2026-09-15T17:56:25.590280" elapsed="0.603221"/>
+</kw>
+<status status="PASS" start="2026-09-15T17:56:25.340153" elapsed="0.853509"/>
+</kw>
+<arg>'${Element}' == 'Woman'</arg>
+<arg>Click Element</arg>
+<arg>${Category_Woman}</arg>
+<arg>ELSE IF</arg>
+<arg>'${Element}' == 'Dress'</arg>
+<arg>Click Category Dress</arg>
+<arg>ELSE IF</arg>
+<arg>'${Element}' == 'Add to cart'</arg>
+<arg>Click Element</arg>
+<arg>${Add_To_Cart_Button}</arg>
+<arg>ELSE IF</arg>
+<arg>'${Element}' == 'Continue Shopping'</arg>
+<arg>Click Element</arg>
+<arg>${Continue_Shopping_Button}</arg>
+<arg>ELSE IF</arg>
+<arg>'${Element}' == 'View Cart'</arg>
+<arg>Click Element</arg>
+<arg>${View_Cart_Link}</arg>
+<arg>ELSE IF</arg>
+<arg>'${Element}' == 'Proceed To Checkout'</arg>
+<arg>Click Element</arg>
+<arg>${Proceed_To_Checkout_Button}</arg>
+<arg>ELSE IF</arg>
+<arg>'${Element}' == 'Place Order'</arg>
+<arg>Click Element</arg>
+<arg>${Proceed_To_Checkout_Button}</arg>
+<arg>ELSE IF</arg>
+<arg>'${Element}' == 'Pay and Confirm Order'</arg>
+<arg>Execute Javascript</arg>
+<arg>document.querySelector('[data-qa="pay-button"]').click();</arg>
+<arg>ELSE</arg>
+<arg>Fail</arg>
+<arg>Elemento "${Element}" nao mapeado no keyword "And I click on"</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<status status="PASS" start="2026-09-15T17:56:25.339757" elapsed="0.853987"/>
+</kw>
+<status status="PASS" start="2026-09-15T17:56:25.339448" elapsed="0.854504"/>
+</kw>
+<kw name="And I click on &quot;Add to cart&quot;" owner="Resourse" source_name="I click on &quot;${Element}&quot;">
+<kw name="Run Keyword If" owner="BuiltIn">
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2026-09-15T17:56:26.196391" level="INFO">Clicking element 'css:.product-image-wrapper a.add-to-cart'.</msg>
+<arg>${Add_To_Cart_Button}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2026-09-15T17:56:26.196044" elapsed="0.047721"/>
+</kw>
+<arg>'${Element}' == 'Woman'</arg>
+<arg>Click Element</arg>
+<arg>${Category_Woman}</arg>
+<arg>ELSE IF</arg>
+<arg>'${Element}' == 'Dress'</arg>
+<arg>Click Category Dress</arg>
+<arg>ELSE IF</arg>
+<arg>'${Element}' == 'Add to cart'</arg>
+<arg>Click Element</arg>
+<arg>${Add_To_Cart_Button}</arg>
+<arg>ELSE IF</arg>
+<arg>'${Element}' == 'Continue Shopping'</arg>
+<arg>Click Element</arg>
+<arg>${Continue_Shopping_Button}</arg>
+<arg>ELSE IF</arg>
+<arg>'${Element}' == 'View Cart'</arg>
+<arg>Click Element</arg>
+<arg>${View_Cart_Link}</arg>
+<arg>ELSE IF</arg>
+<arg>'${Element}' == 'Proceed To Checkout'</arg>
+<arg>Click Element</arg>
+<arg>${Proceed_To_Checkout_Button}</arg>
+<arg>ELSE IF</arg>
+<arg>'${Element}' == 'Place Order'</arg>
+<arg>Click Element</arg>
+<arg>${Proceed_To_Checkout_Button}</arg>
+<arg>ELSE IF</arg>
+<arg>'${Element}' == 'Pay and Confirm Order'</arg>
+<arg>Execute Javascript</arg>
+<arg>document.querySelector('[data-qa="pay-button"]').click();</arg>
+<arg>ELSE</arg>
+<arg>Fail</arg>
+<arg>Elemento "${Element}" nao mapeado no keyword "And I click on"</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<status status="PASS" start="2026-09-15T17:56:26.195229" elapsed="0.048645"/>
+</kw>
+<status status="PASS" start="2026-09-15T17:56:26.194566" elapsed="0.049533"/>
+</kw>
+<kw name="Then I confirm that the product was added to the cart" owner="Resourse">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${Modal_Title}</arg>
+<arg>timeout=10s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2026-09-15T17:56:26.245327" elapsed="0.479686"/>
+</kw>
+<kw name="Element Text Should Be" owner="SeleniumLibrary">
+<msg time="2026-09-15T17:56:26.725816" level="INFO">Verifying element 'css:.modal-title' contains exact text 'Added!'.</msg>
+<arg>${Modal_Title}</arg>
+<arg>Added!</arg>
+<doc>Verifies that element ``locator`` contains exact the text ``expected``.</doc>
+<status status="PASS" start="2026-09-15T17:56:26.725371" elapsed="0.024752"/>
+</kw>
+<status status="PASS" start="2026-09-15T17:56:26.244658" elapsed="0.505589"/>
+</kw>
+<kw name="And I click on &quot;Continue Shopping&quot;" owner="Resourse" source_name="I click on &quot;${Element}&quot;">
+<kw name="Run Keyword If" owner="BuiltIn">
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2026-09-15T17:56:26.751852" level="INFO">Clicking element 'css:.close-modal'.</msg>
+<arg>${Continue_Shopping_Button}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2026-09-15T17:56:26.751671" elapsed="0.052765"/>
+</kw>
+<arg>'${Element}' == 'Woman'</arg>
+<arg>Click Element</arg>
+<arg>${Category_Woman}</arg>
+<arg>ELSE IF</arg>
+<arg>'${Element}' == 'Dress'</arg>
+<arg>Click Category Dress</arg>
+<arg>ELSE IF</arg>
+<arg>'${Element}' == 'Add to cart'</arg>
+<arg>Click Element</arg>
+<arg>${Add_To_Cart_Button}</arg>
+<arg>ELSE IF</arg>
+<arg>'${Element}' == 'Continue Shopping'</arg>
+<arg>Click Element</arg>
+<arg>${Continue_Shopping_Button}</arg>
+<arg>ELSE IF</arg>
+<arg>'${Element}' == 'View Cart'</arg>
+<arg>Click Element</arg>
+<arg>${View_Cart_Link}</arg>
+<arg>ELSE IF</arg>
+<arg>'${Element}' == 'Proceed To Checkout'</arg>
+<arg>Click Element</arg>
+<arg>${Proceed_To_Checkout_Button}</arg>
+<arg>ELSE IF</arg>
+<arg>'${Element}' == 'Place Order'</arg>
+<arg>Click Element</arg>
+<arg>${Proceed_To_Checkout_Button}</arg>
+<arg>ELSE IF</arg>
+<arg>'${Element}' == 'Pay and Confirm Order'</arg>
+<arg>Execute Javascript</arg>
+<arg>document.querySelector('[data-qa="pay-button"]').click();</arg>
+<arg>ELSE</arg>
+<arg>Fail</arg>
+<arg>Elemento "${Element}" nao mapeado no keyword "And I click on"</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<status status="PASS" start="2026-09-15T17:56:26.751171" elapsed="0.053379"/>
+</kw>
+<status status="PASS" start="2026-09-15T17:56:26.750836" elapsed="0.053865"/>
+</kw>
+<kw name="And I click on &quot;View Cart&quot;" owner="Resourse" source_name="I click on &quot;${Element}&quot;">
+<kw name="Run Keyword If" owner="BuiltIn">
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2026-09-15T17:56:26.806746" level="INFO">Clicking element 'xpath=//a[@href='/view_cart']'.</msg>
+<arg>${View_Cart_Link}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2026-09-15T17:56:26.806570" elapsed="0.563665"/>
+</kw>
+<arg>'${Element}' == 'Woman'</arg>
+<arg>Click Element</arg>
+<arg>${Category_Woman}</arg>
+<arg>ELSE IF</arg>
+<arg>'${Element}' == 'Dress'</arg>
+<arg>Click Category Dress</arg>
+<arg>ELSE IF</arg>
+<arg>'${Element}' == 'Add to cart'</arg>
+<arg>Click Element</arg>
+<arg>${Add_To_Cart_Button}</arg>
+<arg>ELSE IF</arg>
+<arg>'${Element}' == 'Continue Shopping'</arg>
+<arg>Click Element</arg>
+<arg>${Continue_Shopping_Button}</arg>
+<arg>ELSE IF</arg>
+<arg>'${Element}' == 'View Cart'</arg>
+<arg>Click Element</arg>
+<arg>${View_Cart_Link}</arg>
+<arg>ELSE IF</arg>
+<arg>'${Element}' == 'Proceed To Checkout'</arg>
+<arg>Click Element</arg>
+<arg>${Proceed_To_Checkout_Button}</arg>
+<arg>ELSE IF</arg>
+<arg>'${Element}' == 'Place Order'</arg>
+<arg>Click Element</arg>
+<arg>${Proceed_To_Checkout_Button}</arg>
+<arg>ELSE IF</arg>
+<arg>'${Element}' == 'Pay and Confirm Order'</arg>
+<arg>Execute Javascript</arg>
+<arg>document.querySelector('[data-qa="pay-button"]').click();</arg>
+<arg>ELSE</arg>
+<arg>Fail</arg>
+<arg>Elemento "${Element}" nao mapeado no keyword "And I click on"</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<status status="PASS" start="2026-09-15T17:56:26.806041" elapsed="0.564458"/>
+</kw>
+<status status="PASS" start="2026-09-15T17:56:26.805732" elapsed="0.565161"/>
+</kw>
+<kw name="And I click on &quot;Proceed To Checkout&quot;" owner="Resourse" source_name="I click on &quot;${Element}&quot;">
+<kw name="Run Keyword If" owner="BuiltIn">
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2026-09-15T17:56:27.374892" level="INFO">Clicking element 'css:.check_out'.</msg>
+<arg>${Proceed_To_Checkout_Button}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2026-09-15T17:56:27.374330" elapsed="1.272717"/>
+</kw>
+<arg>'${Element}' == 'Woman'</arg>
+<arg>Click Element</arg>
+<arg>${Category_Woman}</arg>
+<arg>ELSE IF</arg>
+<arg>'${Element}' == 'Dress'</arg>
+<arg>Click Category Dress</arg>
+<arg>ELSE IF</arg>
+<arg>'${Element}' == 'Add to cart'</arg>
+<arg>Click Element</arg>
+<arg>${Add_To_Cart_Button}</arg>
+<arg>ELSE IF</arg>
+<arg>'${Element}' == 'Continue Shopping'</arg>
+<arg>Click Element</arg>
+<arg>${Continue_Shopping_Button}</arg>
+<arg>ELSE IF</arg>
+<arg>'${Element}' == 'View Cart'</arg>
+<arg>Click Element</arg>
+<arg>${View_Cart_Link}</arg>
+<arg>ELSE IF</arg>
+<arg>'${Element}' == 'Proceed To Checkout'</arg>
+<arg>Click Element</arg>
+<arg>${Proceed_To_Checkout_Button}</arg>
+<arg>ELSE IF</arg>
+<arg>'${Element}' == 'Place Order'</arg>
+<arg>Click Element</arg>
+<arg>${Proceed_To_Checkout_Button}</arg>
+<arg>ELSE IF</arg>
+<arg>'${Element}' == 'Pay and Confirm Order'</arg>
+<arg>Execute Javascript</arg>
+<arg>document.querySelector('[data-qa="pay-button"]').click();</arg>
+<arg>ELSE</arg>
+<arg>Fail</arg>
+<arg>Elemento "${Element}" nao mapeado no keyword "And I click on"</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<status status="PASS" start="2026-09-15T17:56:27.372552" elapsed="1.274608"/>
+</kw>
+<status status="PASS" start="2026-09-15T17:56:27.371745" elapsed="1.275566"/>
+</kw>
+<kw name="And I click on &quot;Place Order&quot;" owner="Resourse" source_name="I click on &quot;${Element}&quot;">
+<kw name="Run Keyword If" owner="BuiltIn">
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2026-09-15T17:56:28.649182" level="INFO">Clicking element 'css:.check_out'.</msg>
+<arg>${Proceed_To_Checkout_Button}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2026-09-15T17:56:28.648993" elapsed="0.364873"/>
+</kw>
+<arg>'${Element}' == 'Woman'</arg>
+<arg>Click Element</arg>
+<arg>${Category_Woman}</arg>
+<arg>ELSE IF</arg>
+<arg>'${Element}' == 'Dress'</arg>
+<arg>Click Category Dress</arg>
+<arg>ELSE IF</arg>
+<arg>'${Element}' == 'Add to cart'</arg>
+<arg>Click Element</arg>
+<arg>${Add_To_Cart_Button}</arg>
+<arg>ELSE IF</arg>
+<arg>'${Element}' == 'Continue Shopping'</arg>
+<arg>Click Element</arg>
+<arg>${Continue_Shopping_Button}</arg>
+<arg>ELSE IF</arg>
+<arg>'${Element}' == 'View Cart'</arg>
+<arg>Click Element</arg>
+<arg>${View_Cart_Link}</arg>
+<arg>ELSE IF</arg>
+<arg>'${Element}' == 'Proceed To Checkout'</arg>
+<arg>Click Element</arg>
+<arg>${Proceed_To_Checkout_Button}</arg>
+<arg>ELSE IF</arg>
+<arg>'${Element}' == 'Place Order'</arg>
+<arg>Click Element</arg>
+<arg>${Proceed_To_Checkout_Button}</arg>
+<arg>ELSE IF</arg>
+<arg>'${Element}' == 'Pay and Confirm Order'</arg>
+<arg>Execute Javascript</arg>
+<arg>document.querySelector('[data-qa="pay-button"]').click();</arg>
+<arg>ELSE</arg>
+<arg>Fail</arg>
+<arg>Elemento "${Element}" nao mapeado no keyword "And I click on"</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<status status="PASS" start="2026-09-15T17:56:28.648364" elapsed="0.365772"/>
+</kw>
+<status status="PASS" start="2026-09-15T17:56:28.648023" elapsed="0.366481"/>
+</kw>
+<kw name="And I fill in the payment details" owner="Resourse">
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2026-09-15T17:56:29.015534" level="INFO">Typing text 'Paulo Cabral' into text field 'css:[data-qa="name-on-card"]'.</msg>
+<arg>${Name_On_Card}</arg>
+<arg>Paulo Cabral</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2026-09-15T17:56:29.015331" elapsed="0.068097"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2026-09-15T17:56:29.084269" level="INFO">Typing text '4111111111111111' into text field 'css:[data-qa="card-number"]'.</msg>
+<arg>${Card_Number}</arg>
+<arg>4111111111111111</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2026-09-15T17:56:29.083823" elapsed="0.063860"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2026-09-15T17:56:29.148134" level="INFO">Typing text '123' into text field 'css:[data-qa="cvc"]'.</msg>
+<arg>${CVC}</arg>
+<arg>123</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2026-09-15T17:56:29.147899" elapsed="0.044835"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2026-09-15T17:56:29.193157" level="INFO">Typing text '12' into text field 'css:[data-qa="expiry-month"]'.</msg>
+<arg>${Expiry_Month}</arg>
+<arg>12</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2026-09-15T17:56:29.192927" elapsed="0.046396"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2026-09-15T17:56:29.239772" level="INFO">Typing text '2030' into text field 'css:[data-qa="expiry-year"]'.</msg>
+<arg>${Expiry_Year}</arg>
+<arg>2030</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2026-09-15T17:56:29.239530" elapsed="0.050583"/>
+</kw>
+<status status="PASS" start="2026-09-15T17:56:29.015040" elapsed="0.275208"/>
+</kw>
+<kw name="And I click on &quot;Pay and Confirm Order&quot;" owner="Resourse" source_name="I click on &quot;${Element}&quot;">
+<kw name="Run Keyword If" owner="BuiltIn">
+<kw name="Execute Javascript" owner="SeleniumLibrary">
+<msg time="2026-09-15T17:56:29.291997" level="INFO">Executing JavaScript:
+document.querySelector('[data-qa="pay-button"]').click();
+Without any arguments.</msg>
+<arg>document.querySelector('[data-qa="pay-button"]').click();</arg>
+<doc>Executes the given JavaScript code with possible arguments.</doc>
+<status status="PASS" start="2026-09-15T17:56:29.291649" elapsed="1.614637"/>
+</kw>
+<arg>'${Element}' == 'Woman'</arg>
+<arg>Click Element</arg>
+<arg>${Category_Woman}</arg>
+<arg>ELSE IF</arg>
+<arg>'${Element}' == 'Dress'</arg>
+<arg>Click Category Dress</arg>
+<arg>ELSE IF</arg>
+<arg>'${Element}' == 'Add to cart'</arg>
+<arg>Click Element</arg>
+<arg>${Add_To_Cart_Button}</arg>
+<arg>ELSE IF</arg>
+<arg>'${Element}' == 'Continue Shopping'</arg>
+<arg>Click Element</arg>
+<arg>${Continue_Shopping_Button}</arg>
+<arg>ELSE IF</arg>
+<arg>'${Element}' == 'View Cart'</arg>
+<arg>Click Element</arg>
+<arg>${View_Cart_Link}</arg>
+<arg>ELSE IF</arg>
+<arg>'${Element}' == 'Proceed To Checkout'</arg>
+<arg>Click Element</arg>
+<arg>${Proceed_To_Checkout_Button}</arg>
+<arg>ELSE IF</arg>
+<arg>'${Element}' == 'Place Order'</arg>
+<arg>Click Element</arg>
+<arg>${Proceed_To_Checkout_Button}</arg>
+<arg>ELSE IF</arg>
+<arg>'${Element}' == 'Pay and Confirm Order'</arg>
+<arg>Execute Javascript</arg>
+<arg>document.querySelector('[data-qa="pay-button"]').click();</arg>
+<arg>ELSE</arg>
+<arg>Fail</arg>
+<arg>Elemento "${Element}" nao mapeado no keyword "And I click on"</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<status status="PASS" start="2026-09-15T17:56:29.290929" elapsed="1.615481"/>
+</kw>
+<status status="PASS" start="2026-09-15T17:56:29.290598" elapsed="1.615964"/>
+</kw>
+<kw name="Then I confirm that the order was placed successfully" owner="Resourse">
+<kw name="Wait Until Page Contains" owner="SeleniumLibrary">
+<arg>Order Placed!</arg>
+<arg>timeout=20s</arg>
+<doc>Waits until ``text`` appears on the current page.</doc>
+<status status="PASS" start="2026-09-15T17:56:30.907927" elapsed="0.009668"/>
+</kw>
+<status status="PASS" start="2026-09-15T17:56:30.907518" elapsed="0.010198"/>
+</kw>
+<kw name="Then I close the browser" owner="Resourse">
+<kw name="Close All Browsers" owner="SeleniumLibrary">
+<doc>Closes all open browsers and resets the browser cache.</doc>
+<status status="PASS" start="2026-09-15T17:56:30.921352" elapsed="2.170457"/>
+</kw>
+<status status="PASS" start="2026-09-15T17:56:30.921034" elapsed="2.171210"/>
+</kw>
+<status status="PASS" start="2026-09-15T17:56:19.696558" elapsed="13.396534"/>
+</test>
+<test id="s1-t4" name="CN004: Delete account" line="41">
+<kw name="Give access to the site &quot;https://automationexercise.com/login&quot;" owner="Resourse" source_name="Give access to the site &quot;${Site}&quot;">
+<kw name="Open Browser" owner="SeleniumLibrary">
+<msg time="2026-09-15T17:56:33.097142" level="INFO">Opening browser 'chrome' to base url 'https://automationexercise.com/login'.</msg>
+<arg>url=${Site}</arg>
+<arg>browser=${BROWSER}</arg>
+<arg>options=add_argument("--host-resolver-rules=MAP *.doubleclick.net 0.0.0.0,MAP *.googlesyndication.com 0.0.0.0,MAP *.google-analytics.com 0.0.0.0,MAP *.googletagservices.com 0.0.0.0,MAP adservice.google.com 0.0.0.0")</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="PASS" start="2026-09-15T17:56:33.096549" elapsed="2.918860"/>
+</kw>
+<kw name="Maximize Browser Window" owner="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" start="2026-09-15T17:56:36.015647" elapsed="0.019524"/>
+</kw>
+<status status="PASS" start="2026-09-15T17:56:33.095828" elapsed="2.939498"/>
+</kw>
+<kw name="And I enter on login email &quot;paulocabral_90@hotmail.com&quot;" owner="Resourse" source_name="And I enter on login email &quot;${Email}&quot;">
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2026-09-15T17:56:36.036342" level="INFO">Typing text 'paulocabral_90@hotmail.com' into text field 'css:[data-qa="login-email"]'.</msg>
+<arg>${Login_Email}</arg>
+<arg>${Email}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2026-09-15T17:56:36.036077" elapsed="0.103633"/>
+</kw>
+<status status="PASS" start="2026-09-15T17:56:36.035714" elapsed="0.104129"/>
+</kw>
+<kw name="And I enter the password &quot;SenhaTeste123&quot;" owner="Resourse" source_name="And I enter the password &quot;${Password}&quot;">
+<kw name="Input Password" owner="SeleniumLibrary">
+<msg time="2026-09-15T17:56:36.141009" level="INFO">Typing password into text field 'css:[data-qa="login-password"]'.</msg>
+<msg time="2026-09-15T17:56:36.162969" level="INFO">Temporally setting log level to: NONE</msg>
+<arg>${Login_Password}</arg>
+<arg>${Password}</arg>
+<doc>Types the given password into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2026-09-15T17:56:36.140717" elapsed="0.082109"/>
+</kw>
+<status status="PASS" start="2026-09-15T17:56:36.140333" elapsed="0.082645"/>
+</kw>
+<kw name="And I click on login" owner="Resourse">
+<kw name="Scroll Element Into View" owner="SeleniumLibrary">
+<arg>${Login_Button}</arg>
+<doc>Scrolls the element identified by ``locator`` into view.</doc>
+<status status="PASS" start="2026-09-15T17:56:36.223692" elapsed="0.295844"/>
+</kw>
+<kw name="Execute Javascript" owner="SeleniumLibrary">
+<msg time="2026-09-15T17:56:36.520337" level="INFO">Executing JavaScript:
+document.querySelector('[data-qa="login-button"]').click();
+Without any arguments.</msg>
+<arg>document.querySelector('[data-qa="login-button"]').click();</arg>
+<doc>Executes the given JavaScript code with possible arguments.</doc>
+<status status="PASS" start="2026-09-15T17:56:36.519846" elapsed="11.184010"/>
+</kw>
+<status status="PASS" start="2026-09-15T17:56:36.223372" elapsed="11.480802"/>
+</kw>
+<kw name="And I delete the account" owner="Resourse">
+<kw name="Go To" owner="SeleniumLibrary">
+<msg time="2026-09-15T17:56:47.705390" level="INFO">Opening url 'https://automationexercise.com/delete_account'</msg>
+<arg>${Base_URL}/delete_account</arg>
+<doc>Navigates the current browser window to the provided ``url``.</doc>
+<status status="PASS" start="2026-09-15T17:56:47.705159" elapsed="0.333488"/>
+</kw>
+<kw name="Wait Until Page Contains" owner="SeleniumLibrary">
+<arg>Account Deleted!</arg>
+<arg>timeout=15s</arg>
+<doc>Waits until ``text`` appears on the current page.</doc>
+<status status="PASS" start="2026-09-15T17:56:48.038846" elapsed="0.008415"/>
+</kw>
+<kw name="Close All Browsers" owner="SeleniumLibrary">
+<doc>Closes all open browsers and resets the browser cache.</doc>
+<status status="PASS" start="2026-09-15T17:56:48.047452" elapsed="2.143989"/>
+</kw>
+<status status="PASS" start="2026-09-15T17:56:47.704750" elapsed="2.486984"/>
+</kw>
+<kw name="Then I close the browser" owner="Resourse">
+<kw name="Close All Browsers" owner="SeleniumLibrary">
+<doc>Closes all open browsers and resets the browser cache.</doc>
+<status status="PASS" start="2026-09-15T17:56:50.193491" elapsed="0.000292"/>
+</kw>
+<status status="PASS" start="2026-09-15T17:56:50.192871" elapsed="0.001060"/>
+</kw>
+<status status="PASS" start="2026-09-15T17:56:33.094761" elapsed="17.099720"/>
 </test>
 <doc>criacao de cadastro</doc>
-<status status="PASS" starttime="20221023 22:21:41.465" endtime="20221023 22:22:21.338"/>
+<status status="PASS" start="2026-09-15T17:55:59.011361" elapsed="51.184167"/>
 </suite>
 <statistics>
 <total>
-<stat pass="1" fail="0" skip="0">All Tests</stat>
+<stat pass="4" fail="0" skip="0">All Tests</stat>
 </total>
 <tag>
 </tag>
 <suite>
-<stat pass="1" fail="0" skip="0" id="s1" name="desafio ABC">desafio ABC</stat>
+<stat name="Beginning" id="s1" pass="4" fail="0" skip="0">Beginning</stat>
 </suite>
 </statistics>
 <errors>
