@@ -48,6 +48,7 @@ ${Modal_Title}                css:.modal-title
 ${Continue_Shopping_Button}  css:.close-modal
 ${View_Cart_Link}             xpath=//a[@href='/view_cart']
 ${Proceed_To_Checkout_Button}  css:.check_out
+${Cart_Rows}                   css:#cart_info_table tbody tr
 ${Name_On_Card}                css:[data-qa="name-on-card"]
 ${Card_Number}                 css:[data-qa="card-number"]
 ${CVC}                         css:[data-qa="cvc"]
@@ -167,6 +168,31 @@ And I fill in the payment details
 Then I confirm that the order was placed successfully
     Wait Until Page Contains    Order Placed!    timeout=20s
 
+And I add the product "${Product_Id}" to the cart
+    Wait Until Element Is Visible    css:.productinfo a.add-to-cart[data-product-id="${Product_Id}"]    timeout=10s
+    Execute Javascript    document.querySelector('.productinfo a.add-to-cart[data-product-id="${Product_Id}"]').click();
+    Then I confirm that the product was added to the cart
+    And I click on "Continue Shopping"
+    Wait Until Element Is Not Visible    ${Modal_Title}    timeout=10s
+
+I confirm that the cart has ${Quantity} different products
+    Wait Until Element Is Visible    ${Cart_Rows}    timeout=10s
+    ${Count}    Get Element Count    ${Cart_Rows}
+    Should Be Equal As Integers    ${Count}    ${Quantity}
+
+I confirm that the cart contains the product "${Product_Id}" with quantity "${Quantity}"
+    Page Should Contain Element    css:#product-${Product_Id}
+    Element Text Should Be    css:#product-${Product_Id} .cart_quantity button    ${Quantity}
+
+I confirm that the line total of the product "${Product_Id}" is price times quantity
+    ${Price_Text}       Get Text    css:#product-${Product_Id} .cart_price p
+    ${Quantity_Text}    Get Text    css:#product-${Product_Id} .cart_quantity button
+    ${Total_Text}       Get Text    css:#product-${Product_Id} .cart_total_price
+    ${Price}       Evaluate    int(re.sub(r'[^0-9]', '', $Price_Text))   modules=re
+    ${Quantity}    Evaluate    int($Quantity_Text)
+    ${Total}       Evaluate    int(re.sub(r'[^0-9]', '', $Total_Text))   modules=re
+    ${Expected}    Evaluate    $Price * $Quantity
+    Should Be Equal As Integers    ${Total}    ${Expected}
 
 # --- Setup / Teardown: cada teste cria e remove o proprio usuario ---
 

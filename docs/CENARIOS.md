@@ -1,7 +1,7 @@
 # Cenários de Teste e Rastreabilidade
 
 > Gerado em 2026-10-08 a partir da leitura de `TesteCadastro/beginning.robot`, `TesteCadastro/Resourse.robot`, `TesteAPI/API.robot` e `TesteAPI/resourse_API.robot`.
-> **Último resultado:** execução local em 2026-10-08, após as correções desta versão: Web 6/6 (também em ordem aleatória) e API 5/5. Os requisitos `RQ-xx` são **inferidos** e precisam de validação.
+> **Último resultado:** execução local em 2026-10-08, após as correções desta versão: Web 7/7 (6/6 também em ordem aleatória, antes do CN016) e API 5/5. Os requisitos `RQ-xx` são **inferidos** e precisam de validação.
 
 ## 1. Requisitos inferidos
 
@@ -26,6 +26,7 @@
 | RQ-10 | CN002 | PE | Web | Automatizado (cobre só o campo nome vazio) | Média | PASS |
 | RQ-03 | CN003 | Caso de uso | Web | Automatizado | Alta | PASS |
 | RQ-04 | CN004 | Caso de uso | Web | Automatizado | Média | PASS |
+| RQ-03 | CN016 | Caso de uso / invariante (total = preço × qtd) | Web | Automatizado | Alta | PASS |
 | RQ-02 | CN005 | Tabela de decisão (senha inválida) | Web | Automatizado | Alta | PASS |
 | RQ-02 | CN008 | Caso de uso | Web | Automatizado | Alta | PASS |
 | RQ-05 | CT001 | Caso de uso | API | Automatizado | Média | PASS |
@@ -43,6 +44,7 @@ Todos os casos web são **independentes**: o *Test Setup* gera um e-mail único 
 - **CN003 — Compra de produto.** Usuário já logado; adiciona ao carrinho, paga e confere "Order Placed!".
 - **CN004 — Excluir conta.** Usuário logado; apaga a conta e confere "Account Deleted!".
 - **CN005 — Login com senha errada.** Confere "Your email or password is incorrect!".
+- **CN016 — Vários produtos no carrinho.** Sem login; adiciona os produtos 3 e 38 da categoria Dress, confere 2 linhas no carrinho, quantidade 1 em cada e total da linha = preço × quantidade (não fixa preços do catálogo).
 - **CN008 — Login com sucesso.** Faz logout, loga de novo e confere "Logged in as".
 - **CT001** GET `/Books` → 200 e lista não vazia.
 - **CT002** POST `/Books` → 200 e corpo com `id` 201 e `title` "Paulo".
@@ -70,7 +72,11 @@ Prioridade pela exposição de risco do plano. Técnica indicada entre parêntes
 | CN011 | Cadastro com campos obrigatórios vazios (cada campo) mostra validação | PE | RQ-10 |
 | CN012 | Cadastro com e-mail em formato inválido não avança | PE / AVL | RQ-10 |
 | CN013 | Pagamento com cartão inválido/ campos vazios é rejeitado | PE | RQ-03 |
-| CN014 | Remover produto do carrinho atualiza o total | Caso de uso | RQ-03 |
+| CN014 | Remover um produto do carrinho remove só aquela linha (usar `a.cart_quantity_delete[data-product-id]`, estrutura já mapeada) | Caso de uso | RQ-03 |
+| CN017 | Adicionar o **mesmo** produto duas vezes soma a quantidade (linha única com qtd 2 e total = 2 × preço) | PE / AVL | RQ-03 |
+| CN018 | Carrinho de visitante é mantido ao fazer login (comportamento a confirmar com o dono do produto) | Transição de estado | RQ-03 |
+| CN019 | Busca de produto por nome retorna resultados e termo inexistente retorna vazio | PE | novo |
+| CN020 | Página de detalhe do produto mostra nome, preço, categoria e permite definir quantidade e adicionar | Caso de uso | novo |
 | CN015 | Excluir conta e tentar logar de novo falha | Transição de estado | RQ-04 |
 
 ### API — média prioridade
