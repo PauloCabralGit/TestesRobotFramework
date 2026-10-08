@@ -79,3 +79,48 @@ CN016: Add multiple products to the cart
     And I confirm that the cart contains the product "38" with quantity "1"
     And I confirm that the line total of the product "3" is price times quantity
     And I confirm that the line total of the product "38" is price times quantity
+
+CN006: Login with unregistered email is rejected
+    [Tags]    web    regressao    login
+    I have a unique test user
+    Give access to the site "${Login_URL}"
+    And I enter on login email "${User_Email}"
+    And I enter the password "${User_Password}"
+    And I click on Login
+    Then I confirm that the login was rejected
+
+CN007: Signup with an already registered email is rejected
+    [Tags]    web    regressao    cadastro
+    I have a registered user who is logged in
+    And I log out
+    And I enter the name "${User_Name}"
+    And I enter the email "${User_Email}"
+    And I click on Signup
+    Then I confirm that the signup was rejected because the email already exists
+
+CN017: Adding the same product twice increases the quantity
+    [Documentation]    O mesmo produto adicionado duas vezes gera uma unica linha com quantidade 2.
+    [Tags]    web    regressao    compra    carrinho
+    Give access to the site "${Base_URL}"
+    And I click on "Woman"
+    And I click on "Dress"
+    And I add the product "3" to the cart
+    And I add the product "3" to the cart
+    When I click on "View Cart"
+    Then I confirm that the cart has 1 different products
+    And I confirm that the cart contains the product "3" with quantity "2"
+    And I confirm that the line total of the product "3" is price times quantity
+
+CN014: Remove one product from the cart
+    [Documentation]    Remover um produto tira so a linha dele; o outro produto permanece.
+    [Tags]    web    regressao    compra    carrinho
+    Give access to the site "${Base_URL}"
+    And I click on "Woman"
+    And I click on "Dress"
+    And I add the product "3" to the cart
+    And I add the product "38" to the cart
+    And I click on "View Cart"
+    And I remove the product "3" from the cart
+    Then I confirm that the cart has 1 different products
+    And I confirm that the cart does not contain the product "3"
+    And I confirm that the cart contains the product "38" with quantity "1"
