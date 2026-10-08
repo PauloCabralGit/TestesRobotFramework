@@ -194,6 +194,16 @@ I confirm that the line total of the product "${Product_Id}" is price times quan
     ${Expected}    Evaluate    $Price * $Quantity
     Should Be Equal As Integers    ${Total}    ${Expected}
 
+I confirm that the cart does not contain the product "${Product_Id}"
+    Page Should Not Contain Element    css:#product-${Product_Id}
+
+And I remove the product "${Product_Id}" from the cart
+    Click Element    css:a.cart_quantity_delete[data-product-id="${Product_Id}"]
+    Wait Until Page Does Not Contain Element    css:#product-${Product_Id}    timeout=10s
+
+I confirm that the signup was rejected because the email already exists
+    Wait Until Page Contains    Email Address already exist!    timeout=15s
+
 # --- Setup / Teardown: cada teste cria e remove o proprio usuario ---
 
 I have a unique test user
