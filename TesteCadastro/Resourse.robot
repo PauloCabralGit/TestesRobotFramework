@@ -17,7 +17,7 @@ ${User_Password}            SenhaTeste123
 ${User_Email}               ${EMPTY}
 
 ${Continue_Button}          css:[data-qa="continue-button"]
-${Logout_Link}              css:a[href="/logout"]
+${Logout_Link}              css:a[href="/logoutt"]
 
 ${Signup_Name}               css:[data-qa="signup-name"]
 ${Signup_Email}              css:[data-qa="signup-email"]
