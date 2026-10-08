@@ -204,6 +204,79 @@ And I remove the product "${Product_Id}" from the cart
 I confirm that the signup was rejected because the email already exists
     Wait Until Page Contains    Email Address already exist!    timeout=15s
 
+# --- Carrinho vazio, busca, detalhe do produto e pagamento ---
+
+I open the cart page
+    Go To    ${Base_URL}/view_cart
+
+I confirm that the cart is empty
+    Wait Until Page Contains    Cart is empty!    timeout=10s
+    Page Should Not Contain Element    ${Proceed_To_Checkout_Button}
+
+I search for the product "${Term}"
+    Go To    ${Base_URL}/products
+    Wait Until Element Is Visible    id:search_product    timeout=10s
+    Input Text    id:search_product    ${Term}
+    Execute Javascript    document.getElementById('submit_search').click();
+    Wait Until Element Is Visible    css:.features_items .title    timeout=10s
+
+I confirm that the search returned products
+    ${Title}    Get Text    css:.features_items .title
+    Should Be Equal As Strings    ${Title.upper()}    SEARCHED PRODUCTS
+    ${Count}    Get Element Count    css:.features_items .product-image-wrapper
+    Should Be True    ${Count} > 0    A busca nao retornou produtos
+
+I confirm that the search returned no products
+    ${Title}    Get Text    css:.features_items .title
+    Should Be Equal As Strings    ${Title.upper()}    SEARCHED PRODUCTS
+    ${Count}    Get Element Count    css:.features_items .product-image-wrapper
+    Should Be Equal As Integers    ${Count}    0
+
+I open the details of the product "${Product_Id}"
+    Go To    ${Base_URL}/product_details/${Product_Id}
+    Wait Until Element Is Visible    css:.product-information    timeout=10s
+
+I confirm that the product details are displayed
+    ${Name}    Get Text    css:.product-information h2
+    Should Not Be Empty    ${Name}
+    Element Should Contain    css:.product-information    Category:
+    Element Should Contain    css:.product-information    Rs.
+    Element Should Contain    css:.product-information    Availability:
+    Page Should Contain Element    id:quantity
+    Page Should Contain Element    css:button.cart
+
+I add the product from the details page with quantity "${Quantity}"
+    Clear Element Text    id:quantity
+    Input Text            id:quantity    ${Quantity}
+    Execute Javascript    document.querySelector('button.cart').click();
+    Then I confirm that the product was added to the cart
+    And I click on "Continue Shopping"
+    Wait Until Element Is Not Visible    ${Modal_Title}    timeout=10s
+
+I am at the payment page with one product in the cart
+    I click on "Woman"
+    I click on "Dress"
+    And I add the product "3" to the cart
+    I click on "View Cart"
+    I click on "Proceed To Checkout"
+    I click on "Place Order"
+    Wait Until Element Is Visible    ${Card_Number}    timeout=10s
+
+I fill in the payment details with name "${Card_Holder}" number "${Card_Value}" cvc "${Cvc_Value}" month "${Month_Value}" year "${Year_Value}"
+    Input Text    ${Name_On_Card}    ${Card_Holder}
+    Input Text    ${Card_Number}     ${Card_Value}
+    Input Text    ${CVC}             ${Cvc_Value}
+    Input Text    ${Expiry_Month}    ${Month_Value}
+    Input Text    ${Expiry_Year}     ${Year_Value}
+
+I confirm that the payment was rejected
+    ${Placed}    Run Keyword And Return Status    Wait Until Page Contains    Order Placed!    timeout=5s
+    Should Not Be True    ${Placed}    O pedido foi confirmado com dados de pagamento invalidos
+
+I confirm that I am logged out
+    Wait Until Element Is Visible    ${Login_Email}    timeout=10s
+    Page Should Not Contain    Logged in as
+
 # --- Setup / Teardown: cada teste cria e remove o proprio usuario ---
 
 I have a unique test user

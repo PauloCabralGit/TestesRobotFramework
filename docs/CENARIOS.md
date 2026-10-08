@@ -1,7 +1,7 @@
 # Cenários de Teste e Rastreabilidade
 
 > Gerado em 2026-10-08 a partir da leitura de `TesteCadastro/beginning.robot`, `TesteCadastro/Resourse.robot`, `TesteAPI/API.robot` e `TesteAPI/resourse_API.robot`.
-> **Último resultado:** execução local em 2026-10-08, após as correções desta versão: Web 11/11 (6/6 também em ordem aleatória, antes do CN016) e API 5/5. Os requisitos `RQ-xx` são **inferidos** e precisam de validação.
+> **Último resultado:** execução local em 2026-10-08, após as correções desta versão: Web 19 PASS + 1 SKIP (CN023, defeito conhecido; execução em ordem aleatória) e API 9/9. Os requisitos `RQ-xx` são **inferidos** e precisam de validação.
 
 ## 1. Requisitos inferidos
 
@@ -33,11 +33,24 @@
 | RQ-02 | CN005 | Tabela de decisão (senha inválida) | Web | Automatizado | Alta | PASS |
 | RQ-03 | CN017 | PE (quantidade 2) | Web | Automatizado | Alta | PASS |
 | RQ-02 | CN008 | Caso de uso | Web | Automatizado | Alta | PASS |
+| RQ-02 | CN009 | Transição de estado (logout) | Web | Automatizado | Média | PASS |
+| RQ-03 | CN010 | Error guessing (carrinho vazio) | Web | Automatizado | Média | PASS |
+| RQ-03 | CN013 | PE (campos vazios) | Web | Automatizado | Média | PASS |
+| RQ-03 | CN023 | PE (dados inválidos) | Web | Automatizado, **defeito conhecido** ([#6](https://github.com/PauloCabralGit/TestesRobotFramework/issues/6)) | Média | SKIP no CI |
+| RQ-04 | CN015 | Transição de estado (conta excluída) | Web | Automatizado | Média | PASS |
+| novo | CN019 | PE (busca com resultado) | Web | Automatizado | Média | PASS |
+| novo | CN021 | PE (busca sem resultado) | Web | Automatizado | Média | PASS |
+| novo | CN020 | Caso de uso (detalhe do produto) | Web | Automatizado | Média | PASS |
+| RQ-03 | CN022 | AVL/PE (quantidade 3 no detalhe) | Web | Automatizado | Média | PASS |
 | RQ-05 | CT001 | Caso de uso | API | Automatizado | Média | PASS |
 | RQ-06 | CT002 | Caso de uso | API | Automatizado | Média | PASS |
 | RQ-07 | CT003 | Caso de uso | API | Automatizado | Média | PASS |
 | RQ-08 | CT004 | Caso de uso | API | Automatizado | Média | PASS |
 | RQ-09 | CT005 | Caso de uso | API | Automatizado (só status code; DELETE não devolve corpo) | Média | PASS |
+| RQ-05 | CT006 | Contrato | API | Automatizado | Média | PASS |
+| RQ-07 | CT007 | PE (id inexistente) | API | Automatizado | Média | PASS |
+| RQ-06 | CT008 | PE (corpo vazio) | API | Automatizado | Média | PASS |
+| RQ-06 | CT009 | PE (tipo inválido) | API | Automatizado | Média | PASS |
 
 ## 3. Detalhamento dos casos
 
@@ -53,6 +66,18 @@ Todos os casos web são **independentes**: o *Test Setup* gera um e-mail único 
 - **CN007 — Cadastro com e-mail já existente.** Cria usuário, faz logout, tenta se cadastrar de novo com o mesmo e-mail e confere "Email Address already exist!".
 - **CN017 — Mesmo produto duas vezes.** Uma única linha com quantidade 2 e total = preço × quantidade.
 - **CN014 — Remover produto do carrinho.** Remove o produto 3; permanece só o 38 com quantidade 1.
+- **CN009 — Logout.** Após sair, a tela de login aparece e "Logged in as" some.
+- **CN010 — Carrinho vazio.** Mostra "Cart is empty!" e não oferece o botão de checkout.
+- **CN013 — Pagamento com campos vazios.** O pedido não é confirmado.
+- **CN023 — Pagamento com dados inválidos (número `abcd`, CVC `12`, mês `99`, ano `1999`).** O teste afirma que o pagamento deve ser rejeitado. **Hoje o site confirma o pedido** (defeito [#6](https://github.com/PauloCabralGit/TestesRobotFramework/issues/6)); por isso o teste tem a tag `known-bug` e o CI usa `--skiponfailure known-bug` (aparece como SKIP e volta a PASS sozinho quando o site corrigir).
+- **CN015 — Conta excluída não loga.** Após excluir, o login com as mesmas credenciais é rejeitado.
+- **CN019 / CN021 — Busca.** "Dress" retorna produtos; "zzzxxqq" retorna zero.
+- **CN020 — Detalhe do produto.** Mostra nome, categoria, preço, disponibilidade, quantidade e botão de adicionar.
+- **CN022 — Quantidade no detalhe.** Quantidade 3 vira uma linha com quantidade 3 e total = preço × 3.
+- **CT006** contrato: todo livro tem `id`/`pageCount` inteiros, `title` texto e os campos `description`, `excerpt`, `publishDate`.
+- **CT007** GET de livro inexistente → 404.
+- **CT008** POST com corpo vazio → 400.
+- **CT009** POST com `id` textual → 400 (erro `$.id`: valor não convertível para inteiro).
 - **CN008 — Login com sucesso.** Faz logout, loga de novo e confere "Logged in as".
 - **CT001** GET `/Books` → 200 e lista não vazia.
 - **CT002** POST `/Books` → 200 e corpo com `id` 201 e `title` "Paulo".
@@ -65,34 +90,23 @@ Todos os casos web são **independentes**: o *Test Setup* gera um e-mail único 
 
 Prioridade pela exposição de risco do plano. Técnica indicada entre parênteses.
 
-### Web — alta prioridade
-> Já implementados: CN005, CN006, CN007, CN008, CN014, CN016 e CN017.
-| ID | Cenário | Técnica | Requisito |
-|---|---|---|---|
-| CN009 | Logout encerra a sessão | Transição de estado | RQ-02 |
-| CN010 | Finalizar compra com carrinho vazio não é possível | Error guessing | RQ-03 |
+> Já implementados: CN005 a CN010, CN013 a CN017, CN019 a CN023 e CT006 a CT009. Os de prioridade alta estão todos cobertos.
 
 ### Web — média prioridade
 | ID | Cenário | Técnica | Requisito |
 |---|---|---|---|
 | CN011 | Cadastro com campos obrigatórios vazios (cada campo) mostra validação | PE | RQ-10 |
 | CN012 | Cadastro com e-mail em formato inválido não avança | PE / AVL | RQ-10 |
-| CN013 | Pagamento com cartão inválido/ campos vazios é rejeitado | PE | RQ-03 |
 | CN018 | Carrinho de visitante é mantido ao fazer login (comportamento a confirmar com o dono do produto) | Transição de estado | RQ-03 |
-| CN019 | Busca de produto por nome retorna resultados e termo inexistente retorna vazio | PE | novo |
-| CN020 | Página de detalhe do produto mostra nome, preço, categoria e permite definir quantidade e adicionar | Caso de uso | novo |
-| CN015 | Excluir conta e tentar logar de novo falha | Transição de estado | RQ-04 |
 
 ### API — média prioridade
 | ID | Cenário | Técnica | Requisito |
 |---|---|---|---|
-| CT006 | GET `/Books` retorna lista com campos `id`, `title`, `pageCount` com os tipos corretos (validação de contrato) | Contrato | RQ-05 |
-| CT007 | GET `/Books/{id}` inexistente retorna 404 | PE | RQ-07 |
-| CT008 | POST com corpo vazio ou inválido retorna 400/erro tratado | PE | RQ-06 |
-| CT009 | POST com `id` no limite (0, 1, máximo) é tratado | AVL | RQ-06 |
 | CT010 | O corpo da resposta do POST espelha o enviado | Caso de uso | RQ-06 |
+> CT010 já é coberto pelo CT002 (confere `id` e `title`).
 | CT011 | PUT em id inexistente retorna erro tratado | PE | RQ-08 |
-| CT012 | Tempo de resposta do GET `/Books` dentro do limite acordado (limite **a definir**) | Não funcional | RQ-05 |
+> CT011 não é testável como regra: a API de demonstração responde 200 a qualquer PUT (observado em 2026-10-08).
+| CT012 | Tempo de resposta do GET `/Books` dentro do limite acordado (limite **a definir**; medido 1,1 s em 2026-10-08, valor sujeito a variação de rede) | Não funcional | RQ-05 |
 
 ## 5. Melhorias de manutenção
 

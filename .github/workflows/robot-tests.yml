@@ -62,7 +62,7 @@ jobs:
         run: sudo apt-get update && sudo apt-get install -y xvfb
 
       - name: Run Cadastro tests
-        run: xvfb-run --auto-servernum robot --outputdir results/cadastro TesteCadastro/beginning.robot
+        run: xvfb-run --auto-servernum robot --skiponfailure known-bug --outputdir results/cadastro TesteCadastro/beginning.robot
 
       - name: Upload Cadastro test results
         if: always()
