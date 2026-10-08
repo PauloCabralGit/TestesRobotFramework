@@ -3,11 +3,21 @@
 Library    SeleniumLibrary
 Library    Process
 Library    Screenshot
+Library    DateTime
 
 *** Variables ***
 
 ${BROWSER}                  chrome
 ${Base_URL}                 https://automationexercise.com
+${Login_URL}                ${Base_URL}/login
+
+# Dados de teste (fictícios). O e-mail é gerado a cada teste (ver Test Setup).
+${User_Name}                Paulo Cabral
+${User_Password}            SenhaTeste123
+${User_Email}               ${EMPTY}
+
+${Continue_Button}          css:[data-qa="continue-button"]
+${Logout_Link}              css:a[href="/logout"]
 
 ${Signup_Name}               css:[data-qa="signup-name"]
 ${Signup_Email}              css:[data-qa="signup-email"]
@@ -77,7 +87,7 @@ Then I confirm that the signup form is still displayed
 And I fill in all the fields
     Wait Until Element Is Visible    ${Title_Mr}    timeout=15s
     Click Element                 ${Title_Mr}
-    Input Password                ${Password}      SenhaTeste123
+    Input Password                ${Password}      ${User_Password}
     Select From List By Value     ${Date_day}      11
     Select From List By Value     ${Date_months}   7
     Select From List By Value     ${Date_years}    1990
@@ -98,13 +108,32 @@ When I click on Register
 Then I should be redirected to the "MY ACCOUNT" page
     Wait Until Page Contains    Account Created!    timeout=15s
 
+Then I confirm that the account was created
+    Wait Until Page Contains    Account Created!    timeout=15s
+
+And I continue to the home page
+    Wait Until Element Is Visible    ${Continue_Button}    timeout=15s
+    Click Element                    ${Continue_Button}
+
+Then I confirm that I am logged in
+    Wait Until Page Contains    Logged in as    timeout=15s
+
+Then I confirm that the login was rejected
+    Wait Until Page Contains    Your email or password is incorrect!    timeout=15s
+
+And I log out
+    Wait Until Element Is Visible    ${Logout_Link}    timeout=10s
+    Click Element                    ${Logout_Link}
+    Wait Until Element Is Visible    ${Login_Email}    timeout=10s
+
+Then I confirm that the account was deleted
+    Wait Until Page Contains  Account Deleted!    timeout=15s
+
 Then I should be redirected to the "account information" page
     Wait Until Element Is Visible    ${Password}    timeout=15s
 
 And I delete the account
     Go To                     ${Base_URL}/delete_account
-    Wait Until Page Contains  Account Deleted!    timeout=15s
-    Close All Browsers
 
 Then I close the browser
     Close All Browsers
@@ -137,3 +166,27 @@ And I fill in the payment details
 
 Then I confirm that the order was placed successfully
     Wait Until Page Contains    Order Placed!    timeout=20s
+
+
+# --- Setup / Teardown: cada teste cria e remove o proprio usuario ---
+
+I have a unique test user
+    ${Timestamp}    Get Current Date    result_format=%Y%m%d%H%M%S%f
+    Set Test Variable    ${User_Email}    qa.${Timestamp}@example.com
+
+I have a registered user who is logged in
+    I have a unique test user
+    Give access to the site "${Login_URL}"
+    And I enter the name "${User_Name}"
+    And I enter the email "${User_Email}"
+    And I click on Signup
+    And I fill in all the fields
+    When I click on Register
+    Then I confirm that the account was created
+    And I continue to the home page
+    Then I confirm that I am logged in
+
+Clean up the test user
+    # Se o usuario ainda estiver logado, apaga a conta; depois fecha tudo.
+    Run Keyword And Ignore Error    Go To    ${Base_URL}/delete_account
+    Close All Browsers

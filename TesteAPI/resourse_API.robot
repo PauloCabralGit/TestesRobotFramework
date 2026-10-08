@@ -26,8 +26,18 @@ Entao confiro status code
 
 E realizo um GET
       ${Resposta}    Get Request    API    Books
-      Log             ${Resposta.text}
-      Set Variable    ${Resposta}
+      Log                  ${Resposta.text}
+      Set Test Variable    ${Resposta}
+
+E confiro que a resposta e uma lista nao vazia
+    ${Lista}    Set Variable    ${Resposta.json()}
+    ${Tipo}     Evaluate        type($Lista).__name__
+    Should Be Equal As Strings    ${Tipo}    list
+    Should Not Be Empty           ${Lista}
+
+E confiro que o campo "${Campo}" da resposta vale "${Esperado}"
+    ${Corpo}    Set Variable    ${Resposta.json()}
+    Should Be Equal As Strings    ${Corpo}[${Campo}]    ${Esperado}
 
   
 E realizo um POST 
@@ -38,10 +48,10 @@ E realizo um POST
     Log                    ${Resposta.text}
     Set Test Variable      ${Resposta}     
 
-E verifico se o post foi criado com sucesso
-    ${Resposta}    Get Request    API    Books/200
+E consulto o livro existente de id ${Id}
+    ${Resposta}    Get Request    API    Books/${Id}
     Log                  ${Resposta.text}
-    Set Test Variable    ${Resposta} 
+    Set Test Variable    ${Resposta}
     
 E realizo um UPDATE 
     ${Headers}     Create Dictionary    content-type=application/json
