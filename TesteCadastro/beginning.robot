@@ -63,3 +63,19 @@ CN005: Login with wrong password is rejected
     And I enter the password "SenhaErrada!999"
     And I click on Login
     Then I confirm that the login was rejected
+
+CN016: Add multiple products to the cart
+    [Documentation]    Dois produtos diferentes da categoria Dress entram no carrinho (sem login),
+    ...                cada um em sua linha, com quantidade 1 e total = preco x quantidade.
+    [Tags]    web    regressao    critico    compra    carrinho
+    Give access to the site "${Base_URL}"
+    And I click on "Woman"
+    And I click on "Dress"
+    And I add the product "3" to the cart
+    And I add the product "38" to the cart
+    When I click on "View Cart"
+    Then I confirm that the cart has 2 different products
+    And I confirm that the cart contains the product "3" with quantity "1"
+    And I confirm that the cart contains the product "38" with quantity "1"
+    And I confirm that the line total of the product "3" is price times quantity
+    And I confirm that the line total of the product "38" is price times quantity
