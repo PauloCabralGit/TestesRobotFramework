@@ -48,6 +48,17 @@ E realizo um POST
     Log                    ${Resposta.text}
     Set Test Variable      ${Resposta}     
 
+E confiro que todos os livros respeitam o contrato
+    ${Lista}    Set Variable    ${Resposta.json()}
+    ${Valido}   Evaluate    all(isinstance(b.get('id'), int) and isinstance(b.get('title'), str) and isinstance(b.get('pageCount'), int) and 'description' in b and 'excerpt' in b and 'publishDate' in b for b in $Lista)
+    Should Be True    ${Valido}    Algum livro nao respeita o contrato (id:int, title:str, pageCount:int, description, excerpt, publishDate)
+
+E realizo um POST com o corpo "${Corpo}"
+    ${Headers}     Create Dictionary    content-type=application/json
+    ${Resposta}    Post Request    API    Books    data=${Corpo}    headers=${Headers}
+    Log                  ${Resposta.text}
+    Set Test Variable    ${Resposta}
+
 E consulto o livro existente de id ${Id}
     ${Resposta}    Get Request    API    Books/${Id}
     Log                  ${Resposta.text}
